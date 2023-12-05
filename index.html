@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Personal Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
 <body>
@@ -43,27 +44,29 @@
         <div class="about-content">
 
             <img class="headshot" src="images/headshot.jpg">
-            <div class="descriptionwrapper">
-                <h1>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
-                <p class="self-description">
-                    WIN-Student. Entwickler. Geschäftsführer und Co-Founder <a href="https://wear-together.at"
-                        target="_blank" class="highlighted-text"> von wear Together</a>.
-                    <br>Privat stehe ich auf Fotografie und Musik – 80er Songs auf der Gitarre.
-                </p>
-            </div>
+            <h1>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
+            <p class="self-description">
+                WIN-Student. Entwickler. Geschäftsführer und Co-Founder <a href="https://wear-together.at"
+                    target="_blank" class="highlighted-text"> von wear Together</a>.
+                <br>Privat stehe ich auf Fotografie und Musik – 80er Songs auf der Gitarre.
+            </p>
+            <ul class="social-icons">
+                <li><i class="fa-brands fa-facebook-f"></i></li>
+                <li><i class="fa-brands fa-twitter"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
+                <li><i class="fa-brands fa-linkedin-in"></i></li>
+                <li><i class="fa-brands fa-whatsapp"></i></li>
+            </ul>
         </div>
         </div>
-        <div class="social-icons">
-            <a href="#" target="_blank"><img src="social-icon-1.png" alt="Social Icon 1"></a>
-            <a href="#" target="_blank"><img src="social-icon-2.png" alt="Social Icon 2"></a>
-            <!-- Add more social icons as needed -->
-        </div>
+
     </section>
 
     <!-- Blog Section -->
     <section class="blog">
-        <div class="container">
-            <h2>Latest Blog Entries</h2>
+
+        <h2>Latest Blog Entries</h2>
+        <div class="posts">
             <div class="blog-entry">
                 <h3>Blog Title 1</h3>
                 <p>Published on: December 1, 2023</p>
@@ -103,6 +106,20 @@
         </div>
     </section>
 
+    <section class="contact-form">
+        <form action="https://formspree.io/f/xwkdgkyz" method="POST">
+            <label>
+                E-Mail
+                <input type="email" name="email">
+            </label>
+            <label>
+                Nachricht
+                <textarea name="message"></textarea>
+            </label>
+            <button type="submit">Senden</button>
+        </form>
+
+    </section>
     <!-- Footer Section -->
     <footer>
         <div class="container">

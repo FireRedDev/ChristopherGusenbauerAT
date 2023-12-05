@@ -1,10 +1,13 @@
 :root {
-    --primary-color: #FF746D; /* Coral */
-    --secondary-color: #1B0F31; /* Midnight Blue */
+    --primary-color: #FF746D;
+    /* Coral */
+    --secondary-color: #1B0F31;
+    /* Midnight Blue */
     --tertiary-color: #EDC7B0;
     --contrast-color-primary: #B3C0AD;
     --contrast-color-secondary: #86A591;
-    --text-color: #fff; /* White */
+    --text-color: #fff;
+    /* White */
     --font-family: 'Arial', sans-serif;
     --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
     --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
@@ -14,26 +17,26 @@
     --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
     --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
 }
-body{
-    height: 100%;
-    width: 100%;
-    margin: 0;
+
+body {
     font-family: var(--font-family);
     color: var(--text-color);
-    background-color: var(--secondary-color); 
+    background-color: var(--secondary-color);
     font-size: var(--font-size-base);
 }
 
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    padding: 0; margin: 0; /* CSS RESET */
-  }
-  
 
-  .nav-list {
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* CSS RESET */
+}
+
+
+.nav-list {
     box-shadow: 0px 0px 10px var(--clr-gray200);
     padding: 1rem 0;
     border-radius: var(--radius);
@@ -49,7 +52,7 @@ body{
 
         & a {
             text-decoration: none;
-            color: var(--text-color)    ;
+            color: var(--text-color);
             transition: all 200ms ease-in;
 
             &:hover {
@@ -89,41 +92,114 @@ body{
 .about-content {
     display: grid;
     align-items: top;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(1fr, 50dvh);
-    max-height: 70dvh;
+    grid-template-areas: 
+    "image heading" 
+    "image text"
+    "image socials";
+    row-gap: 5dvh;
+    column-gap: 5dvw;
     padding-left: 5%;
     padding-right: 5%;
+
     & h1 {
+        grid-area: heading;
         font-size: var(--font-size-xxl);
         margin-bottom: 5%;
     }
-    & p {
-        font-size: var(--font-size-md);
-        
-    }
-}
-.headshot {
-    border-radius: 0em 2em 0em 2em; 
-    max-width: 30dvw;
-}
 
-.descriptionwrapper  {
+    & p {
+        grid-area: text;
+        font-size: var(--font-size-md);
+        padding-right: 40%;
+    }
+
+    & img {
+        grid-area: image;
+    }
+
+    & .social-icons {
+        grid-area: socials;
+        display: flex;
+    
+        & li {
+            list-style: none;
+            margin: 0 0.5rem; /* Adjusted to rem */
+            height: 2.5em; /* Adjusted to em */
+            width: 2.5em; /* Adjusted to em */
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--font-size-base);
+            transition: all ease 0.3s;
+        }
+    
+        & li:hover {
+            color: var(--primary-color);
+            background: var(--tertiary-color);
+            cursor: pointer;
+        }
+    }
     
 }
 
+@media (max-width: 800px) {
+    .about-content {
+        grid-template-areas: 
+        "image heading" 
+        "text text"
+        "socials socials";   
+        grid-template-rows: 1fr 1fr;
+
+        & p {
+            padding-right: 0;
+        }
+    }
+
+    .self-description {
+        grid-column: span 2 / auto;
+    }
+    
+}
+
+.headshot {
+    border-radius: 0em 2em 0em 2em;
+    max-width: 30dvw;
+}
+
+
+
 .highlighted-text {
     display: inline-block;
-    background: linear-gradient(to right top, #ff746d, #fc8674, #f9977e, #f6a78a, #f2b599, #e3a894, #d29b8f, #c18f89, #9c6871, #74465b, #492847, #1b0f31); 
+    background: linear-gradient(to right top, #ff746d, #fc8674, #f9977e, #f6a78a, #f2b599, #e3a894, #d29b8f, #c18f89, #9c6871, #74465b, #492847, #1b0f31);
     color: transparent;
-    -webkit-background-clip: text; /* WebKit-Browser wie Chrome und Safari */
+    -webkit-background-clip: text;
+    /* WebKit-Browser wie Chrome und Safari */
     background-clip: text;
 }
-
-
-.social-icons {
-    display: grid;
-    grid-gap: 1rem; /* Add some gap between social icons */
-    grid-auto-flow: column; /* Align social icons in a row */
-    margin-top: 3%; /* Adjust the margin as needed */
+ 
+.blog {
+    margin-top: 10dvh;
 }
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+        flex: 1 1 var(--min);
+      }
+}
+
+.skills {
+    margin-top: 5dvh;
+}
+
+.gallery {
+    margin-top: 5dvh;
+}
+
+
+
+
