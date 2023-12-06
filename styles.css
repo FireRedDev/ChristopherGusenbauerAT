@@ -141,7 +141,6 @@ body {
             /* Adjusted to em */
             width: 2.5em;
             /* Adjusted to em */
-            color: var(--text-color);
             border: 2px solid var(--text-color);
             border-radius: 50%;
             display: flex;
@@ -149,10 +148,15 @@ body {
             align-items: center;
             font-size: var(--font-size-base);
             transition: all ease 0.3s;
+            & i {
+                color: var(--text-color);
+            }
         }
 
         & li:hover {
-            color: var(--primary-color);
+            & i {
+                color: var(--primary-color);
+            }
             background: var(--tertiary-color);
             cursor: pointer;
         }
