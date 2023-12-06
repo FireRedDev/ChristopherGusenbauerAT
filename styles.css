@@ -44,6 +44,10 @@ body {
     flex-wrap: wrap;
     margin-bottom: 3rem;
 
+    & .collapse {
+        display:none;
+    }
+
     & .nav-item {
         list-style: none;
         margin-right: 2rem;
@@ -68,6 +72,16 @@ body {
             border-color: var(--primary-color);
             border-width: 0 0 2px 0;
             border-style: solid;
+        }
+       
+    }
+    /* PX border also needs to be changed in JS */
+    @media(max-width: 800px) {
+        & .collapse {
+            display:list-item;
+        }
+        & li:not(:first-child):not(:nth-child(2)) {
+            display:none;
         }
     }
 }
