@@ -4,8 +4,6 @@
     --secondary-color: #1B0F31;
     /* Midnight Blue */
     --tertiary-color: #EDC7B0;
-    --contrast-color-primary: #B3C0AD;
-    --contrast-color-secondary: #86A591;
     --text-color: #fff;
     /* White */
     --font-family: 'Arial', sans-serif;
@@ -92,10 +90,10 @@ body {
 .about-content {
     display: grid;
     align-items: top;
-    grid-template-areas: 
-    "image heading" 
-    "image text"
-    "image socials";
+    grid-template-areas:
+        "image heading"
+        "image text"
+        "image socials";
     row-gap: 5dvh;
     column-gap: 5dvw;
     padding-left: 5%;
@@ -120,12 +118,15 @@ body {
     & .social-icons {
         grid-area: socials;
         display: flex;
-    
+
         & li {
             list-style: none;
-            margin: 0 0.5rem; /* Adjusted to rem */
-            height: 2.5em; /* Adjusted to em */
-            width: 2.5em; /* Adjusted to em */
+            margin: 0 0.5rem;
+            /* Adjusted to rem */
+            height: 2.5em;
+            /* Adjusted to em */
+            width: 2.5em;
+            /* Adjusted to em */
             color: var(--text-color);
             border: 2px solid var(--text-color);
             border-radius: 50%;
@@ -135,22 +136,22 @@ body {
             font-size: var(--font-size-base);
             transition: all ease 0.3s;
         }
-    
+
         & li:hover {
             color: var(--primary-color);
             background: var(--tertiary-color);
             cursor: pointer;
         }
     }
-    
+
 }
 
 @media (max-width: 800px) {
     .about-content {
-        grid-template-areas: 
-        "image heading" 
-        "text text"
-        "socials socials";   
+        grid-template-areas:
+            "image heading"
+            "text text"
+            "socials socials";
         grid-template-rows: 1fr 1fr;
 
         & p {
@@ -161,7 +162,7 @@ body {
     .self-description {
         grid-column: span 2 / auto;
     }
-    
+
 }
 
 .headshot {
@@ -179,27 +180,163 @@ body {
     /* WebKit-Browser wie Chrome und Safari */
     background-clip: text;
 }
- 
-.blog {
-    margin-top: 10dvh;
-}
-.posts {
-    display: flex;
-    flex-wrap: wrap;
 
-    & > * {
-        flex: 1 1 var(--min);
-      }
+.wave {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 }
+
+.wave svg {
+
+    display: block;
+    width: calc(133% + 1.3px);
+    height: 126px;
+    transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+    fill: #FF746D;
+}
+
+
+.blog {
+    margin-top: 7dvh;
+
+    .container {
+        padding: 4rem;
+        background-color: var(--primary-color);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+
+    & .blog-entry {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 1rem;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+
+        & img {
+            width: 100%;
+            height: 8rem;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .posts {
+        background-color: var(--primary-color);
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 1rem;
+
+        &>* {
+            flex: 1 1 25dvw;
+        }
+    }
+}
+
 
 .skills {
     margin-top: 5dvh;
+    padding: 0 10rem 0 10rem;
+
+    & .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 2dvh;
+    }
 }
 
 .gallery {
     margin-top: 5dvh;
+    padding: 3rem;
+    background-color: var(--text-color);
 }
 
+.masonry {
+    & img {
+        width: 100%;
+    }
 
 
+    column-count: 4;
+    column-gap: 16px;
 
+
+    & .mItem {
+        display: inline-block;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    @media (max-width: 1199px) {
+        column-count: 3;
+    }
+
+    @media (max-width: 991px) {
+        column-count: 2;
+
+    }
+
+    @media (max-width: 767px) {
+        column-count: 1;
+    }
+}
+
+.contact-form {
+    margin-top: 5dvh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+        align-content: center;
+        justify-content: center;
+
+        & label {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        & input,
+        & textarea {
+            padding: 8px;
+            border: 1px solid var(--tertiary-color);
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        & button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        & button:hover {
+            background-color: var(--tertiary-color);
+        }
+    }
+}
+
+footer {
+    margin-top: 5dvh;
+    padding-bottom: 2dvh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
