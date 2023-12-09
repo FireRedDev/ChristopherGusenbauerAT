@@ -1,31 +1,48 @@
-const navbar = document.getElementById("nav-list")
-const expandableitems = document.querySelectorAll(
-    ".nav-list li:not(:first-child):not(:nth-child(2))",
-  );
-  const mediaQuery = window.matchMedia('(min-width: 800px)')
+const toggle = document.querySelector(".toggle");
+const menu = document.querySelector(".menu");
+const items = document.querySelectorAll(".item");
 
-  function toggleMenu() {    
-    expandableitems.forEach(nav =>  {
-        if(nav.style.display=="list-item")
-        nav.style.display="none"
-        else 
-        nav.style.display="list-item"
-    });
+/* Toggle mobile menu */
+function toggleMenu() {
+  if (menu.classList.contains("active")) {
+    menu.classList.remove("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+  } else {
+    menu.classList.add("active");
+    toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
   }
-  
-  function handleTabletChange(e) {
-    // Check if the media query is true
-    if (e.matches) {
-      // Desktop Menu, reactivate navbaritems
-      expandableitems.forEach(nav =>  {
-        nav.style.display="list-item"
-    });
+}
+
+/* Activate Submenu */
+function toggleItem() {
+  if (this.classList.contains("submenu-active")) {
+    this.classList.remove("submenu-active");
+  } else if (menu.querySelector(".submenu-active")) {
+    menu.querySelector(".submenu-active").classList.remove("submenu-active");
+    this.classList.add("submenu-active");
+  } else {
+    this.classList.add("submenu-active");
+  }
+}
+
+/* Close Submenu From Anywhere */
+function closeSubmenu(e) {
+  if (menu.querySelector(".submenu-active")) {
+    let isClickInside = menu
+      .querySelector(".submenu-active")
+      .contains(e.target);
+
+    if (!isClickInside && menu.querySelector(".submenu-active")) {
+      menu.querySelector(".submenu-active").classList.remove("submenu-active");
     }
   }
-
-  // Register event listener
-  mediaQuery.addListener(handleTabletChange)
-
-
-  document.querySelector('.collapse')
-    .addEventListener('click', toggleMenu)
+}
+/* Event Listeners */
+toggle.addEventListener("click", toggleMenu, false);
+for (let item of items) {
+  if (item.querySelector(".submenu")) {
+    item.addEventListener("click", toggleItem, false);
+  }
+  item.addEventListener("keypress", toggleItem, false);
+}
+document.addEventListener("click", closeSubmenu, false);
