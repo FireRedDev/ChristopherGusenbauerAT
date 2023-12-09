@@ -37,8 +37,6 @@ a:hover {
 }
 
 
-
-
 /* Navigation */
 header {
   backdrop-filter: blur(10px);
@@ -46,6 +44,7 @@ header {
   top: 0;
   z-index: 1000;
 }
+
 /* Mobile menu */
 .menu {
   display: flex;
@@ -341,6 +340,7 @@ header {
 
 .blog {
   margin-top: 7dvh;
+  text-wrap: balance;
 
   .container {
     padding: 4rem;
@@ -353,9 +353,6 @@ header {
   & .blog-entry {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    row-gap: 1rem;
-    padding: 2rem;
     background-color: color-mix(in srgb, var(--secondary-color) 97%, white);
     ;
     border-radius: 1rem;
@@ -364,13 +361,17 @@ header {
 
     & img {
       object-fit: cover;
-      width: 70%;
-      height: 20dvh;
+      width: 100%;
+      height: 25dvh;
       border-radius: 1rem;
       border-top-left-radius: 0rem;
       display: block;
       /* no whitespace */
       transition: .3s ease-in-out;
+    }
+
+    & .textframe {
+      padding: 2rem;
     }
 
     & .imageframe {
@@ -399,17 +400,20 @@ header {
     & h3 {
       font-size: var(--font-size-l);
     }
+
+
   }
 
   .posts {
     background-color: var(--primary-color);
 
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex: 1 1 25%;
     gap: 1rem 1rem;
 
-    &>* {
-      flex: 1 1 25dvw;
+    @media(max-width: 800px) {
+      flex-direction: column;
     }
   }
 }
@@ -420,32 +424,49 @@ header {
 
 .skills {
 
-  margin: 20dvh 0 20dvh 0;
+  text-wrap: balance;
 
   & .container {
     display: flex;
     flex-direction: column;
     row-gap: 15dvh;
+    padding: 3rem;
 
+  }
 
+  & ul {
+    list-style: none;
+
+    & li {
+      margin-top: 1rem;
+    }
   }
 
   & .skill-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-grow: 1;
-    
+    row-gap: 5dvh;
+    column-gap: 5dvw;
+    &>* {
+      flex: 1 1 0;
+    }
   }
 
   & img {
-    width: 40%;
-    height: 50dvh;
+
     object-fit: cover;
+    width: 100%;
+    height: 50dvh;
+    border-radius: 1rem;
+    border-top-left-radius: 0rem;
+    display: block;
+    /* no whitespace */
   }
+
   @media(max-width: 800px) {
-    & .skill-section{
-flex-direction: column;
+    & .skill-section {
+      flex-direction: column;
     }
   }
 }
@@ -505,7 +526,7 @@ flex-direction: column;
   & form {
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: 1.5rem;
     align-content: center;
     justify-content: center;
 
@@ -521,7 +542,9 @@ flex-direction: column;
       border-radius: 4px;
       width: 100%;
     }
-
+    & .large {
+      height: 20dvh;
+    }
     & button {
       background-color: var(--primary-color);
       color: #fff;
