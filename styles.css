@@ -1,10 +1,44 @@
 :root {
-  --primary-color: #FF746D;
-  /* Coral */
-  --secondary-color: #1B0F31;
-  /* Midnight Blue */
-  --tertiary-color: #EDC7B0;
-  --text-color: #fff;
+  --primary-color-50: #fff2f1;
+--primary-color-100: #ffe2e1;
+--primary-color-200: #ffcac7;
+--primary-color-300: #ffa5a0;
+--primary-color-400: #ff746d;
+--primary-color-500: #f8443b;
+--primary-color-600: #e5271d;
+--primary-color-700: #c11c14;
+--primary-color-800: #a01b14;
+--primary-color-900: #841d18;
+--primary-color-950: #480a07;
+--secondary-color-50: #eeedff;
+--secondary-color-100: #e0deff;
+--secondary-color-200: #c7c3ff;
+--secondary-color-300: #aa9fff;
+--secondary-color-400: #9379ff;
+--secondary-color-500: #855afa;
+--secondary-color-600: #7a3cef;
+--secondary-color-700: #6b2fd3;
+--secondary-color-800: #5529aa;
+--secondary-color-900: #472986;
+--secondary-color-950: #1b0f31;
+--tertiary-color-50: #fcf8ee;
+--tertiary-color-100: #f3e2b5;
+--tertiary-color-200: #eed799;
+--tertiary-color-300: #e6bd63;
+--tertiary-color-400: #e0a73f;
+--tertiary-color-500: #d78929;
+--tertiary-color-600: #be6921;
+--tertiary-color-700: #9e4d1f;
+--tertiary-color-800: #813d1f;
+--tertiary-color-900: #6b331c;
+--tertiary-color-950: #3d190b;
+
+
+
+
+
+
+  --text-color: var(--tertiary-color-50);
   /* White */
   --font-family: 'Arial', sans-serif;
   --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
@@ -19,12 +53,13 @@
 body {
   font-family: var(--font-family);
   color: var(--text-color);
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color-950);
   font-size: var(--font-size-base);
+  line-height: 140%;
 }
 
 a:hover {
-  box-shadow: 0px 2px 0px var(--primary-color);
+  box-shadow: 0px 2px 0px var(--primary-color-400);
 }
 
 *,
@@ -35,7 +70,24 @@ a:hover {
   margin: 0;
   /* CSS RESET */
 }
+& button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 1rem;
+  border-top-left-radius: 0rem;
+  margin-top: 3dvh;
+  width: 15rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+
+& button:hover {
+  background-color: var(--secondary-color-50);
+  color: var(--secondary-color-950);
+}
 
 /* Navigation */
 header {
@@ -89,7 +141,7 @@ header {
 
 .button.secondary {
   /* divider between buttons and menu links */
-  border-bottom: 1px var(--primary-color) solid;
+  border-bottom: 1px var(--primary-color-400) solid;
 }
 
 /* Submenu up from mobile screens */
@@ -109,7 +161,7 @@ header {
 }
 
 .submenu-active {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color-950);
 }
 
 /* Tablet menu */
@@ -182,7 +234,7 @@ header {
     position: absolute;
     left: 0;
     top: 68px;
-    background: var(--secondary-color);
+    background: var(--secondary-color-950);
   }
 
   .toggle {
@@ -199,13 +251,13 @@ header {
   letter-spacing: 0.09rem;
   line-height: 1.4;
   text-transform: uppercase;
-  border-color: var(--primary-color);
+  border-color: var(--primary-color-400);
   border-width: 0 0 2px 0;
   border-style: solid;
 }
 
 .btn-primary {
-  background: var(--primary-color);
+  background: var(--primary-color-400);
   border: none;
   outline: none;
   border-radius: var(--radius);
@@ -214,7 +266,7 @@ header {
   transition: all 200ms ease-in;
 
   &:hover {
-    background-color: var(--tertiary-color);
+    background-color: var(--tertiary-color-200);
   }
 }
 
@@ -234,6 +286,7 @@ header {
     grid-area: heading;
     font-size: var(--font-size-xxl);
     margin-bottom: 5%;
+    line-height: 115%;
   }
 
   & p {
@@ -273,10 +326,10 @@ header {
 
     & li:hover {
       & i {
-        color: var(--primary-color);
+        color: var(--primary-color-400);
       }
 
-      background: var(--tertiary-color);
+      background: var(--tertiary-color-200);
       cursor: pointer;
     }
   }
@@ -345,20 +398,22 @@ header {
   .container {
     padding: 4rem;
     padding-top: 8rem;
-    background-color: var(--primary-color);
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    background: rgb(255,116,109);
+    background: linear-gradient(180deg, rgba(255,116,109,1) 1%, var(--secondary-color-950) 50%); 
+  display: grid;
+  justify-content: center;
   }
 
+ 
   & .blog-entry {
     display: flex;
     flex-direction: column;
-    background-color: color-mix(in srgb, var(--secondary-color) 97%, white);
-    ;
+    background-color: white;
+    color: var(--secondary-color-950);
     border-radius: 1rem;
     border-top-left-radius: 0rem;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
+    
     & img {
       object-fit: cover;
       width: 100%;
@@ -370,8 +425,12 @@ header {
       transition: .3s ease-in-out;
     }
 
+   
     & .textframe {
       padding: 2rem;
+      & p:first-child {
+        margin-bottom: 5dvh;
+      }
     }
 
     & .imageframe {
@@ -400,12 +459,21 @@ header {
     & h3 {
       font-size: var(--font-size-l);
     }
+    & .titleframe {
+      margin-bottom: 2dvh;
+
+    }
+    & p {
+      font-weight: 500;
+      
+    }
+
+   
 
 
   }
 
   .posts {
-    background-color: var(--primary-color);
 
     display: flex;
     justify-content: space-around;
@@ -423,45 +491,64 @@ header {
 }
 
 .skills {
-
+  color: var(--secondary-color-50);
   text-wrap: balance;
-
   & .container {
     display: flex;
     flex-direction: column;
-    row-gap: 15dvh;
-    padding: 3rem;
-
+    
   }
 
   & ul {
     list-style: none;
 
     & li {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
   }
 
   & .skill-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    row-gap: 5dvh;
-    column-gap: 5dvw;
+    background-color: #1B0E30;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FF746D'/%3E%3Cstop offset='1' stop-color='%231B0E30'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%238d414f'/%3E%3Cstop offset='1' stop-color='%231B0E30'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
     &>* {
       flex: 1 1 0;
     }
+  & .right {
+ }
+  & h2 {
+    font-size: var(--font-size-xxl);
+    margin-bottom:2.5rem;
+    line-height: 115%;
   }
+   & .text {
+    padding-top: 4rem;
+
+   }
+   & .card {
+    border-radius: 1rem;
+    border-top-left-radius: 0rem;
+    padding: 2rem;
+
+   }
+  }
+
 
   & img {
 
     object-fit: cover;
     width: 100%;
-    height: 50dvh;
-    border-radius: 1rem;
-    border-top-left-radius: 0rem;
+    height: 70dvh;
+
     display: block;
     /* no whitespace */
+  }
+  & .imageframe {
+    padding: 5dvw;
   }
 
   @media(max-width: 800px) {
@@ -473,7 +560,7 @@ header {
 
 
 .gallery {
-  margin-top: 5dvh;
+  padding-top: 5dvh;
   padding: 3rem;
   background-color: var(--text-color);
   display: flex;
@@ -483,7 +570,7 @@ header {
   text-transform: uppercase;
 
   & h2 {
-    color: var(--secondary-color);
+    color: var(--secondary-color-950);
   }
 }
 
@@ -538,26 +625,14 @@ header {
     & input,
     & textarea {
       padding: 8px;
-      border: 1px solid var(--tertiary-color);
+      border: 1px solid var(--tertiary-color-200);
       border-radius: 4px;
       width: 100%;
     }
     & .large {
       height: 20dvh;
     }
-    & button {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
 
-    & button:hover {
-      background-color: var(--tertiary-color);
-    }
   }
 }
 
