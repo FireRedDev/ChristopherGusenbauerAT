@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,54 +90,11 @@
             </div>
             <div class="container">
                 <div class="posts">
-                    <div class="blog-entry">
-                        <div class="imageframe">
-                            <img src="https://source.unsplash.com/random/50">
-                        </div>
-                        <div class="textframe">
-                            <div class="titleframe">
-                                <h3>Blog Title 1</h3>
-                                <p>Published on: December 1, 2023</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam blanditiis iusto dolorem
-                                voluptatem
-                                nobis sit aut architecto. Fuga rerum ipsam numquam est fugit maxime harum ratione! Enim,
-                                tenetur
-                                ratione. Dolorem?</p>
-                        </div>
-                    </div>
-                    <div class="blog-entry">
-                        <div class="imageframe">
-                            <img src="https://source.unsplash.com/random/50">
-                        </div>
-                        <div class="textframe">
-                            <div class="titleframe">
-                                <h3>Blog Title 1</h3>
-                                <p>Published on: December 1, 2023</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam blanditiis iusto dolorem
-                                voluptatem
-                                nobis sit aut architecto. Fuga rerum ipsam numquam est fugit maxime harum ratione! Enim,
-                                tenetur
-                                ratione. Dolorem?</p>
-                        </div>
-                    </div>
-                    <div class="blog-entry">
-                        <div class="imageframe">
-                            <img src="https://source.unsplash.com/random/50">
-                        </div>
-                        <div class="textframe">
-                            <div class="titleframe">
-                                <h3>Blog Title 1</h3>
-                                <p>Published on: December 1, 2023</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam blanditiis iusto dolorem
-                                voluptatem
-                                nobis sit aut architecto. Fuga rerum ipsam numquam est fugit maxime harum ratione! Enim,
-                                tenetur
-                                ratione. Dolorem?</p>
-                        </div>
-                    </div>
+                    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+                    {% for post in sorted_posts limit:3 %}  
+                        {% include blog_post.html %}
+                    {% endfor %}
+                </div>
                 </div>
                 <button>Mehr Einträge anzeigen</button>
 
