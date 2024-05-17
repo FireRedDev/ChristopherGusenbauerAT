@@ -11,7 +11,7 @@ tags:
   - "uberwachung"
   - "uberwachungsstaat"
   - "verschlusselung"
-coverImage: "pexels-photomix-company-96612.jpg"
+coverImage: "/images/posts/pexels-photomix-company-96612.jpg"
 ---
 
 Max Mustermann ist Teamleiter in einer oberösterreichischen Versicherung. Er hat ein kleines Haus am Stadtrand von Linz, eine Frau, zwei Kinder und einen Hund. Seine Freunde würden ihn als netten, ruhigen Menschen beschreiben.

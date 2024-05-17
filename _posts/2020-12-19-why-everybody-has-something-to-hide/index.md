@@ -1,7 +1,7 @@
 ---
 title: "Why everybody has something to hide"
 date: "2020-12-19"
-coverImage: "pexels-photomix-company-96612.jpg"
+coverImage: "/images/posts/pexels-photomix-company-96612.jpg"
 ---
 
 Max Mustermann is a team leader in an insurance company in Upper Austria. He has a small house on the outskirts of Linz, a wife, two children, and a dog. His friends would describe him as a nice, quiet person.

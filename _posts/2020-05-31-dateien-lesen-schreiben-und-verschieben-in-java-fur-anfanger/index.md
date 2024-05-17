@@ -1,7 +1,7 @@
 ---
 title: "Dateien lesen, bearbeiten, verschieben und löschen mit Java für Anfänger"
 date: "2020-05-31"
-coverImage: "icon-2488093_1280.png"
+coverImage: "/images/posts/icon-2488093_1280.png"
 ---
 
 Als Java-Entwickler merkt man manchmal, dass das Java Ökosystem etwas verwirrend sein kann. So ist auch der Umgang mit Dateien nicht auf den ersten Blick ganz klar. Früher gab es in Java die File API, die aber mittlerweile veraltet ist. Ich war sie selbst noch gewohnt, weswegen ich mir vor kurzem selber gelernt habe und meine Erkenntnisse jetzt verschriftliche.

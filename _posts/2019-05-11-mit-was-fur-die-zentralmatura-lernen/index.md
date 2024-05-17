@@ -11,7 +11,7 @@ tags:
   - "studium"
   - "zentralmatura"
   - "zusammenfassung"
-coverImage: "arbeiten-hande-klasse-7103-e1567856545413.jpg"
+coverImage: "/images/posts/arbeiten-hande-klasse-7103-e1567856545413.jpg"
 ---
 
 Jährlich stellen sich tausende Schüler der Zentralmatura und müssen den Stoff der vergangenen Jahre wieder selbst zusammenfassen. Doch im Internet gibt es viele Ressourcen, die hierbei helfen und da ich vor kurzem die schriftliche Matura hinter mich gebracht habe, hier ein paar nützliche Links und Ressourcen:

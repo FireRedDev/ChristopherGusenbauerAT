@@ -3,7 +3,7 @@ title: "Selbstständig gemacht mit Schulpulloververkauf"
 date: "2019-10-30"
 categories: 
   - "unternehmen"
-coverImage: "PNG-Logo-min.png"
+coverImage: "/images/posts/PNG-Logo-min.png"
 ---
 
 Gemeinsam mit meinem Kollegen Daniel Sittenthaler habe ich mich neben dem Studium selbstständig gemacht mit der Marke wear Together.  

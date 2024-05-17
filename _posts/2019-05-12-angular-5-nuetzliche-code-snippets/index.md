@@ -10,7 +10,7 @@ tags:
   - "angular-rest"
   - "angular-sortieren"
   - "angular-suchen"
-coverImage: "sdf-1540x800.png"
+coverImage: "/images/posts/sdf-1540x800.png"
 ---
 
 Viele Anwendungsfälle im Webdevelopement wiederholen sich in beinahe jedem neuen Projekt. Deswegen ist es wichtig, häufig benutzten Code nicht jedesmal neu zu schreiben, sondern ihn als Codesnippet zu speichern. Hier sind 5 praktische, kurze Codesnippets vorgestellt.
