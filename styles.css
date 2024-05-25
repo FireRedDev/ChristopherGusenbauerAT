@@ -277,22 +277,19 @@ header {
     "image heading"
     "image text"
     "image socials";
-  row-gap: 5dvh;
   column-gap: 5dvw;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 3dvh;
+
 
   & h1 {
     grid-area: heading;
     font-size: var(--font-size-xxl);
-    margin-bottom: 5%;
     line-height: 115%;
   }
 
   & p {
     grid-area: text;
     font-size: var(--font-size-md);
-    padding-right: 40%;
   }
 
   & img {
@@ -344,9 +341,7 @@ header {
       "socials socials";
     grid-template-rows: 1fr 1fr;
 
-    & p {
-      padding-right: 0;
-    }
+   
   }
 
   .self-description {
@@ -397,7 +392,7 @@ header {
 
   .container {
     padding: 4rem;
-    padding-top: 8rem;
+    padding-top: 6rem;
     background: rgb(255,116,109);
     background: linear-gradient(180deg, rgba(255,116,109,1) 1%, var(--secondary-color-950) 50%); 
   display: grid;
@@ -471,7 +466,9 @@ header {
 
 
   }
-
+  .belowwaves {
+    margin-top: -1px;
+  }
   .posts {
 
     display: flex;

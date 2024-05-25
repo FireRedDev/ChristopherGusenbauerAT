@@ -37,7 +37,7 @@
             <div class="about-content">
 
                 <img class="headshot" src="images/headshot.jpg">
-                <h1>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
+                <h1 class>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
                 <p class="self-description">
                     WIN-Student. Entwickler. Geschäftsführer und Co-Founder <a href="https://wear-together.at"
                         target="_blank" class="highlighted-text"> von wear Together</a>.
@@ -88,15 +88,16 @@
                         class="shape-fill"></path>
                 </svg>
             </div>
-            <div class="container">
+            <div class="container belowwaves">
                 <div class="posts">
                     {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
                     {% for post in sorted_posts limit:3 %}  
                         {% include blog_post.html %}
                     {% endfor %}
                 </div>
+                <button>Mehr Posts ansehen</button>
                 </div>
-                <button>Mehr Einträge anzeigen</button>
+                
 
             </div>
         </section>
