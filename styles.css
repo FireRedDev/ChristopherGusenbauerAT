@@ -95,6 +95,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: rgba(27, 15, 49, 0.3);
 }
 
 /* Mobile menu */
@@ -272,17 +273,20 @@ header {
 
 .about-content {
   display: grid;
-  
+  grid-template-columns: 1fr 1fr;
+ 
   align-items: top;
   grid-template-areas:
     "image heading"
     "image text"
     "image socials";
   column-gap: 2.5rem;
-  row-gap: 3.5rem;
+  row-gap: 1.5rem;
   padding: 3dvh;
 
-
+  & .self-description {
+    filter: brightness(90%);
+  }
   & h1 {
     grid-area: heading;
     font-size: var(--font-size-xxl);
@@ -340,10 +344,7 @@ header {
     grid-template-areas:
       "image heading"
       "text text"
-      "socials socials";
-    grid-template-rows: 1fr 1fr;
-
-   
+      "socials socials";   
   }
 
   .self-description {
