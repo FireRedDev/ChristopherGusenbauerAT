@@ -7,7 +7,7 @@
             <h3>{{ post.title }}</h3>
             <p>{{ post.date | date: "%-d %B, %Y" }}</p>
         </div>
-        <p>{{ post.content | markdownify | truncate: 200 }}</p>
+        <p class="lightertext">{{ post.content | markdownify | truncate: 200 }}</p>
         <a href="{{ post.url }}" class="read-more-button">Mehr lesen</a>
     </div>
 </div>

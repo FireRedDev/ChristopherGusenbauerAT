@@ -272,12 +272,14 @@ header {
 
 .about-content {
   display: grid;
+  
   align-items: top;
   grid-template-areas:
     "image heading"
     "image text"
     "image socials";
-  column-gap: 5dvw;
+  column-gap: 2.5rem;
+  row-gap: 3.5rem;
   padding: 3dvh;
 
 
@@ -355,11 +357,15 @@ header {
   max-width: 30dvw;
 }
 
-
+.fatcolorfultext {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary-color-200);
+}
 
 .highlighted-text {
   display: inline-block;
-  background: linear-gradient(to right top, #ff746d, #fc8674, #f9977e, #f6a78a, #f2b599, #e3a894, #d29b8f, #c18f89, #9c6871, #74465b, #492847, #1b0f31);
+  background: linear-gradient(90deg, #FF746D 9%, #FF9C53 74%, #FF746D 100%);
   color: transparent;
   -webkit-background-clip: text;
   /* WebKit-Browser wie Chrome und Safari */
@@ -481,7 +487,9 @@ header {
     }
   }
 }
-
+.lightertext {
+  filter: brightness(85%);
+}
 .order-first {
   order: -1;
 }
