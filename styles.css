@@ -81,14 +81,20 @@ a:hover {
   padding: 0.8rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 1000;
 }
-
+.nomargin {
+  margin: 0;
+}
 
 & button:hover {
   background-color: var(--secondary-color-50);
   color: var(--secondary-color-950);
 }
-
+.buttononwhitebg {
+  color: var(--secondary-color-950);
+  border-color: var(--secondary-color-950);
+}
 /* Navigation */
 header {
   backdrop-filter: blur(10px);
@@ -274,8 +280,8 @@ header {
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
- 
   align-items: top;
+  justify-content: center;
   grid-template-areas:
     "image heading"
     "image text"
@@ -575,6 +581,7 @@ header {
   background-color: var(--text-color);
   display: flex;
   justify-content: center;
+  
   flex-direction: column;
   row-gap: 2dvh;
   text-transform: uppercase;
@@ -583,7 +590,9 @@ header {
     color: var(--secondary-color-950);
   }
 }
-
+.alignselfcenter {
+  align-self: center;
+}
 .masonry {
   & img {
     width: 100%;
@@ -598,6 +607,9 @@ header {
     display: inline-block;
     margin-bottom: 16px;
     width: 100%;
+  }
+  & .mItem:last-of-type {
+    margin-bottom: 0;
   }
 
   @media (max-width: 1199px) {

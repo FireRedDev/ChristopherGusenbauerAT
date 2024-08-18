@@ -17,7 +17,7 @@
         <nav>
             <ul class="menu">
                 <li class="logo"><a href="#" class="underlined-text">Christopher Gusenbauer</a></li>
-                <li class="item"><a href="/blog">Blog</a></li>
+                <li class="item firstnav" ><a href="/blog">Blog</a></li>
                 <li class="item"><a href="#skills">Skills</a></li>
                 <li class="item"><a href="#photography">Photography</a></li>
                 <li class="item"><a href="#contact-form">Kontakt</a></li>
@@ -94,7 +94,9 @@
                         {% include blog_post.html %}
                     {% endfor %}
                 </div>
-                <button>Mehr Posts ansehen</button>
+                <form action='{{ site.url }}/blog' method='get'>
+                <button type="submit">Mehr Posts ansehen</button>
+            </form>
                 </div>
                 
 
@@ -107,7 +109,7 @@
                 <div class="skill-section">
                     <div class="text">
                         <div class="card">
-                            <h2>Unternehmer &amp; Redner:</h2>
+                            <h2>...was ich gegründet habe</h2>
                             <ul>
                                 <li>Geschäftsführer & Co-Founder <em>des größten Schulmerchandiseunternehmens </em>
                                     <a href="http://www.wear-together.at">S&amp;G
@@ -126,7 +128,7 @@
                 <div class="skill-section">
                     <div class="text">
                         <div class="card">
-                            <h2>Dev-Skills</h2>
+                            <h2>...was ich kann</h2>
                             <ul>
                                 <li>Backend - <em> Java, Spring, Maven, SQL, Kubernetes (usage)</em></li>
                                 <li>Frontend - <em>Typescript/JS, Angular, HTML, CSS, Git, JavaFX</em></li>
@@ -139,9 +141,9 @@
                 <div class="skill-section">
                     <div class="text">
                         <div class="card">
-                            <h2>Other kind of impressive stuff</h2>
+                            <h2>...was ich gemacht habe</h2>
                             <ul>
-                                <li>Exchange Semester in Nordfrankreich, Rouen an einer Grande École.</li>
+                                <li>Exchange Semester in Nordfrankreich, Rouen an einer Grande École (NEOMA).</li>
                                 <li>Schulsprecher der HTBLA Leonding 2019</li>
                             </ul>
                         </div>
@@ -189,9 +191,11 @@
 
 
             </div>
-
+            <form class="alignselfcenter" action='https://flic.kr/ps/42jNNs' method='get'>
+                <button  class ="buttononwhitebg nomargin" type="submit">Mehr Fotos ansehen</button>
+            </form>
         </section>
-
+        
         <section id="contact-form" class="contact-form">
             <form action="https://formspree.io/f/xwkdgkyz" method="POST">
                 <div>
