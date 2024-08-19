@@ -23,7 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Christopher Gusenbauer ist ein oberösterreichischer Unternehmer, Entwickler und Content Creator
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://christophergusenbauer.at" # the base hostname & protocol for your site, e.g. http://example.com
-
+header_pages:
+  - blog.md
 
 # Build settings
 theme: minima

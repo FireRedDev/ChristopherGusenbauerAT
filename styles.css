@@ -278,18 +278,24 @@ header {
 }
 
 .about-content {
+  width: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: top;
-  justify-content: center;
+  align-items: center;
+  justify-items: center;
   grid-template-areas:
+    "image ."
     "image heading"
     "image text"
-    "image socials";
+    "image socials"
+    "image ."
+    ;
   column-gap: 2.5rem;
   row-gap: 1.5rem;
   padding: 3dvh;
-
+  .social-icons {
+    justify-self: baseline;
+  }
   & .self-description {
     filter: brightness(90%);
   }
@@ -351,6 +357,9 @@ header {
       "image heading"
       "text text"
       "socials socials";   
+      & img {
+        justify-self: stretch;
+      }
   }
 
   .self-description {
