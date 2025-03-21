@@ -14,21 +14,25 @@ tags:
 coverImage: "/images/posts/pexels-photomix-company-96612.jpg"
 ---
 
-Max Mustermann ist Teamleiter in einer oberösterreichischen Versicherung. Er hat ein kleines Haus am Stadtrand von Linz, eine Frau, zwei Kinder und einen Hund. Seine Freunde würden ihn als netten, ruhigen Menschen beschreiben.
+Max Mustermann ist ein imaginärer Teamleiter in einer oberösterreichischen Versicherung. Er hat ein kleines Haus am Stadtrand von Linz, eine Frau, zwei Kinder und einen Hund. Seine Freunde würden ihn als netten, ruhigen Menschen beschreiben.
 
-Er ist ein absoluter _Normalbürger_. Weder ist er ein Spion, noch arbeitet er in irgendeiner politischen oder sicherheitsrelevanten Position. Viele ganz normale Menschen werden einige Ähnlichkeiten mit ihm haben. Und dennoch hätte Max Mustermann viel zu verlieren, würde seine Privatsphäre verschwinden.
+Er ist ein absoluter _Normalbürger_. Weder ist er ein Spion, noch arbeitet er in irgendeiner politischen oder sicherheitsrelevanten Position. Viele ganz normale Menschen werden einige Ähnlichkeiten mit ihm haben. Und dennoch hätte Max Mustermann viel zu verlieren, würde seine Privatsphäre verschwinden - was die folgenden (erfundenen) Szenarien zeigen werden.
 
 ## **Warum man kein gläserner Bürger sein sollte**
 
 Max hat jahrelang eine schlecht ausgebildete Bekannte, die plötzlich von ihrem Mann verlassen wurde, unter der Hand als Putzfrau beschäftigt, um ihr über die Runden zu helfen. Jemand könnte das den falschen Leuten mitteilen und ihn damit erpressen.
 
-Die Freundin von Max hat schon einmal mit ihm ein kompromittierendes Foto gemacht. Jemand, der sich darauf Zugriff verschafft, könnte ihm dieses Foto mailen und ihn damit erpressen. Hätte er einmal nach gewagteren sexuellen Vorlieben im Internet gesucht, könnten diese ebenfalls als Druckmittel genutzt werden.
+Max hat einmal, während einer Trennung, seiner damaligen Partnerin in einem emotionalen Moment gemeine Nachrichten geschrieben. Sie wusste, dass er es nicht ernst gemeint hat, es sofort bereute und hat es ihm nach einer Entschuldigung verziehen. Doch würden diese Nachrichten gekürzt veröffentlicht, _kennt die Gesellschaft den Kontext_ _nicht_ und würde ihn dafür verurteilen.
 
-Max hat während einer Trennung seiner damaligen Partnerin in emotionalen Momenten sehr wütende Nachrichten geschrieben. Sie wusste, dass er es nicht ernst gemeint hat und hat es ihm verziehen. Doch würden diese Nachrichten veröffentlicht, _kennt die Gesellschaft den Kontext_ _nicht_ und würde ihn dafür verurteilen.
+Seine Tochter Emma ist bereits eine erfolgreiche Anwältin und hilft täglich als ehrenamtliche Pflichtverteidigerin Menschen dabei, ihr Recht durchzusetzen. In ihrer Jugend hat sie einmal einen Fehler gemacht und in einer Boutique Kleidung gestohlen. Als Strafe des Gerichts musste sie lange Zeit in einem Altersheim aushelfen und die Verurteilung wurde dafür danach aus ihrer Akte gelöscht. Sollte das öffentlich gemacht werden, wäre Emmas Karriere in Gefahr, womit man auch Max unter Druck setzen könnte.
 
-Seine Tochter ist bereits eine erfolgreiche Anwältin und hilft täglich als ehrenamtliche Pflichtverteidigerin Menschen dabei, ihr Recht durchzusetzen. In ihrer Jugend hat sie einmal einen Fehler gemacht und in einer Boutique Kleidung gestohlen. Als Strafe des Gerichts musste sie lange Zeit in einem Altersheim aushelfen und die Verurteilung wurde dafür danach aus ihrer Akte gelöscht. Sollte das öffentlich gemacht werden, wäre ihre Karriere in Gefahr, womit man auch Max unter Druck setzen könnte.
+Der Sohn von Max ist noch klein und sieht in ihm seinen großen Helden. Er weiß nicht, dass Max als Kind oft gemobbt wurde und deswegen die Schule wechselte - derartige Informationen konnte Max löschen lassen, bzw. wurden sie zur damaligen Zeit gar nicht aufgezeichnet. Daher kann er seinem Sohn diesen Teil seiner Vergangenheit mitteilen, wenn er glaubt, dass der richtige Zeitpunkt dafür gekommen ist.
+
+Die Freundin von Max hat schon einmal mit ihm ein kompromittierendes Foto gemacht. Jemand, der sich darauf Zugriff verschafft, könnte ihm dieses Foto mailen und ihn damit erpressen. Hätte er einmal nach gewagteren Vorlieben im Internet gesucht, könnten diese ebenfalls als Druckmittel genutzt werden.
 
 Max kommentiert häufig in dem Online-Forum einer Regionalzeitung anonym Beiträge mit seiner persönlichen Meinung, die er ohne den Schutz der Anonymität so nicht sagen würde, da er sich damit nicht nur Freunde gemacht hätte.
+
+Er spendet regelmäßig anonym Geld z.B. an eine NGO, die sich für Flüchtlingsrechte einsetzt - er möchte allerdings seine politische Meinung privat halten, damit diese nicht mit seinem beruflichen/privaten Umfeld Konflikte schafft. 
 
 Über seine vergebenen Online-Kommentare, Likes, Facebook-Chats und Suchverläufe lassen sich Infos über seine politische Orientierung herauslesen. Mit dem Vorschlagen oder Vorenthalten von Nachrichten kann er dann manipuliert werden.
 
