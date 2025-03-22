@@ -38,7 +38,7 @@ Max kommentiert häufig in dem Online-Forum einer Regionalzeitung anonym Beiträ
 
 Er spendet regelmäßig anonym Geld z.B. an eine NGO, die sich für Flüchtlingsrechte einsetzt - er möchte allerdings seine politische Meinung privat halten, damit diese nicht mit seinem beruflichen/privaten Umfeld Konflikte schafft. 
 
-Über seine vergebenen Online-Kommentare, Likes, Facebook-Chats und Suchverläufe lassen sich bis ins kleinste Detail Infos über seine politische Orientierung herauslesen (welche öffentlich gemacht werden können). Mit dem Vorschlagen oder Vorenthalten von Nachrichten kann er dann manipuliert werden.
+Über seine vergebenen Online-Kommentare, Likes, Facebook-Chats und Suchverläufe lassen sich bis ins kleinste Detail Infos über seine politische Orientierung herauslesen (welche öffentlich gemacht werden können). Mit dem Vorschlagen oder Vorenthalten von Nachrichten und Beiträgen kann er zudem von den Plattformen manipuliert werden.
 
 Genauso wie jeder Bürger hat auch Max Mustermann also etwas zu verbergen und zu verlieren.
 
