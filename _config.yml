@@ -30,6 +30,16 @@ header_pages:
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+jekyll_admin:
+  hidden_links:
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration
+  homepage: "posts"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
