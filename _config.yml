@@ -32,6 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-archives
 
 jekyll_admin:
   hidden_links:
