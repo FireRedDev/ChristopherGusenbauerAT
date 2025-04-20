@@ -385,18 +385,15 @@ header {
 @media (max-width: 800px) {
   .about-content {
     grid-template-areas:
-      "image heading"
-      "text text"
-      "socials socials";   
+      "image"
+      "heading"
+      "text"
+      "socials";
+      grid-template-columns: 1fr;   
       & img {
         justify-self: stretch;
       }
   }
-
-  .self-description {
-    grid-column: span 2 / auto;
-  }
-
 }
 
 .headshot {
