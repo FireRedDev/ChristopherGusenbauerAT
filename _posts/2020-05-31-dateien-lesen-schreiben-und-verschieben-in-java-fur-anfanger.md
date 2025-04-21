@@ -1,6 +1,8 @@
 ---
 title: "Dateien lesen, bearbeiten, verschieben und löschen mit Java für Anfänger"
 date: "2020-05-31"
+categories: 
+  - "Anleitungen"
 coverImage: "/images/posts/icon-2488093_1280.png"
 ---
 

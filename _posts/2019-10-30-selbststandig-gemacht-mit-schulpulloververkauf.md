@@ -2,7 +2,7 @@
 title: "Selbstständig gemacht mit Schulpulloververkauf"
 date: "2019-10-30"
 categories: 
-  - "unternehmen"
+  - "News"
 coverImage: "/images/posts/PNG-Logo-min.png"
 ---
 

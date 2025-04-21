@@ -117,6 +117,8 @@ GEM
       rackup (~> 2.0)
       sinatra (~> 4.0)
       sinatra-contrib (~> 4.0)
+    jekyll-archives (2.3.0)
+      jekyll (>= 3.6, < 5.0)
     jekyll-avatar (0.7.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-coffeescript (1.1.1)
@@ -309,6 +311,7 @@ DEPENDENCIES
   github-pages (~> 228)
   http_parser.rb (~> 0.6.0)
   jekyll-admin
+  jekyll-archives
   jekyll-feed (~> 0.12)
   jekyll-seo-tag
   jekyll-sitemap

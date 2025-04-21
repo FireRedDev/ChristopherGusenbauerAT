@@ -6,3 +6,14 @@ layout: home
 title: Christopher Gusenbauers Blog
 permalink: /blog/
 ---
+<div class="categories-list">
+    <h2>Kategorien</h2>
+    <ul>
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category in sorted_categories %}
+        <li>
+          <a href="{{ site.baseurl }}/blog/{{ category[0] }}/" >{{ category[0] }}</a> ({{ category[1].size }})
+        </li>
+      {% endfor %}
+    </ul>
+  </div>

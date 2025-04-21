@@ -2,7 +2,7 @@
 title: "Angular - 5 nützliche Code-Snippets"
 date: "2019-05-12"
 categories: 
-  - "tech"
+  - "Anleitungen"
 tags: 
   - "angular"
   - "angular-code-snippet"

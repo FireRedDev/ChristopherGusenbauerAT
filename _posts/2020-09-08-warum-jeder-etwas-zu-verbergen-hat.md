@@ -2,8 +2,7 @@
 title: "Warum jeder etwas zu verbergen hat"
 date: "2020-09-08"
 categories: 
-  - "kommentar"
-  - "tech"
+  - "Meinung"
 tags: 
   - "internet"
   - "privatsphare"

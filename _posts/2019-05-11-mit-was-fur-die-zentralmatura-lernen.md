@@ -2,8 +2,7 @@
 title: "Mit was für die Zentralmatura lernen?"
 date: "2019-05-11"
 categories: 
-  - "lernen"
-  - "schule"
+  - "Anleitungen"
 tags: 
   - "lernmaterial"
   - "lernressourcen"
