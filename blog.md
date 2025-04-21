@@ -12,7 +12,7 @@ permalink: /blog/
       {% assign sorted_categories = site.categories | sort %}
       {% for category in sorted_categories %}
         <li>
-          <a href="{{ site.baseurl }}/blog/{{ category[0] }}/" >{{ category[0] }}</a> ({{ category[1].size }})
+          <a href="{{ site.baseurl }}/blog/{{ category[0] | slugify }}/" >{{ category[0] }}</a> ({{ category[1].size }})
         </li>
       {% endfor %}
     </ul>
