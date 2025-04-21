@@ -9,11 +9,10 @@ permalink: /blog/
 <div class="categories-list">
     <h2>Kategorien</h2>
     <ul>
-      {% assign sorted_categories = site.categories | sort %}
-      {% for category in sorted_categories %}
-        <li>
-          <a href="{{ site.baseurl }}/blog/{{ category[0] | slugify | downcase }}/" >{{ category[0] }}</a> ({{ category[1].size }})
-        </li>
-      {% endfor %}
-    </ul>
+  <li><a href="{{ site.baseurl }}/blog/meinung/">Meinungsbeiträge</a></li>
+  <li><a href="{{ site.baseurl }}/blog/anleitungen/">Anleitungen</a></li>
+  <li><a href="{{ site.baseurl }}/blog/kurzgeschichten/">Kurzgeschichten</a></li>
+  <li><a href="{{ site.baseurl }}/blog/news/">News</a></li>
+
+</ul>
   </div>

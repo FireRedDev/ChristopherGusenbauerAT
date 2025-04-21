@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Kurzgeschichten Archiv"
+permalink: /blog/kurzgeschichten/
+---
+
+<h1>Meine Kurzgeschichten</h1>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.categories contains "Kurzgeschichten" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>{{ post.excerpt }}</p>
+        <small>Veröffentlicht am {{ post.date | date: "%B %d, %Y" }}</small>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

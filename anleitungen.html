@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Anleitungen Archiv"
+permalink: /blog/anleitungen/
+---
+
+<h1>Anleitungen, Tutorials und Tipps</h1>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.categories contains "Anleitungen" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>{{ post.excerpt }}</p>
+        <small>Veröffentlicht am {{ post.date | date: "%B %d, %Y" }}</small>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Meinung Archiv"
+permalink: /blog/meinung/
+---
+
+<h1>Kommentare, Beiträge und Meinungen</h1>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.categories contains "Meinung" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>{{ post.excerpt }}</p>
+        <small>Veröffentlicht am {{ post.date | date: "%B %d, %Y" }}</small>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
