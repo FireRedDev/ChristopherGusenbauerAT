@@ -5,6 +5,8 @@ published: true
 categories: 
   - "Kurzgeschichten"
 date: '2024-09-11'
+coverImage: "/images/posts/kurzgeschichte.jpg"
+
 ---
 
 Die Vorhänge raschelten, bewegt von einer der letzten Sommerböen dieses Jahres. Die mittlerweile schwachen Sonnenstrahlen suchten sich ihren Weg in das Zimmer, aber man konnte ihnen bereits dabei zusehen, wie sie sich langsam nach draußen zurückzogen. Man konnte nur das stetige Tropfen der Infusion hören, sehen wie einer nach dem anderen in das Wasser fiel und einen kleinen Krater verursachte. Der Mann blickte auf, sah auf das EKG, beobachtete eine kleine Linie wie sie auf dem Bildschirm flimmerte.
