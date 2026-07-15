@@ -24,7 +24,7 @@
                     <img class="headshot" src="/images/headshot.jpg" alt="Portrait von Christopher Gusenbauer">
                 </div>
                 <div class="hero-text">
-                    <h1 data-reveal>Hey. Ich bin <span class="grad-text">Christopher Gusenbauer</span>.</h1>
+                    <h1 data-reveal>Hey. Ich bin <span class="grad-text">Christopher Gusenbauer</span></h1>
                     <p class="lede" data-reveal>
                         IT-Management-Consultant bei <a class="inline-link" href="https://reqpool.com" target="_blank" rel="noopener">ReqPOOL</a>.<br>
                         Co-Founder von <a class="inline-link" href="https://wear-together.at" target="_blank" rel="noopener">wear Together</a>.<br>
@@ -32,74 +32,29 @@
                     </p>
                     <div class="hero-actions" data-reveal>
                         <ul class="social-icons">
-                            <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
-                            <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
+                            <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub">{% include icon.html name="github" %}</a></li>
+                            <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram">{% include icon.html name="instagram" %}</a></li>
                         </ul>
                         <a class="btn btn--ghost" href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">
-                            <i class="fa-regular fa-file"></i>&nbsp;Lebenslauf (PDF)
+                            {% include icon.html name="file" %}&nbsp;Lebenslauf (PDF)
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ Nachthimmel über Wasser: Berg + Spiegelung ============ -->
+        <!-- ============ Nachthimmel über Wasser ============ -->
         <div class="night-water">
             <canvas class="water-canvas" id="watersky" aria-hidden="true"></canvas>
 
-            <!-- Bergsilhouette am Horizont -->
-            <div class="horizon" aria-hidden="true">
-                <svg class="ridge" viewBox="0 0 1440 360" preserveAspectRatio="none">
-                    <path
-                        d="M0,300 L90,248 L180,282 L290,192 L390,250 L500,148 L590,214 L700,92 L790,178 L880,136 L980,44 L1080,166 L1170,118 L1290,230 L1370,198 L1440,238 L1440,360 L0,360 Z" />
-                </svg>
-            </div>
-            <div class="waterline" aria-hidden="true"></div>
-            <!-- Spiegelung des Berges im Wasser -->
-            <div class="water-mirror" aria-hidden="true">
-                <svg class="ridge ridge--mirror" viewBox="0 0 1440 360" preserveAspectRatio="none">
-                    <path
-                        d="M0,300 L90,248 L180,282 L290,192 L390,250 L500,148 L590,214 L700,92 L790,178 L880,136 L980,44 L1080,166 L1170,118 L1290,230 L1370,198 L1440,238 L1440,360 L0,360 Z" />
-                </svg>
-            </div>
-
-            <!-- ============ Blog: Karten auf dem Wasser ============ -->
-            <section class="blog" id="blog">
-                <div class="container">
-                    <div class="blog-head">
-                        <div>
-                            <p class="eyebrow">Blog</p>
-                            <h2>Frisch aus dem Blog</h2>
-                        </div>
-                        <button class="blog-toggle" id="blog-toggle" type="button" aria-expanded="true"
-                            aria-controls="blog-body">
-                            <span class="blog-toggle-label">Einklappen</span>
-                            <span class="blog-toggle-icon" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="blog-body" id="blog-body">
-                        <div class="blog-body-inner">
-                            <div class="posts">
-                                {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-                                {% for post in sorted_posts limit:3 %}
-                                {% include blog_post.html %}
-                                {% endfor %}
-                            </div>
-                            <div class="blog-actions">
-                                <a class="btn btn--sunset" href="/blog/">Alle Beiträge lesen</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============ Gegründet: rote Kometen ============ -->
+            <!-- ============ Gegründet: Kometen aus dem Nachthimmel ============ -->
             <section class="founded" id="gegruendet">
                 <div class="comet-field" aria-hidden="true">
                     <span class="streak streak--1"></span>
                     <span class="streak streak--2"></span>
                     <span class="streak streak--3"></span>
+                    <span class="streak streak--4"></span>
                 </div>
                 <div class="container">
                     <p class="eyebrow" data-reveal>Gegründet</p>
@@ -110,28 +65,28 @@
                     </p>
                     <div class="comet-grid">
                         <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon"><i class="fa-solid fa-shirt" aria-hidden="true"></i></div>
+                            <div class="comet-icon">{% include icon.html name="shirt" %}</div>
                             <p class="comet-tag">2019&ndash;2025</p>
                             <h3>S&amp;G wear Together GmbH</h3>
                             <p>Co-Founder &amp; Geschäftsführer. Schulmerchandise als Gesamtpaket für über 200 Schulen
                                 in AT &amp; DE &ndash; vom Design über den eigenen Webshop bis zur Produktionslogistik.</p>
                         </article>
                         <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+                            <div class="comet-icon">{% include icon.html name="star" %}</div>
                             <p class="comet-tag">Auszeichnung</p>
                             <h3>Top 10 &ndash; Pegasus 2021</h3>
                             <p>Als &bdquo;Raketenstarter&ldquo; unter die Top 10 beim Pegasus-Wirtschaftspreis
                                 der OÖNachrichten gewählt.</p>
                         </article>
                         <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
+                            <div class="comet-icon">{% include icon.html name="trophy" %}</div>
                             <p class="comet-tag">Auszeichnung</p>
                             <h3>Top 100 &ndash; GEWINN Jungunternehmen</h3>
                             <p>Vom Wirtschaftsmagazin GEWINN unter die 100 besten Jungunternehmen
                                 Österreichs gereiht.</p>
                         </article>
                         <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+                            <div class="comet-icon">{% include icon.html name="growth" %}</div>
                             <p class="comet-tag">Heute</p>
                             <h3>Vom e.U. zur GmbH</h3>
                             <p>Drei Firmierungen, zwei Geschäftsführer, ein Team. Seit Februar 2025 begleite ich
@@ -140,6 +95,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Hügel am Horizont -->
+            <div class="horizon" aria-hidden="true">
+                <svg class="ridge" viewBox="0 0 1440 360" preserveAspectRatio="none">
+                    <path
+                        d="M0,272 C90,258 160,230 240,194 C330,154 390,114 490,106 C580,99 640,146 720,178 C790,206 860,226 950,220 C1050,213 1110,158 1210,146 C1290,136 1370,186 1440,212 L1440,360 L0,360 Z" />
+                </svg>
+            </div>
+            <div class="waterline" aria-hidden="true"></div>
+            <!-- Spiegelung des Hügels im Wasser -->
+            <div class="water-mirror" aria-hidden="true">
+                <svg class="ridge ridge--mirror" viewBox="0 0 1440 360" preserveAspectRatio="none">
+                    <path
+                        d="M0,272 C90,258 160,230 240,194 C330,154 390,114 490,106 C580,99 640,146 720,178 C790,206 860,226 950,220 C1050,213 1110,158 1210,146 C1290,136 1370,186 1440,212 L1440,360 L0,360 Z" />
+                </svg>
+            </div>
 
             <!-- ============ Portfolio ============ -->
             <section class="portfolio" id="portfolio">
@@ -237,7 +208,7 @@
                                 Details klappst du bei Bedarf aus.</p>
                         </div>
                         <a class="btn btn--ghost" data-reveal href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">
-                            <i class="fa-regular fa-file"></i>&nbsp;Als PDF laden
+                            {% include icon.html name="file" %}&nbsp;Als PDF laden
                         </a>
                     </div>
 
@@ -381,6 +352,36 @@
                         aria-controls="cv-extra" data-reveal>
                         Mehr anzeigen &ndash; Praktika, Zertifikate, Sprachen &amp; Skills
                     </button>
+                </div>
+            </section>
+
+            <!-- ============ Blog ============ -->
+            <section class="blog" id="blog">
+                <div class="container">
+                    <div class="blog-head">
+                        <div>
+                            <p class="eyebrow">Blog</p>
+                            <h2>Frisch aus dem Blog</h2>
+                        </div>
+                        <button class="blog-toggle" id="blog-toggle" type="button" aria-expanded="true"
+                            aria-controls="blog-body">
+                            <span class="blog-toggle-label">Einklappen</span>
+                            <span class="blog-toggle-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="blog-body" id="blog-body">
+                        <div class="blog-body-inner">
+                            <div class="posts">
+                                {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+                                {% for post in sorted_posts limit:3 %}
+                                {% include blog_post.html %}
+                                {% endfor %}
+                            </div>
+                            <div class="blog-actions">
+                                <a class="btn btn--sunset" href="/blog/">Alle Beiträge lesen</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
