@@ -1,230 +1,444 @@
 ---
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Gusenbauer</title>
     {% include header_data.html %}
     {% seo %}
 </head>
 
-<body>
+<body class="home">
 
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul class="menu">
-                <li class="logo"><a href="#" class="underlined-text">Christopher Gusenbauer</a></li>
-                <li class="item firstnav" ><a href="/blog">Blog</a></li>
-                <li class="item"><a href="#skills">Skills</a></li>
-                <li class="item"><a href="#photography">Photography</a></li>
-                <li class="item"><a href="#contact-form">Kontakt</a></li>
-                <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-            </ul>
-        </nav>
-    </header>
+    {% include site_nav.html %}
+
     <main>
 
-        <!-- About Section -->
-        <section class="about">
-            <div class="about-content">
-
-                <img class="headshot" src="images/headshot.jpg">
-                <h1 class>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
-                <p class="self-description">
-                    IT-Management-Consultant bei <a class="fatcolorfultext" href="https://reqpool.com">ReqPOOL</a>.<br>Co-Founder von <a class="fatcolorfultext" href="https://wear-together.at"
-                        target="_blank" >wear Together</a>.
-                    <br>Privat stehe ich auf Fotografie und Musik – 80er Songs auf der Gitarre.
-                </p>
-                <ul class="social-icons">
-                    
-                    <li>
-                        <a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i>
+        <!-- ============ Hero ============ -->
+        <section class="hero" id="top">
+            <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+            <div class="container hero-inner">
+                <div class="hero-photo" data-reveal>
+                    <img class="headshot" src="/images/headshot.jpg" alt="Portrait von Christopher Gusenbauer">
+                </div>
+                <div class="hero-text">
+                    <p class="eyebrow" data-reveal>IT-Consultant &middot; Full-Stack-Entwickler &middot; Gründer</p>
+                    <h1 data-reveal>Hey, ich bin<br><span class="grad-text">Christopher Gusenbauer</span>.</h1>
+                    <p class="lede" data-reveal>
+                        IT-Management-Consultant bei <a class="inline-link" href="https://reqpool.com" target="_blank" rel="noopener">ReqPOOL</a>,
+                        Co-Founder von <a class="inline-link" href="https://wear-together.at" target="_blank" rel="noopener">wear Together</a>.
+                        Privat stehe ich auf Fotografie und Musik &ndash; am liebsten 80er auf der Gitarre.
+                    </p>
+                    <div class="hero-actions" data-reveal>
+                        <ul class="social-icons">
+                            <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+                            <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        </ul>
+                        <a class="btn btn--ghost" href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">
+                            <i class="fa-regular fa-file"></i>&nbsp;Lebenslauf (PDF)
                         </a>
-                    </li>
-                    
-                    <li class="tooltip">
-                        <a href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | prepend: site.baseurl | prepend: site.url }}"
-                            target="_blank">
-                            <i class="fa-regular fa-file"></i>
-                        </a>
-                        <span class="tooltiptext">CV - Lebenslauf</span>
-                    </li>
-                    <li>
-                        <a href="https://github.com/FireRedDev" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/christophergusenbauer" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
-            </div>
-
+            <a class="scroll-hint" href="#gegruendet" aria-label="Weiter zur nächsten Sektion">
+                <span></span>
+            </a>
         </section>
 
+        <!-- ============ Gegründet: fallende Kometen ============ -->
+        <section class="founded" id="gegruendet">
+            <div class="comet-field" aria-hidden="true">
+                <span class="streak streak--1"></span>
+                <span class="streak streak--2"></span>
+                <span class="streak streak--3"></span>
+            </div>
+            <div class="container">
+                <p class="eyebrow" data-reveal>Gegründet</p>
+                <h2 data-reveal>Was ich gegründet habe</h2>
+                <p class="section-lede" data-reveal>
+                    2019 habe ich neben dem Studium <strong>wear Together</strong> mitgegründet &ndash;
+                    daraus wurde das größte Schulmerchandise-Unternehmen in Österreich und Deutschland.
+                </p>
+                <div class="comet-grid">
+                    <article class="comet-card" data-reveal-comet>
+                        <p class="comet-tag">2019&ndash;2025</p>
+                        <h3>S&amp;G wear Together GmbH</h3>
+                        <p>Co-Founder &amp; Geschäftsführer. Schulmerchandise als Gesamtpaket für über 200 Schulen
+                            in AT &amp; DE &ndash; vom Design über den eigenen Webshop bis zur Produktionslogistik.</p>
+                    </article>
+                    <article class="comet-card" data-reveal-comet>
+                        <p class="comet-tag">Auszeichnung</p>
+                        <h3>Top 10 &ndash; Pegasus 2021</h3>
+                        <p>Als &bdquo;Raketenstarter&ldquo; unter die Top 10 beim Pegasus-Wirtschaftspreis
+                            der OÖNachrichten gewählt.</p>
+                    </article>
+                    <article class="comet-card" data-reveal-comet>
+                        <p class="comet-tag">Auszeichnung</p>
+                        <h3>Top 100 &ndash; GEWINN Jungunternehmen</h3>
+                        <p>Vom Wirtschaftsmagazin GEWINN unter die 100 besten Jungunternehmen
+                            Österreichs gereiht.</p>
+                    </article>
+                    <article class="comet-card" data-reveal-comet>
+                        <p class="comet-tag">Heute</p>
+                        <h3>Vom e.U. zur GmbH</h3>
+                        <p>Drei Firmierungen, zwei Geschäftsführer, ein Team. Seit Februar 2025 begleite ich
+                            das Unternehmen als Gesellschafter.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <!-- Blog Section -->
-        <section class="blog">
-            <div class="wave">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                        opacity=".25" class="shape-fill"></path>
-                    <path
-                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                        opacity=".5" class="shape-fill"></path>
-                    <path
-                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                        class="shape-fill"></path>
+        <!-- ============ Portfolio ============ -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <p class="eyebrow" data-reveal>Portfolio</p>
+                <h2 data-reveal>Meine Stationen</h2>
+
+                <article class="station" data-reveal>
+                    <header class="station-head">
+                        <h3>wear Together</h3>
+                        <p class="station-role">Co-Founder &amp; Geschäftsführung &middot; 2019&ndash;2025, seither Gesellschafter</p>
+                    </header>
+                    <div class="station-grid">
+                        <div class="station-box">
+                            <p class="station-box-label">Was ich gemacht habe</p>
+                            <p>Schulmerchandise als Gesamtpaket: Konzeption &amp; Design, Marketing, Verkauf über den
+                                eigenen Webshop, Produktionslogistik und Support &ndash; wir übernehmen den direkten
+                                Verkauf der Kleidung an die Schüler:innen.</p>
+                            <p>Mein Fokus lag auf <strong>Produktmanagement, Technik &amp; Entwicklung,
+                                    Prozessoptimierung</strong> sowie der Betreuung und Abwicklung der Projekte.</p>
+                        </div>
+                        <div class="station-box station-box--facts">
+                            <p class="station-box-label">Was dabei herausgekommen ist</p>
+                            <dl class="stat-grid">
+                                <div class="stat"><dt>200+</dt><dd>Schulen in AT &amp; DE</dd></div>
+                                <div class="stat"><dt>330+</dt><dd>Merchandiseprojekte mit Partnern</dd></div>
+                                <div class="stat"><dt>&gt;100.000&nbsp;&euro;</dt><dd>Jahresumsatz</dd></div>
+                                <div class="stat"><dt>Top&nbsp;10</dt><dd>Pegasus-Wirtschaftspreis 2021</dd></div>
+                                <div class="stat"><dt>Top&nbsp;100</dt><dd>GEWINN Jungunternehmen Österreich</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="station" data-reveal>
+                    <header class="station-head">
+                        <h3>ReqPOOL</h3>
+                        <p class="station-role">IT-Management-Consultant &middot; seit 2025</p>
+                    </header>
+                    <div class="station-grid">
+                        <div class="station-box">
+                            <p class="station-box-label">Für wen ich arbeite</p>
+                            <p>Industrie-Großkonzerne, die vor großen Software-Entscheidungen stehen &ndash;
+                                in Projekten wie:</p>
+                            <ul class="station-list">
+                                <li>Individualentwicklungen, z.&nbsp;B. Webshops</li>
+                                <li>SAP-Customizing-Projekte für 4.000 Nutzer:innen</li>
+                                <li>Konzeption &amp; Einführung von Data Warehouses</li>
+                                <li>IT-Organisationstransformationen &amp; Operating-Modelle</li>
+                                <li>Testmanagement</li>
+                                <li>MES-Systementscheidungen</li>
+                            </ul>
+                        </div>
+                        <div class="station-box station-box--facts">
+                            <p class="station-box-label">Welche Erfahrung ich dabei sammle</p>
+                            <ul class="skill-pills">
+                                <li>
+                                    <strong>Anforderungsmanagement</strong>
+                                    <span>Requirements Engineering, Fachkonzepte, Spezifikationen</span>
+                                </li>
+                                <li>
+                                    <strong>Projektmanagement</strong>
+                                    <span>Projektleitung und -begleitung großer IT-Vorhaben</span>
+                                </li>
+                                <li>
+                                    <strong>Software-Auswahl &amp; Ausschreibungen</strong>
+                                    <span>Herstellerneutrale Auswahlverfahren, RFPs &amp; Vergaben</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ Lebenslauf ============ -->
+        <section class="cv" id="lebenslauf">
+            <div class="container">
+                <div class="cv-head">
+                    <div>
+                        <p class="eyebrow" data-reveal>Lebenslauf</p>
+                        <h2 data-reveal>Der schnelle Überblick</h2>
+                        <p class="section-lede" data-reveal>Die wichtigsten Stationen auf einen Blick &ndash;
+                            Details klappst du bei Bedarf aus.</p>
+                    </div>
+                    <a class="btn btn--ghost" data-reveal href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-file"></i>&nbsp;Als PDF laden
+                    </a>
+                </div>
+
+                <div class="cv-timeline" data-reveal>
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">seit 2025</span>
+                            <span class="cv-title">IT-Management-Consultant &middot; ReqPOOL</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Beratung von Industrie-Großkonzernen: Anforderungsmanagement, Projektmanagement,
+                                herstellerneutrale Software-Auswahl &amp; Ausschreibungen &ndash; von SAP-Customizing über
+                                Data-Warehouse-Einführungen bis zu MES-Systementscheidungen.</p>
+                        </div>
+                    </details>
+
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">2019&ndash;2025</span>
+                            <span class="cv-title">Co-Founder &amp; Geschäftsführung &middot; S&amp;G wear Together GmbH</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Management von Schulmerchandise für 200+ Schulen in AT &amp; DE. Fokus: Produktmanagement,
+                                Technik &amp; Entwicklung, Prozessoptimierung, Betreuung &amp; Abwicklung.
+                                Seit Februar 2025 Gesellschafter.</p>
+                        </div>
+                    </details>
+
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">2022&ndash;2025</span>
+                            <span class="cv-title">MSc Wirtschaftsinformatik &middot; JKU Linz</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Notenschnitt 1,3 &middot; Study Abroad Excellence Award &middot; Absolvent Uni Management Club Linz.
+                                Masterarbeit: Assessment of the risks of fake user-generated content and corresponding
+                                countermeasures. Auslandssemester an der NEOMA Business School (Grande École, Rouen):
+                                Int. Trade, Int. Finance, Int. Management, Data Analytics &amp; BI.</p>
+                        </div>
+                    </details>
+
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">2022&ndash;2023</span>
+                            <span class="cv-title">Fullstack Developer &middot; ACP cubido (Teilzeit)</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Software Architect: Entwicklung von E-Procurement-Software mit Java, Spring, Angular und
+                                TypeScript in einem Microservice-/Kubernetes-Projekt. Agile Zusammenarbeit via Scrum,
+                                auch direkt mit Kunden.</p>
+                        </div>
+                    </details>
+
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">2019&ndash;2022</span>
+                            <span class="cv-title">BSc Wirtschaftsinformatik &middot; JKU Linz</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Bachelorarbeit in Kooperation mit oenpay (OeNB): Die Generation 65+ als Kundengruppe im
+                                Onlinebanking. Gewinner der Praktikums-Challenge 2021, Unternehmensgründung neben dem
+                                Studium.</p>
+                        </div>
+                    </details>
+
+                    <details class="cv-item">
+                        <summary>
+                            <span class="cv-period">2014&ndash;2019</span>
+                            <span class="cv-title">HTL Leonding &middot; IT/Medientechnik</span>
+                            <span class="cv-chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="cv-detail">
+                            <p>Softwareentwicklung, Datenbanksysteme, Medientechnik, Netzwerktechnik.
+                                Schulsprecher 2019, maturiert mit ausgezeichnetem Erfolg, Ingenieur-Titel
+                                Informatik/IT.</p>
+                        </div>
+                    </details>
+
+                    <div class="cv-extra" id="cv-extra" hidden>
+                        <details class="cv-item">
+                            <summary>
+                                <span class="cv-period">Praktika</span>
+                                <span class="cv-title">Rübig Holding &middot; Banner Batterien &middot; Kepler Uniklinikum</span>
+                                <span class="cv-chevron" aria-hidden="true"></span>
+                            </summary>
+                            <div class="cv-detail">
+                                <p><strong>Rübig Holding</strong> (2020): HR/PE/PV &ndash; Prototypen für digitalen
+                                    Lehrlingstest &amp; Lerntagebuch, Trainingsvideos, Recherchen.<br>
+                                    <strong>Banner Batterien</strong> (2017): Marketing &ndash; Online-Redaktion, SEO,
+                                    Google-Ads-Vorbereitung, Werbemittelfotografie.<br>
+                                    <strong>Kepler Uniklinikum</strong> (2016): Technischer Support in der
+                                    Gesundheitsinformatik.</p>
+                            </div>
+                        </details>
+                        <details class="cv-item">
+                            <summary>
+                                <span class="cv-period">Zertifikate</span>
+                                <span class="cv-title">Oracle &middot; Google &middot; Ingenieur-Titel</span>
+                                <span class="cv-chevron" aria-hidden="true"></span>
+                            </summary>
+                            <div class="cv-detail">
+                                <p>Oracle Database Programming Certificate &middot; Google Analytics für Fortgeschrittene
+                                    &middot; Ingenieur-Titel Informatik/Informationstechnologie.</p>
+                            </div>
+                        </details>
+                        <details class="cv-item">
+                            <summary>
+                                <span class="cv-period">Sprachen</span>
+                                <span class="cv-title">Deutsch &middot; Englisch &middot; Französisch</span>
+                                <span class="cv-chevron" aria-hidden="true"></span>
+                            </summary>
+                            <div class="cv-detail">
+                                <p>Deutsch (Muttersprache) &middot; Englisch (verhandlungssicher, II. Platz beim
+                                    BHS-Fremdsprachenwettbewerb OÖ) &middot; Französisch (B1, Unikurse an JKU und NEOMA).</p>
+                            </div>
+                        </details>
+                        <details class="cv-item">
+                            <summary>
+                                <span class="cv-period">Skills</span>
+                                <span class="cv-title">Technik &middot; Mediendesign &middot; Kreativ</span>
+                                <span class="cv-chevron" aria-hidden="true"></span>
+                            </summary>
+                            <div class="cv-detail">
+                                <p><strong>Technisch:</strong> Java, Spring/EE, TypeScript, Angular, HTML, CSS, SQL,
+                                    WordPress/WooCommerce, E-Mail-Marketing &amp; CRM-Automatisierung, Git, Linux, Docker,
+                                    Kubernetes (Anwendung), Python, Excel &amp; Office.<br>
+                                    <strong>Mediendesign:</strong> Adobe Lightroom, Photoshop, Premiere, Elementor.<br>
+                                    <strong>Kreativ:</strong> Public Speaking, repräsentative Tätigkeiten, Texte
+                                    schreiben.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <button class="btn btn--ghost cv-more" id="cv-more" type="button" aria-expanded="false"
+                    aria-controls="cv-extra" data-reveal>
+                    Mehr anzeigen &ndash; Praktika, Zertifikate, Sprachen &amp; Skills
+                </button>
+            </div>
+        </section>
+
+        <!-- ============ Blog auf Hügeln ============ -->
+        <section class="blog" id="blog">
+            <div class="blog-sky">
+                <div class="container blog-head">
+                    <div>
+                        <p class="eyebrow">Blog</p>
+                        <h2>Frisch aus dem Blog</h2>
+                    </div>
+                    <button class="blog-toggle" id="blog-toggle" type="button" aria-expanded="true"
+                        aria-controls="blog-body">
+                        <span class="blog-toggle-label">Einklappen</span>
+                        <span class="blog-toggle-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="hills" aria-hidden="true">
+                    <svg class="hill hill--back" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                        <path
+                            d="M0,224 C160,150 340,120 520,168 C700,216 860,140 1040,150 C1220,160 1330,210 1440,180 L1440,320 L0,320 Z" />
+                    </svg>
+                    <svg class="hill hill--mid" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                        <path
+                            d="M0,268 C180,200 360,246 560,232 C760,218 920,268 1100,244 C1260,222 1360,258 1440,240 L1440,320 L0,320 Z" />
+                    </svg>
+                    <svg class="hill hill--front" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                        <path
+                            d="M0,296 C220,252 420,300 660,282 C900,264 1080,306 1260,288 C1350,279 1410,290 1440,286 L1440,320 L0,320 Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="blog-ground">
+                <div class="blog-body" id="blog-body">
+                    <div class="blog-body-inner">
+                        <div class="container">
+                            <div class="posts">
+                                {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+                                {% for post in sorted_posts limit:3 %}
+                                {% include blog_post.html %}
+                                {% endfor %}
+                            </div>
+                            <div class="blog-actions">
+                                <a class="btn btn--dark" href="/blog/">Alle Beiträge lesen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Fotografie / Flickr ============ -->
+        <section class="gallery" id="photography">
+            <div class="container">
+                <div class="gallery-head">
+                    <div>
+                        <p class="eyebrow">Fotografie</p>
+                        <h2>Durch meine Linse</h2>
+                    </div>
+                    <p class="gallery-live" id="gallery-live" hidden>
+                        <span class="live-dot" aria-hidden="true"></span> live von Flickr
+                    </p>
+                </div>
+                <div class="masonry" id="flickr-gallery" data-flickr-user="{{ site.flickr.user_id }}"
+                    data-flickr-album="{{ site.flickr.album_id }}">
+                    <div class="mItem"><img src="/images/baum.jpg" alt="Baum in Landschaft" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/blume.jpg" alt="Nahaufnahme einer Blume" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/gebäide.jpg" alt="Architekturaufnahme" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/katze.jpg" alt="Katze" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/meer.jpg" alt="Meer" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/mädchen im feld.jpg" alt="Portrait im Feld" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/mädchen lehnend.jpg" alt="Portrait, lehnend" loading="lazy"></div>
+                    <div class="mItem"><img src="/images/wüste.jpg" alt="Wüstenlandschaft" loading="lazy"></div>
+                </div>
+                <div class="gallery-actions">
+                    <a class="btn btn--dark" href="https://flic.kr/ps/42jNNs" target="_blank" rel="noopener">Mehr auf
+                        Flickr</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Kontakt ============ -->
+        <section class="contact" id="contact">
+            <div class="contact-divider" aria-hidden="true">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                    <path d="M0,120 L0,60 C240,10 480,90 740,60 C1000,30 1240,80 1440,40 L1440,120 Z" />
                 </svg>
             </div>
-            <div class="container belowwaves">
-                <div class="posts">
-                    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-                    {% for post in sorted_posts limit:3 %}  
-                        {% include blog_post.html %}
-                    {% endfor %}
+            <div class="container contact-grid">
+                <div class="contact-pitch" data-reveal>
+                    <p class="eyebrow">Kontakt</p>
+                    <h2>Lassen Sie uns reden.</h2>
+                    <p class="pitch-line">Sie haben ein digitales Vorhaben? Ich sorge dafür, dass daraus
+                        etwas wird &ndash; von der ersten Anforderung bis zum laufenden System.</p>
+                    <p class="pitch-proof">Ich habe selbst ein Unternehmen aufgebaut, Software von Grund auf entwickelt
+                        und Konzerne bei großen IT-Entscheidungen begleitet. Wenn das nach jemandem klingt, den Sie
+                        in Ihrem Team brauchen können, freue ich mich auf Ihre Nachricht.</p>
+                    <ul class="pitch-facts">
+                        <li>Antwort meist innerhalb von 48 Stunden</li>
+                        <li>Lebenslauf als <a class="inline-link" href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a> oder auf <a class="inline-link" href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    </ul>
                 </div>
-                <form action='{{ site.url }}/blog' method='get'>
-                <button type="submit">Mehr Posts ansehen</button>
-            </form>
-                </div>
-                
-
+                <form class="contact-form" data-reveal action="https://formspree.io/f/xwkdgkyz" method="POST">
+                    <label>
+                        E-Mail
+                        <input type="email" name="email" required autocomplete="email" placeholder="ihre@mail.at">
+                    </label>
+                    <label>
+                        Nachricht
+                        <textarea name="message" required rows="6" placeholder="Worum geht&#8217;s?"></textarea>
+                    </label>
+                    <button class="btn btn--solid" type="submit">Nachricht senden</button>
+                </form>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich gegründet habe</h2>
-                            <ul>
-                                <li>Co-Founder und ehemaliger Geschäftsführer <em>des größten Schulmerchandiseunternehmens </em>
-                                    <a href="http://www.wear-together.at">S&amp;G
-                                    wear Together
-                                    GmbH</a> in DE & AT.
-                                    </li>
-                                <li>Auszeichnungen: <b>Top10 Pegasus-Award 2021, Top100 Gewinn-Jungunternehmen
-                                        Österreich
-                                        2021</b></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich kann</h2>
-                            <ul>
-                            
-                                <li>Produktentwicklung - <em>Strategische Analyse, Placement, Pricing und Vermarktung von IT-Produkten</em></li>
-                                <li>Unternehmensentwicklung - <em>Intra- und Entrepreneurship, Projektmanagement, Prozessoptimierung, Beratung</em></li>
-                                <li>Backendentwicklung - <em> Java, Spring, Maven, SQL, Kubernetes (usage)</em></li>
-                                <li>Frontendentwicklung - <em>Typescript/JS, Angular, HTML, CSS, Git, JavaFX</em></li>
- 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich gemacht habe</h2>
-                            <ul>
-                                <li>Master of Science der Wirtschaftsinformatik an der JKU Linz</li>
-                                <li>Exchange Semester in Nordfrankreich, Rouen an einer Grande École (NEOMA).</li>
-                                <li>HTBLA Leonding, Schulsprecher 2019, Ingenieurstitel</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Image Gallery Section -->
-        <section id="photography" class="gallery">
-            <h2>Meine Fotografie</h2>
-            <div class="masonry">
-                <div class="mItem">
-                    <img src="/images/baum.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/blume.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/gebäide.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/katze.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/meer.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/mädchen im feld.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/mädchen lehnend.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/wüste.jpg">
-                </div>
-
-
-
-            </div>
-            <form class="alignselfcenter" action='https://flic.kr/ps/42jNNs' method='get'>
-                <button  class ="buttononwhitebg nomargin" type="submit">Mehr Fotos ansehen</button>
-            </form>
-        </section>
-        
-        <section id="contact-form" class="contact-form">
-            <form action="https://formspree.io/f/xwkdgkyz" method="POST">
-                <div>
-                    <h2>Bei mir melden</h2>
-                    <p>Ich freue mich bei jeder Anfrage.</p>
-                </div>
-                <label>
-                    E-Mail
-                    <input type="email" name="email">
-                </label>
-                <label>
-                    Nachricht
-                    <textarea name="message" class="large"></textarea>
-                </label>
-                <button type="submit">Senden</button>
-            </form>
-
         </section>
     </main>
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Christopher Gusenbauer. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="index.js"></script>
+
+    {% include site_footer.html %}
+    <script src="/index.js"></script>
 </body>
 
 </html>

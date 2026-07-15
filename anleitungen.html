@@ -1,22 +1,8 @@
 ---
-layout: default
-title: "Anleitungen Archiv"
+layout: page
+title: "Anleitungen, Tutorials und Tipps"
+eyebrow: "Blog · Anleitungen"
 permalink: /blog/anleitungen/
 ---
 
-<h1>Anleitungen, Tutorials und Tipps</h1>
-
-<ul>
-  {% for post in site.posts %}
-    {% if post.categories contains "Anleitungen" %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <br>
-        <small>Veröffentlicht am {{ post.date | date: "%B %d, %Y" }}</small>
-        <p>{{ post.excerpt }}</p>
-        <a href="{{ post.url }}">...weiter lesen</a>
-      </li>
-      <br>
-    {% endif %}
-  {% endfor %}
-</ul>
+{% include archive_list.html category="Anleitungen" %}

@@ -1,13 +1,14 @@
-<div class="blog-entry">
-    <div class="imageframe">
-        <img src="{{ post.coverImage }}" alt="{{ post.title }}">
+<article class="post-card" data-reveal>
+    <a class="post-card-media" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ post.coverImage | relative_url }}" alt="" loading="lazy">
+    </a>
+    <div class="post-card-body">
+        <p class="post-card-meta">
+            {% if post.categories.size > 0 %}<span class="post-card-tag">{{ post.categories | first }}</span>{% endif %}
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+        </p>
+        <h3 class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="post-card-excerpt">{{ post.content | markdownify | strip_html | truncate: 150 }}</p>
+        <a class="post-card-link" href="{{ post.url | relative_url }}">Weiterlesen <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="textframe">
-        <div class="titleframe">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.date | date: "%-d %B, %Y" }}</p>
-        </div>
-        <p class="lightertext">{{ post.content | markdownify | truncate: 200 }}</p>
-        <a href="{{ post.url }}" class="read-more-button">Mehr lesen</a>
-    </div>
-</div>
+</article>

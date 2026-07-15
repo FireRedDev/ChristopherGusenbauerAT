@@ -1,0 +1,16 @@
+{% assign filtered = "" | split: "" %}
+{% for post in site.posts %}
+{% if post.categories contains include.category %}
+{% assign filtered = filtered | push: post %}
+{% endif %}
+{% endfor %}
+{% include category_chips.html %}
+{% if filtered.size > 0 %}
+<div class="post-grid" style="margin-top: 2rem;">
+    {% for post in filtered %}
+    {% include blog_post.html %}
+    {% endfor %}
+</div>
+{% else %}
+<p class="empty-note" style="margin-top: 2rem;">Hier gibt es noch keine Beiträge.</p>
+{% endif %}

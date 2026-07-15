@@ -26,8 +26,22 @@ url: "https://christophergusenbauer.at" # the base hostname & protocol for your 
 header_pages:
   - blog.md
 
+# Flickr-Livefeed für die Fotografie-Sektion.
+# user_id: die Flickr-NSID (zu finden z. B. via https://www.webfx.com/tools/idgettr/)
+# album_id: optional – ID eines Albums/Photosets; leer lassen für den ganzen Photostream.
+flickr:
+  user_id: "198405625@N04"
+  album_id: ""
+
 # Build settings
 theme: minima
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

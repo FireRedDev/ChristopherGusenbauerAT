@@ -1,13 +1,18 @@
 ---
 layout: default
 ---
-
-<h1>Beiträge der Kategorie: {{ page.title }}</h1>
-
-<ul>
-  {% for post in page.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> — {{ post.date | date: "%Y-%m-%d" }}
-    </li>
-  {% endfor %}
-</ul>
+<div class="container">
+    <header class="page-header">
+        <p class="eyebrow">Archiv</p>
+        <h1>Beiträge der Kategorie: {{ page.title }}</h1>
+    </header>
+    {% if page.posts and page.posts.size > 0 %}
+    <div class="post-grid">
+        {% for post in page.posts %}
+        {% include blog_post.html %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-note">Hier gibt es noch keine Beiträge.</p>
+    {% endif %}
+</div>
