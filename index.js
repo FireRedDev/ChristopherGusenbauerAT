@@ -198,6 +198,205 @@
     }
   }
 
+  /* ---------- Spiegelung im Wasser (Berg & Sternenhimmel) ---------- */
+  var waterCanvas = document.getElementById("watersky");
+  var nightWater = document.querySelector(".night-water");
+  var mirrorEl = document.querySelector(".water-mirror");
+
+  if (waterCanvas && waterCanvas.getContext && nightWater && mirrorEl) {
+    var wctx = waterCanvas.getContext("2d");
+    var wdpr = Math.min(window.devicePixelRatio || 1, 2);
+    var wWidth = 0;
+    var wHeight = 0;
+    var lineY = 0; // y-Position der Wasserlinie im Canvas
+    var wStars = [];
+    var glints = [];
+    var drops = [];
+    var wRaf = null;
+    var lastDrop = 0;
+
+    var resizeWater = function () {
+      wWidth = nightWater.clientWidth;
+      lineY = mirrorEl.offsetTop;
+      /* Canvas nur so hoch wie nötig – die Spiegelung verblasst mit der Tiefe */
+      wHeight = Math.min(nightWater.clientHeight, lineY + 1400);
+      waterCanvas.style.height = wHeight + "px";
+      waterCanvas.width = wWidth * wdpr;
+      waterCanvas.height = wHeight * wdpr;
+      wctx.setTransform(wdpr, 0, 0, wdpr, 0, 0);
+
+      wStars = [];
+      /* Sterne am Abendhimmel über dem Berg */
+      var skyCount = Math.min(90, Math.round((wWidth * lineY) / 14000));
+      for (var i = 0; i < skyCount; i++) {
+        wStars.push({
+          type: "sky",
+          x: Math.random() * wWidth,
+          y: Math.random() * lineY * 0.72,
+          r: 0.4 + Math.random() * 1.2,
+          tw: Math.random() * Math.PI * 2,
+          twSpeed: 0.4 + Math.random() * 1,
+          warm: Math.random() < 0.2
+        });
+      }
+      /* Gespiegelte Sterne im Wasser – gestreckt, gedimmt, leicht wackelnd */
+      var reflDepth = wHeight - lineY;
+      var reflCount = Math.min(130, Math.round((wWidth * reflDepth) / 10000));
+      for (var j = 0; j < reflCount; j++) {
+        var depth = Math.random();
+        wStars.push({
+          type: "refl",
+          x: Math.random() * wWidth,
+          y: lineY + 14 + depth * reflDepth * 0.85,
+          depth: depth,
+          r: 0.4 + Math.random() * 1.2,
+          tw: Math.random() * Math.PI * 2,
+          twSpeed: 0.5 + Math.random() * 1.2,
+          warm: Math.random() < 0.25
+        });
+      }
+      /* Lichtglitzern knapp unter der Wasserlinie */
+      glints = [];
+      for (var g = 0; g < 7; g++) {
+        glints.push({
+          x: Math.random() * wWidth,
+          y: lineY + 6 + Math.random() * 70,
+          len: 40 + Math.random() * 130,
+          speed: 0.15 + Math.random() * 0.35,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+    };
+
+    var spawnDrop = function () {
+      /* fallende Sternschnuppe in der Spiegelung – zieht nach unten */
+      drops.push({
+        x: wWidth * (0.1 + Math.random() * 0.85),
+        y: lineY + 10,
+        vx: -0.6 + Math.random() * 1.2,
+        vy: 2 + Math.random() * 1.8,
+        life: 1,
+        decay: 0.009 + Math.random() * 0.007,
+        len: 50 + Math.random() * 50
+      });
+    };
+
+    var drawWaterStatic = function () {
+      wctx.clearRect(0, 0, wWidth, wHeight);
+      wStars.forEach(function (s) {
+        var refl = s.type === "refl";
+        wctx.globalAlpha = refl ? 0.4 * (1 - s.depth * 0.8) : 0.75;
+        wctx.beginPath();
+        if (refl) {
+          wctx.ellipse(s.x, s.y, s.r * 0.9, s.r * 2, 0, 0, Math.PI * 2);
+        } else {
+          wctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        }
+        wctx.fillStyle = s.warm ? "rgb(255,207,135)" : "rgb(244,240,255)";
+        wctx.fill();
+      });
+      wctx.globalAlpha = 1;
+    };
+
+    var waterFrame = function (t) {
+      wctx.clearRect(0, 0, wWidth, wHeight);
+
+      for (var i = 0; i < wStars.length; i++) {
+        var s = wStars[i];
+        var alpha = 0.35 + 0.65 * Math.abs(Math.sin(s.tw + (t / 1000) * s.twSpeed));
+        wctx.beginPath();
+        if (s.type === "refl") {
+          /* Spiegelbild: dunkler, in die Länge gezogen, wackelt sanft */
+          var wob = Math.sin(t / 900 + s.y * 0.06) * 1.6;
+          wctx.globalAlpha = alpha * 0.45 * (1 - s.depth * 0.75);
+          wctx.ellipse(s.x + wob, s.y, s.r * 0.9, s.r * 2.2, 0, 0, Math.PI * 2);
+        } else {
+          wctx.globalAlpha = alpha * 0.85;
+          wctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        }
+        wctx.fillStyle = s.warm ? "rgb(255,207,135)" : "rgb(244,240,255)";
+        wctx.fill();
+      }
+      wctx.globalAlpha = 1;
+
+      /* Glitzern auf dem Wasser */
+      for (var g = 0; g < glints.length; g++) {
+        var gl = glints[g];
+        gl.x += gl.speed;
+        if (gl.x - gl.len > wWidth) gl.x = -gl.len;
+        var ga = 0.1 + 0.09 * Math.sin(t / 900 + gl.phase);
+        var grad = wctx.createLinearGradient(gl.x - gl.len, gl.y, gl.x, gl.y);
+        grad.addColorStop(0, "rgba(255,180,120,0)");
+        grad.addColorStop(0.5, "rgba(255,196,140," + ga + ")");
+        grad.addColorStop(1, "rgba(255,180,120,0)");
+        wctx.strokeStyle = grad;
+        wctx.lineWidth = 1.4;
+        wctx.beginPath();
+        wctx.moveTo(gl.x - gl.len, gl.y);
+        wctx.lineTo(gl.x, gl.y);
+        wctx.stroke();
+      }
+
+      /* fallende Sternschnuppen im Wasser */
+      if (t - lastDrop > 4200 + Math.random() * 3600 && drops.length < 2) {
+        spawnDrop();
+        lastDrop = t;
+      }
+      for (var d = drops.length - 1; d >= 0; d--) {
+        var dr = drops[d];
+        dr.x += dr.vx;
+        dr.y += dr.vy;
+        dr.life -= dr.decay;
+        if (dr.life <= 0 || dr.y > wHeight + 40) {
+          drops.splice(d, 1);
+          continue;
+        }
+        var dnorm = Math.hypot(dr.vx, dr.vy);
+        var tailX = dr.x - (dr.vx / dnorm) * dr.len;
+        var tailY = dr.y - (dr.vy / dnorm) * dr.len;
+        var dgrad = wctx.createLinearGradient(dr.x, dr.y, tailX, tailY);
+        dgrad.addColorStop(0, "rgba(255,236,210," + 0.7 * dr.life + ")");
+        dgrad.addColorStop(0.3, "rgba(255,180,120," + 0.4 * dr.life + ")");
+        dgrad.addColorStop(1, "rgba(255,180,120,0)");
+        wctx.strokeStyle = dgrad;
+        wctx.lineWidth = 1.4;
+        wctx.beginPath();
+        wctx.moveTo(dr.x, dr.y);
+        wctx.lineTo(tailX, tailY);
+        wctx.stroke();
+      }
+
+      wRaf = window.requestAnimationFrame(waterFrame);
+    };
+
+    resizeWater();
+    window.addEventListener("resize", function () {
+      resizeWater();
+      if (prefersReducedMotion) drawWaterStatic();
+    });
+    window.addEventListener("load", function () {
+      resizeWater();
+      if (prefersReducedMotion) drawWaterStatic();
+    });
+
+    if (prefersReducedMotion) {
+      drawWaterStatic();
+    } else if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && wRaf === null) {
+            wRaf = window.requestAnimationFrame(waterFrame);
+          } else if (!entry.isIntersecting && wRaf !== null) {
+            window.cancelAnimationFrame(wRaf);
+            wRaf = null;
+          }
+        });
+      }).observe(waterCanvas);
+    } else {
+      wRaf = window.requestAnimationFrame(waterFrame);
+    }
+  }
+
   /* ---------- Blog einklappen ---------- */
   var blogSection = document.getElementById("blog");
   var blogToggle = document.getElementById("blog-toggle");
