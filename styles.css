@@ -609,11 +609,13 @@ a { color: inherit; }
 
 /* Hintere Hügelkette – atmosphärisch heller/häsiger, damit sie in der Ferne wirkt */
 .ridge--far { z-index: 2; }
-.ridge--far path { fill: #574269; }
+.ridge--far path,
+.ridge--far use { fill: #574269; }
 
 /* Vordere Hügelkette – dunkler, liegt über Titel und Fernhügel */
 .ridge--near { z-index: 4; }
-.ridge--near path { fill: #0c0718; }
+.ridge--near path,
+.ridge--near use { fill: #0c0718; }
 
 /* Wasserlinie – leuchtender Horizont */
 .waterline {
@@ -654,10 +656,11 @@ a { color: inherit; }
 .ridge--mirror-near {
   opacity: 0.55;
 }
-.ridge--mirror-near path { fill: #0a0615; }
+.ridge--mirror-near path,
+.ridge--mirror-near use { fill: #0a0615; }
 
 /* Die Bäume spiegeln sich nur schwach im Wasser */
-.ridge--mirror-near path + path { opacity: 0.35; }
+.ridge--mirror-near .forest { opacity: 0.35; }
 
 /* ---------- Insel & Boot auf dem Wasser ---------- */
 .island,
