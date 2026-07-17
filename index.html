@@ -1,230 +1,412 @@
----
----
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christopher Gusenbauer</title>
-    {% include header_data.html %}
-    {% seo %}
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
-
-<body>
-
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul class="menu">
-                <li class="logo"><a href="#" class="underlined-text">Christopher Gusenbauer</a></li>
-                <li class="item firstnav" ><a href="/blog">Blog</a></li>
-                <li class="item"><a href="#skills">Skills</a></li>
-                <li class="item"><a href="#photography">Photography</a></li>
-                <li class="item"><a href="#contact-form">Kontakt</a></li>
-                <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="home">
+    <header class="site-header">
+    <nav class="site-nav" aria-label="Hauptnavigation">
+        <a class="brand" href="/">Christopher<span class="brand-dot"> Gusenbauer</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menü öffnen">
+            <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-menu" id="site-menu">
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#lebenslauf">Lebenslauf</a></li>
+            <li><a href="#photography">Fotografie</a></li>
+            <li><a class="nav-cta" href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
     <main>
-
-        <!-- About Section -->
-        <section class="about">
-            <div class="about-content">
-
-                <img class="headshot" src="images/headshot.jpg">
-                <h1 class>Hey. Ich bin <span class="highlighted-text">Christopher Gusenbauer</span></h1>
-                <p class="self-description">
-                    IT-Management-Consultant bei <a class="fatcolorfultext" href="https://reqpool.com">ReqPOOL</a>.<br>Co-Founder von <a class="fatcolorfultext" href="https://wear-together.at"
-                        target="_blank" >wear Together</a>.
-                    <br>Privat stehe ich auf Fotografie und Musik – 80er Songs auf der Gitarre.
-                </p>
-                <ul class="social-icons">
-                    
-                    <li>
-                        <a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    
-                    <li class="tooltip">
-                        <a href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | prepend: site.baseurl | prepend: site.url }}"
-                            target="_blank">
-                            <i class="fa-regular fa-file"></i>
-                        </a>
-                        <span class="tooltiptext">CV - Lebenslauf</span>
-                    </li>
-                    <li>
-                        <a href="https://github.com/FireRedDev" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/christophergusenbauer" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
+        <section class="hero" id="top">
+            <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+            <div class="container hero-inner">
+                <div class="hero-photo" data-reveal>
+                    <img class="headshot" src="images/headshot.jpg" alt="Portrait von Christopher Gusenbauer">
+                </div>
+                <div class="hero-text">
+                    <h1 data-reveal>Hey. Ich bin <span class="grad-text">Christopher Gusenbauer</span></h1>
+                    <p class="lede" data-reveal>
+                        IT-Management-Consultant bei <a class="inline-link" href="https://reqpool.com" target="_blank" rel="noopener">ReqPOOL</a>.<br>
+                        Co-Founder von <a class="inline-link" href="https://wear-together.at" target="_blank" rel="noopener">wear Together</a>.<br>
+                        Privat stehe ich auf Fotografie und Musik &ndash; 80er Songs auf der Gitarre.
+                    </p>
+                    <div class="hero-actions" data-reveal>
+                        <ul class="social-icons">
+                            <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a></li>
+                            <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+                            <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a></li>
+                            <li class="social-pill"><a href="#" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/></svg><span>Lebenslauf</span></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            </div>
-
         </section>
 
+        <div class="night-water">
+            <canvas class="water-canvas" id="watersky" aria-hidden="true"></canvas>
 
-        <!-- Blog Section -->
-        <section class="blog">
-            <div class="wave">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                        opacity=".25" class="shape-fill"></path>
-                    <path
-                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                        opacity=".5" class="shape-fill"></path>
-                    <path
-                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                        class="shape-fill"></path>
+            <section class="founded" id="gegruendet">
+                <div class="comet-field" aria-hidden="true">
+                    <span class="streak streak--1"></span>
+                    <span class="streak streak--2"></span>
+                    <span class="streak streak--3"></span>
+                    <span class="streak streak--4"></span>
+                </div>
+                <div class="container">
+                    <p class="eyebrow" data-reveal>Gegründet</p>
+                    <h2 data-reveal>Was ich gegründet habe</h2>
+                    <p class="section-lede" data-reveal>
+                        2019 habe ich neben dem Studium <strong>wear Together</strong> mitgegründet &ndash;
+                        daraus wurde das größte Schulmerchandise-Unternehmen in Österreich und Deutschland.
+                    </p>
+                    <article class="comet-card comet-card--main" data-reveal-comet>
+                        <div class="comet-icon"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.4.7 1.9 3l1.6 2.8 1.3-.8V15h6.4V5l1.3.8L14.1 3 10.6.7c-.4 1-1.4 1.7-2.6 1.7S5.8 1.7 5.4.7z"/></svg></div>
+                        <p class="comet-tag">2019&ndash;2025 &middot; seit 02/2025 Gesellschafter</p>
+                        <h3>S&amp;G wear Together GmbH</h3>
+                        <p>Co-Founder &amp; Geschäftsführer. Schulmerchandise als Gesamtpaket für über 200 Schulen
+                            in AT &amp; DE &ndash; vom Design über den eigenen Webshop bis zur Produktionslogistik.</p>
+                        <div class="award-row">
+                            <div class="award">
+                                <div class="comet-icon comet-icon--small"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg></div>
+                                <div>
+                                    <strong>Top 10 &ndash; Pegasus 2021</strong>
+                                    <span>Als &bdquo;Raketenstarter&ldquo; beim Pegasus-Wirtschaftspreis der OÖNachrichten ausgezeichnet</span>
+                                </div>
+                            </div>
+                            <div class="award">
+                                <div class="comet-icon comet-icon--small"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z"/></svg></div>
+                                <div>
+                                    <strong>Top 100 &ndash; GEWINN Jungunternehmen</strong>
+                                    <span>Unter die 100 besten Jungunternehmen Österreichs gereiht</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <div class="horizon">
+                <svg class="ridge ridge--far" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0,208 C80,202 160,170 240,150 C330,128 410,210 480,214 C560,218 640,108 726,92 C812,76 900,214 960,214 C1030,214 1110,152 1180,138 C1280,120 1370,180 1440,198 L1440,360 L0,360 Z" />
+                </svg>
+                <div class="container">
+                    <div class="horizon-head">
+                        <p class="eyebrow">Portfolio</p>
+                        <h2>Meine <span class="grad-text">Stationen</span></h2>
+                    </div>
+                </div>
+                <svg class="ridge ridge--near" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0,258 C120,252 220,240 320,232 C400,226 470,258 560,282 C630,298 660,306 722,307 C800,306 850,268 940,246 C1030,224 1090,206 1180,214 C1280,223 1360,246 1440,254 L1440,360 L0,360 Z" />
+                </svg>
+                <div class="island" aria-hidden="true">
+                    <svg class="island-svg" viewBox="0 0 220 120" preserveAspectRatio="xMidYMax meet">
+                        <path d="M6,120 C36,98 84,90 118,98 C158,88 196,102 216,120 Z" />
+                        <path d="M92,102 L100,102 L98,62 L94,62 Z" />
+                        <circle cx="96" cy="48" r="20" />
+                        <circle cx="78" cy="59" r="13" />
+                        <circle cx="114" cy="59" r="13" />
+                        <circle cx="96" cy="35" r="12" />
+                    </svg>
+                    <svg class="island-svg island-svg--reflection" viewBox="0 0 220 120" preserveAspectRatio="xMidYMax meet">
+                        <path d="M6,120 C36,98 84,90 118,98 C158,88 196,102 216,120 Z" />
+                        <path d="M92,102 L100,102 L98,62 L94,62 Z" />
+                        <circle cx="96" cy="48" r="20" />
+                        <circle cx="78" cy="59" r="13" />
+                        <circle cx="114" cy="59" r="13" />
+                        <circle cx="96" cy="35" r="12" />
+                    </svg>
+                </div>
+                <div class="boat" aria-hidden="true">
+                    <svg class="boat-svg" viewBox="0 0 120 104" preserveAspectRatio="xMidYMax meet">
+                        <path d="M14,80 L106,80 L92,100 L28,100 Z" />
+                        <rect x="58" y="12" width="3" height="68" />
+                        <path d="M64,16 L64,74 L100,74 Z" />
+                        <path d="M54,28 L54,74 L24,74 Z" />
+                    </svg>
+                    <svg class="boat-svg boat-svg--reflection" viewBox="0 0 120 104" preserveAspectRatio="xMidYMax meet">
+                        <path d="M14,80 L106,80 L92,100 L28,100 Z" />
+                        <rect x="58" y="12" width="3" height="68" />
+                        <path d="M64,16 L64,74 L100,74 Z" />
+                        <path d="M54,28 L54,74 L24,74 Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="waterline" aria-hidden="true"></div>
+            <div class="water-mirror" aria-hidden="true">
+                <svg class="ridge ridge--mirror ridge--mirror-far" viewBox="0 0 1440 360" preserveAspectRatio="none">
+                    <path d="M0,208 C80,202 160,170 240,150 C330,128 410,210 480,214 C560,218 640,108 726,92 C812,76 900,214 960,214 C1030,214 1110,152 1180,138 C1280,120 1370,180 1440,198 L1440,360 L0,360 Z" />
+                </svg>
+                <svg class="ridge ridge--mirror ridge--mirror-near" viewBox="0 0 1440 360" preserveAspectRatio="none">
+                    <path d="M0,258 C120,252 220,240 320,232 C400,226 470,258 560,282 C630,298 660,306 722,307 C800,306 850,268 940,246 C1030,224 1090,206 1180,214 C1280,223 1360,246 1440,254 L1440,360 L0,360 Z" />
                 </svg>
             </div>
-            <div class="container belowwaves">
-                <div class="posts">
-                    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-                    {% for post in sorted_posts limit:3 %}  
-                        {% include blog_post.html %}
-                    {% endfor %}
-                </div>
-                <form action='{{ site.url }}/blog' method='get'>
-                <button type="submit">Mehr Posts ansehen</button>
-            </form>
-                </div>
-                
 
-            </div>
-        </section>
+            <section class="portfolio" id="portfolio">
+                <div class="container">
+                    <article class="station" data-reveal>
+                        <header class="station-head">
+                            <span class="station-brand station-brand--lg"><img src="images/logos/reqpool.svg" alt="ReqPOOL"></span>
+                            <p class="station-role">IT-Management-Consultant &middot; seit 2025</p>
+                        </header>
+                        <div class="station-grid">
+                            <div class="station-box">
+                                <p class="station-box-label">Für wen ich arbeite</p>
+                                <p>Industrie-Großkonzerne, die vor großen Software-Entscheidungen stehen &ndash; in Projekten wie:</p>
+                                <ul class="station-list">
+                                    <li>Individualentwicklungen, z.&nbsp;B. Webshops</li>
+                                    <li>SAP-Customizing-Projekte für 4.000 Nutzer:innen</li>
+                                    <li>Konzeption &amp; Einführung von Data Warehouses</li>
+                                    <li>IT-Organisationstransformationen &amp; Operating-Modelle</li>
+                                    <li>Testmanagement</li>
+                                    <li>MES-Systementscheidungen</li>
+                                </ul>
+                            </div>
+                            <div class="station-box station-box--facts">
+                                <p class="station-box-label">Welche Erfahrung ich dabei sammle</p>
+                                <ul class="skill-pills">
+                                    <li><strong>Anforderungsmanagement</strong><span>Requirements Engineering, Fachkonzepte, Spezifikationen</span></li>
+                                    <li><strong>Projektmanagement</strong><span>Projektleitung und -begleitung großer IT-Vorhaben</span></li>
+                                    <li><strong>Software-Auswahl &amp; Ausschreibungen</strong><span>Herstellerneutrale Auswahlverfahren, RFPs &amp; Vergaben</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
+                    <article class="station" data-reveal>
+                        <header class="station-head">
+                            <span class="station-brand station-brand--lg"><img src="images/logos/wear-together.png" alt="wear Together"></span>
+                            <p class="station-role">Co-Founder &amp; Geschäftsführung &middot; 2019&ndash;2025, seither Gesellschafter</p>
+                        </header>
+                        <div class="station-grid">
+                            <div class="station-box">
+                                <p class="station-box-label">Was ich gemacht habe</p>
+                                <p>Schulmerchandise als Gesamtpaket: Konzeption &amp; Design, Marketing, Verkauf über den eigenen Webshop, Produktionslogistik und Support &ndash; wir übernehmen den direkten Verkauf der Kleidung an die Schüler:innen.</p>
+                                <p>Mein Fokus lag auf <strong>Produktmanagement, Technik &amp; Entwicklung, Prozessoptimierung</strong> sowie der Betreuung und Abwicklung der Projekte.</p>
+                            </div>
+                            <div class="station-box station-box--facts">
+                                <p class="station-box-label">Was dabei herausgekommen ist</p>
+                                <dl class="stat-grid">
+                                    <div class="stat"><dt>200+</dt><dd>Schulen in AT &amp; DE</dd></div>
+                                    <div class="stat"><dt>330+</dt><dd>Merchandiseprojekte mit Partnern</dd></div>
+                                    <div class="stat"><dt>&gt;100.000&nbsp;&euro;</dt><dd>Jahresumsatz</dd></div>
+                                    <div class="stat"><dt>Top&nbsp;10</dt><dd>Pegasus-Wirtschaftspreis 2021</dd></div>
+                                    <div class="stat"><dt>Top&nbsp;100</dt><dd>GEWINN Jungunternehmen Österreich</dd></div>
+                                </dl>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="cv" id="lebenslauf">
+                <div class="container">
+                    <div class="cv-head">
+                        <div>
+                            <p class="eyebrow" data-reveal>Lebenslauf</p>
+                            <h2 data-reveal>Der schnelle Überblick</h2>
+                            <p class="section-lede" data-reveal>Die wichtigsten Stationen auf einen Blick &ndash; Details klappst du bei Bedarf aus.</p>
+                        </div>
+                        <a class="btn btn--ghost" data-reveal href="#" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/></svg>&nbsp;Als PDF laden</a>
+                    </div>
+                    <div class="cv-timeline" data-reveal>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">seit 2025</span><span class="cv-title">IT-Management-Consultant &middot; ReqPOOL</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li>Beratung von <strong>Industrie-Großkonzernen</strong> bei großen Software-Entscheidungen</li>
+                                <li>Schwerpunkte: <strong>Anforderungsmanagement, Projektmanagement</strong> und herstellerneutrale <strong>Software-Auswahl &amp; Ausschreibungen</strong></li>
+                                <li>Projekte von <strong>SAP-Customizing</strong> über <strong>Data-Warehouse-Einführungen</strong> bis zu <strong>MES-Systementscheidungen</strong></li>
+                            </ul></div>
+                        </details>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">2019&ndash;2025</span><span class="cv-title">Co-Founder &amp; Geschäftsführung &middot; S&amp;G wear Together GmbH</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li>Management von Schulmerchandise für <strong>200+ Schulen</strong> in AT &amp; DE</li>
+                                <li>Fokus: <strong>Produktmanagement, Technik &amp; Entwicklung, Prozessoptimierung</strong> sowie Betreuung &amp; Abwicklung</li>
+                                <li>Seit Februar 2025 als <strong>Gesellschafter</strong> beteiligt</li>
+                            </ul></div>
+                        </details>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">2022&ndash;2025</span><span class="cv-title">MSc Wirtschaftsinformatik &middot; JKU Linz</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li>Abschluss mit <strong>Notenschnitt 1,3</strong>, <strong>Study Abroad Excellence Award</strong>, Absolvent Uni Management Club Linz</li>
+                                <li><strong>Masterarbeit:</strong> Assessment of the risks of fake user-generated content and corresponding countermeasures</li>
+                                <li><strong>Auslandssemester</strong> an der NEOMA Business School (Grande École, Rouen): Int. Trade, Int. Finance, Int. Management, Data Analytics &amp; BI</li>
+                            </ul></div>
+                        </details>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">2022&ndash;2023</span><span class="cv-title">Fullstack Developer &middot; ACP cubido (Teilzeit)</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li>Entwicklung von <strong>E-Procurement-Software</strong> als Software Architect</li>
+                                <li>Stack: <strong>Java, Spring, Angular, TypeScript</strong> in einem <strong>Microservice-/Kubernetes-Projekt</strong></li>
+                                <li>Agile Zusammenarbeit via <strong>Scrum</strong>, auch direkt mit Kunden</li>
+                            </ul></div>
+                        </details>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">2019&ndash;2022</span><span class="cv-title">BSc Wirtschaftsinformatik &middot; JKU Linz</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li><strong>Bachelorarbeit</strong> in Kooperation mit oenpay (OeNB): Die Generation 65+ als Kundengruppe im Onlinebanking</li>
+                                <li><strong>Gewinner der Praktikums-Challenge 2021</strong></li>
+                                <li><strong>Unternehmensgründung</strong> neben dem Studium</li>
+                            </ul></div>
+                        </details>
+                        <details class="cv-item">
+                            <summary><span class="cv-period">2014&ndash;2019</span><span class="cv-title">HTL Leonding &middot; IT/Medientechnik</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                            <div class="cv-detail"><ul>
+                                <li>Schwerpunkte: <strong>Softwareentwicklung, Datenbanksysteme, Medientechnik, Netzwerktechnik</strong></li>
+                                <li><strong>Schulsprecher 2019</strong>, maturiert mit <strong>ausgezeichnetem Erfolg</strong></li>
+                                <li><strong>Ingenieur-Titel</strong> Informatik/IT</li>
+                            </ul></div>
+                        </details>
+                        <div class="cv-extra" id="cv-extra" hidden>
+                            <details class="cv-item">
+                                <summary><span class="cv-period">Praktika</span><span class="cv-title">Rübig Holding &middot; Banner Batterien &middot; Kepler Uniklinikum</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                                <div class="cv-detail"><ul>
+                                    <li><strong>Rübig Holding</strong> (2020): HR/PE/PV &ndash; Prototypen für digitalen Lehrlingstest &amp; Lerntagebuch, Trainingsvideos, Recherchen</li>
+                                    <li><strong>Banner Batterien</strong> (2017): Marketing &ndash; Online-Redaktion, SEO, Google-Ads-Vorbereitung, Werbemittelfotografie</li>
+                                    <li><strong>Kepler Uniklinikum</strong> (2016): Technischer Support in der Gesundheitsinformatik</li>
+                                </ul></div>
+                            </details>
+                            <details class="cv-item">
+                                <summary><span class="cv-period">Zertifikate</span><span class="cv-title">Oracle &middot; Google &middot; Ingenieur-Titel</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                                <div class="cv-detail"><ul>
+                                    <li><strong>Oracle</strong> Database Programming Certificate</li>
+                                    <li><strong>Google</strong> Analytics für Fortgeschrittene</li>
+                                    <li><strong>Ingenieur-Titel</strong> Informatik/Informationstechnologie</li>
+                                </ul></div>
+                            </details>
+                            <details class="cv-item">
+                                <summary><span class="cv-period">Sprachen</span><span class="cv-title">Deutsch &middot; Englisch &middot; Französisch</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                                <div class="cv-detail"><ul>
+                                    <li><strong>Deutsch</strong> &ndash; Muttersprache</li>
+                                    <li><strong>Englisch</strong> &ndash; verhandlungssicher (II. Platz beim BHS-Fremdsprachenwettbewerb OÖ)</li>
+                                    <li><strong>Französisch</strong> &ndash; B1 (Unikurse an JKU und NEOMA)</li>
+                                </ul></div>
+                            </details>
+                            <details class="cv-item">
+                                <summary><span class="cv-period">Skills</span><span class="cv-title">Technik &middot; Mediendesign &middot; Kreativ</span><span class="cv-chevron" aria-hidden="true"></span></summary>
+                                <div class="cv-detail"><ul>
+                                    <li><strong>Technisch:</strong> Java, Spring/EE, TypeScript, Angular, HTML, CSS, SQL, WordPress/WooCommerce, E-Mail-Marketing &amp; CRM-Automatisierung, Git, Linux, Docker, Kubernetes (Anwendung), Python, Excel &amp; Office</li>
+                                    <li><strong>Mediendesign:</strong> Adobe Lightroom, Photoshop, Premiere, Elementor</li>
+                                    <li><strong>Kreativ:</strong> Public Speaking, repräsentative Tätigkeiten, Texte schreiben</li>
+                                </ul></div>
+                            </details>
+                        </div>
+                    </div>
+                    <button class="btn btn--ghost cv-more" id="cv-more" type="button" aria-expanded="false" aria-controls="cv-extra" data-reveal>Mehr anzeigen &ndash; Praktika, Zertifikate, Sprachen &amp; Skills</button>
+                </div>
+            </section>
+
+            <section class="blog" id="blog">
+                <div class="blog-divider blog-divider--top" aria-hidden="true"></div>
+                <div class="container">
+                    <div class="blog-head">
+                        <div><p class="eyebrow">Blog</p><h2>Frisch aus dem Blog</h2></div>
+                        <button class="blog-toggle" id="blog-toggle" type="button" aria-expanded="true" aria-controls="blog-body">
+                            <span class="blog-toggle-label">Einklappen</span><span class="blog-toggle-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="blog-body" id="blog-body">
+                        <div class="blog-body-inner">
+                            <div class="posts"><article class="post-card" data-reveal>
+    <a class="post-card-media" href="https://christophergusenbauer.at/blog" tabindex="-1" aria-hidden="true"><img src="images/posts/kurzgeschichte.jpg" alt="" loading="lazy"></a>
+    <div class="post-card-body">
+        <p class="post-card-meta"><span class="post-card-tag">Kurzgeschichten</span><time>11.09.2024</time></p>
+        <h3 class="post-card-title"><a href="https://christophergusenbauer.at/blog">Die Zeit läuft ab.</a></h3>
+        <p class="post-card-excerpt">Die Vorhänge raschelten, bewegt von einer der letzten Sommerböen dieses Jahres. Die mittlerweile schwachen Sonnenstrahlen suchten sich ihren Weg in das Zimmer&hellip;</p>
+        <a class="post-card-link" href="https://christophergusenbauer.at/blog">Weiterlesen <span aria-hidden="true">&rarr;</span></a>
+    </div>
+</article>
+<article class="post-card" data-reveal>
+    <a class="post-card-media" href="https://christophergusenbauer.at/blog" tabindex="-1" aria-hidden="true"><img src="images/posts/pexels-photomix-company-96612.jpg" alt="" loading="lazy"></a>
+    <div class="post-card-body">
+        <p class="post-card-meta"><span class="post-card-tag">Meinung</span><time>08.09.2020</time></p>
+        <h3 class="post-card-title"><a href="https://christophergusenbauer.at/blog">Warum jeder etwas zu verbergen hat</a></h3>
+        <p class="post-card-excerpt">Max Mustermann ist ein imaginärer Teamleiter in einer oberösterreichischen Versicherung. Er hat ein kleines Haus am Stadtrand von Linz, eine Frau, zwei Kinder und einen Hund&hellip;</p>
+        <a class="post-card-link" href="https://christophergusenbauer.at/blog">Weiterlesen <span aria-hidden="true">&rarr;</span></a>
+    </div>
+</article>
+<article class="post-card" data-reveal>
+    <a class="post-card-media" href="https://christophergusenbauer.at/blog" tabindex="-1" aria-hidden="true"><img src="images/posts/icon-2488093_1280.png" alt="" loading="lazy"></a>
+    <div class="post-card-body">
+        <p class="post-card-meta"><span class="post-card-tag">Anleitungen</span><time>31.05.2020</time></p>
+        <h3 class="post-card-title"><a href="https://christophergusenbauer.at/blog">Dateien lesen, bearbeiten, verschieben und löschen mit Java für Anfänger</a></h3>
+        <p class="post-card-excerpt">Als Java-Entwickler merkt man manchmal, dass das Java Ökosystem etwas verwirrend sein kann. So ist auch der Umgang mit Dateien nicht auf den ersten Blick ganz klar&hellip;</p>
+        <a class="post-card-link" href="https://christophergusenbauer.at/blog">Weiterlesen <span aria-hidden="true">&rarr;</span></a>
+    </div>
+</article></div>
+                            <div class="blog-actions"><a class="btn btn--sunset" href="https://christophergusenbauer.at/blog">Alle Beiträge lesen</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="gallery" id="photography">
             <div class="container">
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich gegründet habe</h2>
-                            <ul>
-                                <li>Co-Founder und ehemaliger Geschäftsführer <em>des größten Schulmerchandiseunternehmens </em>
-                                    <a href="http://www.wear-together.at">S&amp;G
-                                    wear Together
-                                    GmbH</a> in DE & AT.
-                                    </li>
-                                <li>Auszeichnungen: <b>Top10 Pegasus-Award 2021, Top100 Gewinn-Jungunternehmen
-                                        Österreich
-                                        2021</b></li>
-                            </ul>
-                        </div>
-                    </div>
-
+                <div class="gallery-head">
+                    <div><p class="eyebrow">Fotografie</p><h2>Durch meine Linse</h2></div>
+                    <p class="gallery-live" id="gallery-live" hidden><span class="live-dot" aria-hidden="true"></span> live von Flickr</p>
                 </div>
-
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich kann</h2>
-                            <ul>
-                            
-                                <li>Produktentwicklung - <em>Strategische Analyse, Placement, Pricing und Vermarktung von IT-Produkten</em></li>
-                                <li>Unternehmensentwicklung - <em>Intra- und Entrepreneurship, Projektmanagement, Prozessoptimierung, Beratung</em></li>
-                                <li>Backendentwicklung - <em> Java, Spring, Maven, SQL, Kubernetes (usage)</em></li>
-                                <li>Frontendentwicklung - <em>Typescript/JS, Angular, HTML, CSS, Git, JavaFX</em></li>
- 
-                            </ul>
-                        </div>
-                    </div>
+                <div class="masonry" id="flickr-gallery">
+                    <div class="mItem"><img src="images/baum.jpg" alt="Baum in Landschaft" loading="lazy"></div>
+                    <div class="mItem"><img src="images/blume.jpg" alt="Nahaufnahme einer Blume" loading="lazy"></div>
+                    <div class="mItem"><img src="images/gebäide.jpg" alt="Architekturaufnahme" loading="lazy"></div>
+                    <div class="mItem"><img src="images/katze.jpg" alt="Katze" loading="lazy"></div>
+                    <div class="mItem"><img src="images/meer.jpg" alt="Meer" loading="lazy"></div>
+                    <div class="mItem"><img src="images/mädchen im feld.jpg" alt="Portrait im Feld" loading="lazy"></div>
+                    <div class="mItem"><img src="images/mädchen lehnend.jpg" alt="Portrait, lehnend" loading="lazy"></div>
+                    <div class="mItem"><img src="images/wüste.jpg" alt="Wüstenlandschaft" loading="lazy"></div>
                 </div>
-                <div class="skill-section">
-                    <div class="text">
-                        <div class="card">
-                            <h2>...was ich gemacht habe</h2>
-                            <ul>
-                                <li>Master of Science der Wirtschaftsinformatik an der JKU Linz</li>
-                                <li>Exchange Semester in Nordfrankreich, Rouen an einer Grande École (NEOMA).</li>
-                                <li>HTBLA Leonding, Schulsprecher 2019, Ingenieurstitel</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div class="gallery-actions"><a class="btn btn--ghost" href="https://flic.kr/ps/42jNNs" target="_blank" rel="noopener">Mehr auf Flickr</a></div>
             </div>
         </section>
 
-        <!-- Image Gallery Section -->
-        <section id="photography" class="gallery">
-            <h2>Meine Fotografie</h2>
-            <div class="masonry">
-                <div class="mItem">
-                    <img src="/images/baum.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/blume.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/gebäide.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/katze.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/meer.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/mädchen im feld.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/mädchen lehnend.jpg">
-                </div>
-
-                <div class="mItem">
-                    <img src="/images/wüste.jpg">
-                </div>
-
-
-
+        <section class="contact" id="contact">
+            <div class="contact-divider" aria-hidden="true">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 L0,60 C240,10 480,90 740,60 C1000,30 1240,80 1440,40 L1440,120 Z" /></svg>
             </div>
-            <form class="alignselfcenter" action='https://flic.kr/ps/42jNNs' method='get'>
-                <button  class ="buttononwhitebg nomargin" type="submit">Mehr Fotos ansehen</button>
-            </form>
-        </section>
-        
-        <section id="contact-form" class="contact-form">
-            <form action="https://formspree.io/f/xwkdgkyz" method="POST">
-                <div>
+            <div class="container contact-grid">
+                <div class="contact-pitch" data-reveal>
+                    <p class="eyebrow">Kontakt</p>
                     <h2>Bei mir melden</h2>
-                    <p>Ich freue mich bei jeder Anfrage.</p>
+                    <p class="pitch-line">Digitale Vorhaben möglich machen.</p>
+                    <p class="pitch-proof">Von der ersten Anforderung bis zum laufenden System &ndash; das ist das, was ich am liebsten tue. Als Gründer und IT-Consultant kenne ich beide Seiten: selbst bauen und andere dabei begleiten. Ob ein spannendes Projekt, eine Frage zu meinen Themen oder einfach guter Austausch &ndash; ich freue mich über jede Nachricht.</p>
+                    <ul class="pitch-facts">
+                        <li>Mehr über mich auf <a class="inline-link" href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener">LinkedIn</a> oder im <a class="inline-link" href="#" target="_blank" rel="noopener">Lebenslauf</a></li>
+                    </ul>
                 </div>
-                <label>
-                    E-Mail
-                    <input type="email" name="email">
-                </label>
-                <label>
-                    Nachricht
-                    <textarea name="message" class="large"></textarea>
-                </label>
-                <button type="submit">Senden</button>
-            </form>
-
+                <form class="contact-form" data-reveal action="https://formspree.io/f/xwkdgkyz" method="POST">
+                    <label>E-Mail<input type="email" name="email" required autocomplete="email" placeholder="ihre@mail.at"></label>
+                    <label>Nachricht<textarea name="message" required rows="6" placeholder="Worum geht&#8217;s?"></textarea></label>
+                    <button class="btn btn--solid" type="submit">Nachricht senden</button>
+                </form>
+            </div>
         </section>
     </main>
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Christopher Gusenbauer. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer class="site-footer">
+    <div class="container footer-grid">
+        <p class="footer-name">Christopher Gusenbauer <span class="footer-copy">&copy; 2026</span></p>
+        <ul class="footer-links">
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#lebenslauf">Lebenslauf</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <ul class="social-icons social-icons--small">
+            <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a></li>
+            <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+            <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a></li>
+            <li><a href="https://flic.kr/ps/42jNNs" target="_blank" rel="noopener" aria-label="Flickr"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="4.4" cy="8" r="3.3"/><circle cx="11.6" cy="8" r="3.3"/></svg></a></li>
+        </ul>
+    </div>
+</footer>
     <script src="index.js"></script>
 </body>
-
 </html>
