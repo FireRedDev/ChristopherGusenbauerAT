@@ -63,6 +63,9 @@
 }
 
 html {
+  /* Die Seite ist von Haus aus dunkel – verhindert, dass Browser im
+     Nachtmodus (Force Dark) die dunklen Flächen invertieren */
+  color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 1rem);
 }
@@ -353,6 +356,13 @@ a { color: inherit; }
 @media (max-width: 820px) {
   .nav-toggle { display: flex; }
 
+  /* Kein Zeilenabstand zur (eingeklappten) Menüzeile, damit Logo und
+     Burger in der Leiste vertikal zentriert bleiben */
+  .site-nav {
+    row-gap: 0;
+    align-items: center;
+  }
+
   .nav-menu {
     flex-basis: 100%;
     flex-direction: column;
@@ -370,9 +380,11 @@ a { color: inherit; }
     padding-block: 0.6rem 1rem;
   }
 
+  /* Aufgeklappt: Einträge horizontal zentriert */
   .nav-menu a {
     padding: 0.75rem 0.3rem;
     font-size: var(--font-size-md);
+    text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
@@ -382,6 +394,8 @@ a { color: inherit; }
 
   .nav-menu a.nav-cta {
     margin-top: 0.6rem;
+    margin-inline: auto;
+    min-width: 10rem;
     text-align: center;
   }
 }
