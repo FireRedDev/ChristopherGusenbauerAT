@@ -210,10 +210,7 @@
     var wHeight = 0;
     var lineY = 0; // y-Position der Wasserlinie im Canvas
     var wStars = [];
-    var glints = [];
-    var drops = [];
     var wRaf = null;
-    var lastDrop = 0;
 
     var resizeWater = function () {
       wWidth = nightWater.clientWidth;
@@ -255,30 +252,6 @@
           warm: Math.random() < 0.25
         });
       }
-      /* Lichtglitzern knapp unter der Wasserlinie */
-      glints = [];
-      for (var g = 0; g < 7; g++) {
-        glints.push({
-          x: Math.random() * wWidth,
-          y: lineY + 6 + Math.random() * 70,
-          len: 40 + Math.random() * 130,
-          speed: 0.15 + Math.random() * 0.35,
-          phase: Math.random() * Math.PI * 2
-        });
-      }
-    };
-
-    var spawnDrop = function () {
-      /* fallende Sternschnuppe in der Spiegelung – zieht nach unten */
-      drops.push({
-        x: wWidth * (0.1 + Math.random() * 0.85),
-        y: lineY + 10,
-        vx: -0.6 + Math.random() * 1.2,
-        vy: 2 + Math.random() * 1.8,
-        life: 1,
-        decay: 0.009 + Math.random() * 0.007,
-        len: 50 + Math.random() * 50
-      });
     };
 
     var drawWaterStatic = function () {
@@ -318,53 +291,6 @@
         wctx.fill();
       }
       wctx.globalAlpha = 1;
-
-      /* Glitzern auf dem Wasser */
-      for (var g = 0; g < glints.length; g++) {
-        var gl = glints[g];
-        gl.x += gl.speed;
-        if (gl.x - gl.len > wWidth) gl.x = -gl.len;
-        var ga = 0.1 + 0.09 * Math.sin(t / 900 + gl.phase);
-        var grad = wctx.createLinearGradient(gl.x - gl.len, gl.y, gl.x, gl.y);
-        grad.addColorStop(0, "rgba(255,180,120,0)");
-        grad.addColorStop(0.5, "rgba(255,196,140," + ga + ")");
-        grad.addColorStop(1, "rgba(255,180,120,0)");
-        wctx.strokeStyle = grad;
-        wctx.lineWidth = 1.4;
-        wctx.beginPath();
-        wctx.moveTo(gl.x - gl.len, gl.y);
-        wctx.lineTo(gl.x, gl.y);
-        wctx.stroke();
-      }
-
-      /* fallende Sternschnuppen im Wasser */
-      if (t - lastDrop > 4200 + Math.random() * 3600 && drops.length < 2) {
-        spawnDrop();
-        lastDrop = t;
-      }
-      for (var d = drops.length - 1; d >= 0; d--) {
-        var dr = drops[d];
-        dr.x += dr.vx;
-        dr.y += dr.vy;
-        dr.life -= dr.decay;
-        if (dr.life <= 0 || dr.y > wHeight + 40) {
-          drops.splice(d, 1);
-          continue;
-        }
-        var dnorm = Math.hypot(dr.vx, dr.vy);
-        var tailX = dr.x - (dr.vx / dnorm) * dr.len;
-        var tailY = dr.y - (dr.vy / dnorm) * dr.len;
-        var dgrad = wctx.createLinearGradient(dr.x, dr.y, tailX, tailY);
-        dgrad.addColorStop(0, "rgba(255,236,210," + 0.7 * dr.life + ")");
-        dgrad.addColorStop(0.3, "rgba(255,180,120," + 0.4 * dr.life + ")");
-        dgrad.addColorStop(1, "rgba(255,180,120,0)");
-        wctx.strokeStyle = dgrad;
-        wctx.lineWidth = 1.4;
-        wctx.beginPath();
-        wctx.moveTo(dr.x, dr.y);
-        wctx.lineTo(tailX, tailY);
-        wctx.stroke();
-      }
 
       wRaf = window.requestAnimationFrame(waterFrame);
     };

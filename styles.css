@@ -277,7 +277,7 @@ a { color: inherit; }
   display: block;
   padding: 0.4rem 0.15rem;
   font-weight: 500;
-  color: var(--text-dim);
+  color: var(--text-bright);
   text-decoration: none;
   position: relative;
   transition: color 0.2s ease;
@@ -297,7 +297,7 @@ a { color: inherit; }
 
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
-  color: var(--text-bright);
+  color: var(--coral-300);
 }
 
 .nav-menu a:hover::after,
@@ -544,31 +544,30 @@ a { color: inherit; }
   z-index: 1;
 }
 
-/* Hügelsilhouette – Nachthimmel oben, Abendrot erst knapp am Hügel */
+/* Hügelsilhouette – oben transparent, damit die Kometen bis über den Hügel
+   fallen können; Abendrot erst knapp an der Silhouette */
 .horizon {
   position: relative;
-  height: clamp(260px, 32vw, 460px);
+  height: clamp(280px, 34vw, 480px);
   background: linear-gradient(180deg,
-      var(--night-950) 0%,
-      var(--night-950) 30%,
-      #2b1747 58%,
+      rgba(18, 10, 36, 0) 0%,
+      rgba(18, 10, 36, 0) 26%,
+      rgba(43, 23, 71, 0.9) 56%,
       #6b2d54 78%,
       #c2554e 92%,
       var(--sunset-500) 100%);
-  margin-top: -1px;
+  margin-top: clamp(-150px, -11vw, -60px);
 }
 
-/* Titel sitzt unten links auf dem dunklen Hügel */
+/* Titel schwebt mittig im Abendhimmel über der Hügelsenke */
 .horizon > .container {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: clamp(1.4rem, 4vw, 3rem);
+  top: 36%;
   z-index: 3;
-}
-
-.horizon-head {
-  max-width: 32rem;
+  text-align: center;
+  pointer-events: none;
 }
 
 .horizon-head .eyebrow {
@@ -577,7 +576,7 @@ a { color: inherit; }
 }
 
 .horizon-head h2 {
-  text-shadow: 0 6px 26px rgba(10, 5, 24, 0.65);
+  text-shadow: 0 8px 30px rgba(10, 5, 24, 0.75);
 }
 
 .ridge {
@@ -626,23 +625,81 @@ a { color: inherit; }
 
 .ridge--mirror path { fill: #0a0615; }
 
-/* sanfte Wellenlinien */
-.water-mirror::after {
-  content: "";
+/* ---------- Insel & Boot auf dem Wasser ---------- */
+.island,
+.boat {
   position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(180deg,
-      transparent 0px,
-      transparent 26px,
-      rgba(255, 205, 160, 0.05) 27px,
-      transparent 29px);
-  animation: waterShimmer 7s ease-in-out infinite alternate;
+  bottom: 0;
+  height: 0;
+  z-index: 3;
   pointer-events: none;
 }
 
-@keyframes waterShimmer {
-  from { transform: translateY(0); opacity: 0.7; }
-  to { transform: translateY(9px); opacity: 1; }
+.island {
+  left: clamp(0.5rem, 6vw, 6rem);
+  width: clamp(110px, 14vw, 200px);
+}
+
+.boat {
+  right: clamp(1rem, 7vw, 6rem);
+  width: clamp(46px, 6vw, 86px);
+  animation: boatSail 85s linear infinite;
+}
+
+.island-svg,
+.boat-svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Insel ragt aus dem Wasser, Basis liegt unter der Wasserlinie */
+.island-svg { bottom: -34px; }
+
+/* Bootsrumpf liegt im Wasser, die Segel stehen über der Linie */
+.boat-svg { bottom: -26px; }
+
+/* etwas hellerer Nachtton als der Hügel, damit die Silhouetten
+   vor Hügel UND Wasser lesbar bleiben */
+.island-svg path,
+.island-svg circle,
+.boat-svg path,
+.boat-svg rect {
+  fill: #2b1b4d;
+}
+
+/* Spiegelungen von Insel und Boot hängen unter der Wasserlinie */
+.island-svg--reflection,
+.boat-svg--reflection {
+  bottom: auto;
+  transform: scaleY(-1);
+  opacity: 0.25;
+  filter: blur(2px);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 80%);
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.island-svg--reflection { top: 32px; }
+
+.boat-svg--reflection { top: 24px; }
+
+.boat-svg:not(.boat-svg--reflection) {
+  animation: boatBob 4.5s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+}
+
+@keyframes boatBob {
+  from { transform: translateY(0) rotate(-1.2deg); }
+  to { transform: translateY(2px) rotate(1.2deg); }
+}
+
+/* Das Boot fährt langsam von rechts zur Insel hinüber */
+@keyframes boatSail {
+  0% { transform: translateX(0); opacity: 0; }
+  3% { opacity: 1; }
+  88% { opacity: 1; }
+  96%, 100% { transform: translateX(-68vw); opacity: 0; }
 }
 
 /* Sektionen im dunklen Teil liegen über dem Canvas */
@@ -861,7 +918,7 @@ a { color: inherit; }
    ========================================================================== */
 .founded {
   position: relative;
-  padding-block: clamp(3.5rem, 8svh, 6rem) clamp(5rem, 11svh, 8rem);
+  padding-block: clamp(3.5rem, 8svh, 6rem) clamp(2.5rem, 6svh, 4rem);
   overflow: hidden;
 }
 
@@ -875,9 +932,13 @@ a { color: inherit; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%231B0E31'/%3E%3Cstop offset='1' stop-color='%23FF746D'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%238d414f'/%3E%3Cstop offset='1' stop-color='%23FF746D'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(2000 0)'%3E%3Cg %3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-68.4 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.54' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
-  /* langer, weicher Auslauf zurück in den normalen Sternenhimmel */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 82%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 82%, transparent 100%);
+  /* sehr langsamer, weicher Auslauf – die Kometen fallen fast bis auf den Hügel */
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%, black 14%, black 58%,
+      rgba(0, 0, 0, 0.55) 78%, rgba(0, 0, 0, 0.25) 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%, black 14%, black 58%,
+      rgba(0, 0, 0, 0.55) 78%, rgba(0, 0, 0, 0.25) 92%, transparent 100%);
 }
 
 .comet-field {
@@ -1107,9 +1168,9 @@ a { color: inherit; }
 }
 
 .station-box-label {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--coral-300);
 }
@@ -1831,5 +1892,10 @@ a { color: inherit; }
   .js [data-reveal-comet] {
     opacity: 1;
     transform: none;
+  }
+
+  /* Boot bleibt ruhig rechts auf dem Wasser liegen */
+  .boat {
+    animation: none;
   }
 }
