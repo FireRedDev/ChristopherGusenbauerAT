@@ -1,9 +1,6 @@
 <footer class="site-footer">
     <div class="container footer-grid">
-        <div>
-            <p class="footer-name">Christopher Gusenbauer</p>
-            <p class="footer-tag">Wirtschaftsinformatiker aus Oberösterreich.</p>
-        </div>
+        <p class="footer-name">Christopher Gusenbauer <span class="footer-copy">&copy; {{ site.time | date: "%Y" }}</span></p>
         <ul class="footer-links">
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/#portfolio">Portfolio</a></li>
@@ -17,5 +14,4 @@
             <li><a href="https://flic.kr/ps/42jNNs" target="_blank" rel="noopener" aria-label="Flickr">{% include icon.html name="flickr" %}</a></li>
         </ul>
     </div>
-    <p class="footer-copy">&copy; {{ site.time | date: "%Y" }} Christopher Gusenbauer</p>
 </footer>

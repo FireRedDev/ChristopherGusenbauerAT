@@ -35,10 +35,8 @@
                             <li><a href="https://www.linkedin.com/in/christophergusenbauer/" target="_blank" rel="noopener" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
                             <li><a href="https://github.com/FireRedDev" target="_blank" rel="noopener" aria-label="GitHub">{% include icon.html name="github" %}</a></li>
                             <li><a href="https://www.instagram.com/christophergusenbauer" target="_blank" rel="noopener" aria-label="Instagram">{% include icon.html name="instagram" %}</a></li>
+                            <li><a href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener" aria-label="Lebenslauf (PDF)" title="Lebenslauf (PDF)">{% include icon.html name="file" %}</a></li>
                         </ul>
-                        <a class="btn btn--ghost" href="{{ '/files/Lebenslauf Gusenbauer Christopher.pdf' | relative_url }}" target="_blank" rel="noopener">
-                            {% include icon.html name="file" %}&nbsp;Lebenslauf (PDF)
-                        </a>
                     </div>
                 </div>
             </div>
@@ -63,45 +61,43 @@
                         2019 habe ich neben dem Studium <strong>wear Together</strong> mitgegründet &ndash;
                         daraus wurde das größte Schulmerchandise-Unternehmen in Österreich und Deutschland.
                     </p>
-                    <div class="comet-grid">
-                        <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon">{% include icon.html name="shirt" %}</div>
-                            <p class="comet-tag">2019&ndash;2025</p>
-                            <h3>S&amp;G wear Together GmbH</h3>
-                            <p>Co-Founder &amp; Geschäftsführer. Schulmerchandise als Gesamtpaket für über 200 Schulen
-                                in AT &amp; DE &ndash; vom Design über den eigenen Webshop bis zur Produktionslogistik.</p>
-                        </article>
-                        <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon">{% include icon.html name="star" %}</div>
-                            <p class="comet-tag">Auszeichnung</p>
-                            <h3>Top 10 &ndash; Pegasus 2021</h3>
-                            <p>Als &bdquo;Raketenstarter&ldquo; unter die Top 10 beim Pegasus-Wirtschaftspreis
-                                der OÖNachrichten gewählt.</p>
-                        </article>
-                        <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon">{% include icon.html name="trophy" %}</div>
-                            <p class="comet-tag">Auszeichnung</p>
-                            <h3>Top 100 &ndash; GEWINN Jungunternehmen</h3>
-                            <p>Vom Wirtschaftsmagazin GEWINN unter die 100 besten Jungunternehmen
-                                Österreichs gereiht.</p>
-                        </article>
-                        <article class="comet-card" data-reveal-comet>
-                            <div class="comet-icon">{% include icon.html name="growth" %}</div>
-                            <p class="comet-tag">Heute</p>
-                            <h3>Vom e.U. zur GmbH</h3>
-                            <p>Drei Firmierungen, zwei Geschäftsführer, ein Team. Seit Februar 2025 begleite ich
-                                das Unternehmen als Gesellschafter.</p>
-                        </article>
-                    </div>
+                    <article class="comet-card comet-card--main" data-reveal-comet>
+                        <div class="comet-icon">{% include icon.html name="shirt" %}</div>
+                        <p class="comet-tag">2019&ndash;2025 &middot; seit 02/2025 Gesellschafter</p>
+                        <h3>S&amp;G wear Together GmbH</h3>
+                        <p>Co-Founder &amp; Geschäftsführer. Schulmerchandise als Gesamtpaket für über 200 Schulen
+                            in AT &amp; DE &ndash; vom Design über den eigenen Webshop bis zur Produktionslogistik.</p>
+                        <div class="award-row">
+                            <div class="award">
+                                <div class="comet-icon comet-icon--small">{% include icon.html name="star" %}</div>
+                                <div>
+                                    <strong>Top 10 &ndash; Pegasus 2021</strong>
+                                    <span>Als &bdquo;Raketenstarter&ldquo; beim Pegasus-Wirtschaftspreis der
+                                        OÖNachrichten ausgezeichnet</span>
+                                </div>
+                            </div>
+                            <div class="award">
+                                <div class="comet-icon comet-icon--small">{% include icon.html name="trophy" %}</div>
+                                <div>
+                                    <strong>Top 100 &ndash; GEWINN Jungunternehmen</strong>
+                                    <span>Unter die 100 besten Jungunternehmen Österreichs gereiht</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- Hügel am Horizont -->
-            <div class="horizon" aria-hidden="true">
-                <svg class="ridge" viewBox="0 0 1440 360" preserveAspectRatio="none">
+            <!-- Hügel am Horizont mit Sektionstitel -->
+            <div class="horizon">
+                <svg class="ridge" viewBox="0 0 1440 360" preserveAspectRatio="none" aria-hidden="true">
                     <path
                         d="M0,272 C90,258 160,230 240,194 C330,154 390,114 490,106 C580,99 640,146 720,178 C790,206 860,226 950,220 C1050,213 1110,158 1210,146 C1290,136 1370,186 1440,212 L1440,360 L0,360 Z" />
                 </svg>
+                <div class="container horizon-head">
+                    <p class="eyebrow">Portfolio</p>
+                    <h2>Meine Stationen</h2>
+                </div>
             </div>
             <div class="waterline" aria-hidden="true"></div>
             <!-- Spiegelung des Hügels im Wasser -->
@@ -115,51 +111,12 @@
             <!-- ============ Portfolio ============ -->
             <section class="portfolio" id="portfolio">
                 <div class="container">
-                    <p class="eyebrow" data-reveal>Portfolio</p>
-                    <h2 data-reveal>Meine Stationen</h2>
-
                     <article class="station" data-reveal>
                         <header class="station-head">
-                            <span class="station-brand">
-                                <img src="/images/logos/wear-together.png" alt="wear Together Logo">
+                            <span class="station-brand station-brand--lg">
+                                <img src="/images/logos/reqpool.svg" alt="ReqPOOL">
                             </span>
-                            <div>
-                                <h3>wear Together</h3>
-                                <p class="station-role">Co-Founder &amp; Geschäftsführung &middot; 2019&ndash;2025,
-                                    seither Gesellschafter</p>
-                            </div>
-                        </header>
-                        <div class="station-grid">
-                            <div class="station-box">
-                                <p class="station-box-label">Was ich gemacht habe</p>
-                                <p>Schulmerchandise als Gesamtpaket: Konzeption &amp; Design, Marketing, Verkauf über den
-                                    eigenen Webshop, Produktionslogistik und Support &ndash; wir übernehmen den direkten
-                                    Verkauf der Kleidung an die Schüler:innen.</p>
-                                <p>Mein Fokus lag auf <strong>Produktmanagement, Technik &amp; Entwicklung,
-                                        Prozessoptimierung</strong> sowie der Betreuung und Abwicklung der Projekte.</p>
-                            </div>
-                            <div class="station-box station-box--facts">
-                                <p class="station-box-label">Was dabei herausgekommen ist</p>
-                                <dl class="stat-grid">
-                                    <div class="stat"><dt>200+</dt><dd>Schulen in AT &amp; DE</dd></div>
-                                    <div class="stat"><dt>330+</dt><dd>Merchandiseprojekte mit Partnern</dd></div>
-                                    <div class="stat"><dt>&gt;100.000&nbsp;&euro;</dt><dd>Jahresumsatz</dd></div>
-                                    <div class="stat"><dt>Top&nbsp;10</dt><dd>Pegasus-Wirtschaftspreis 2021</dd></div>
-                                    <div class="stat"><dt>Top&nbsp;100</dt><dd>GEWINN Jungunternehmen Österreich</dd></div>
-                                </dl>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="station" data-reveal>
-                        <header class="station-head">
-                            <span class="station-brand">
-                                <img src="/images/logos/reqpool.svg" alt="ReqPOOL Logo">
-                            </span>
-                            <div>
-                                <h3>ReqPOOL</h3>
-                                <p class="station-role">IT-Management-Consultant &middot; seit 2025</p>
-                            </div>
+                            <p class="station-role">IT-Management-Consultant &middot; seit 2025</p>
                         </header>
                         <div class="station-grid">
                             <div class="station-box">
@@ -191,6 +148,36 @@
                                         <span>Herstellerneutrale Auswahlverfahren, RFPs &amp; Vergaben</span>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="station" data-reveal>
+                        <header class="station-head">
+                            <span class="station-brand station-brand--lg">
+                                <img src="/images/logos/wear-together.png" alt="wear Together">
+                            </span>
+                            <p class="station-role">Co-Founder &amp; Geschäftsführung &middot; 2019&ndash;2025,
+                                seither Gesellschafter</p>
+                        </header>
+                        <div class="station-grid">
+                            <div class="station-box">
+                                <p class="station-box-label">Was ich gemacht habe</p>
+                                <p>Schulmerchandise als Gesamtpaket: Konzeption &amp; Design, Marketing, Verkauf über den
+                                    eigenen Webshop, Produktionslogistik und Support &ndash; wir übernehmen den direkten
+                                    Verkauf der Kleidung an die Schüler:innen.</p>
+                                <p>Mein Fokus lag auf <strong>Produktmanagement, Technik &amp; Entwicklung,
+                                        Prozessoptimierung</strong> sowie der Betreuung und Abwicklung der Projekte.</p>
+                            </div>
+                            <div class="station-box station-box--facts">
+                                <p class="station-box-label">Was dabei herausgekommen ist</p>
+                                <dl class="stat-grid">
+                                    <div class="stat"><dt>200+</dt><dd>Schulen in AT &amp; DE</dd></div>
+                                    <div class="stat"><dt>330+</dt><dd>Merchandiseprojekte mit Partnern</dd></div>
+                                    <div class="stat"><dt>&gt;100.000&nbsp;&euro;</dt><dd>Jahresumsatz</dd></div>
+                                    <div class="stat"><dt>Top&nbsp;10</dt><dd>Pegasus-Wirtschaftspreis 2021</dd></div>
+                                    <div class="stat"><dt>Top&nbsp;100</dt><dd>GEWINN Jungunternehmen Österreich</dd></div>
+                                </dl>
                             </div>
                         </div>
                     </article>
