@@ -617,9 +617,28 @@ a { color: inherit; }
 
 .ridge path { fill: #0d0719; }
 
+/* Mond rechts oben – warmes Licht über der Nachtszene */
+.moon {
+  position: absolute;
+  top: clamp(0.4rem, 3vw, 2.2rem);
+  right: clamp(1.5rem, 8vw, 8rem);
+  width: clamp(44px, 5.5vw, 84px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #fff8e9 0%, #ffedc9 55%, #ffd9a2 100%);
+  box-shadow:
+    0 0 22px 6px rgba(255, 200, 140, 0.4),
+    0 0 60px 22px rgba(255, 160, 100, 0.22),
+    0 0 140px 60px rgba(255, 138, 92, 0.12);
+  z-index: 0;
+}
+
 /* Fernste Bergkette – zackige Gipfel, am hellsten, wirkt am weitesten weg */
 .ridge--peaks { z-index: 1; }
 .ridge--peaks path { fill: #7f6a93; }
+
+/* Mondlicht fällt von rechts oben auf die rechte Flanke des mittleren Bergs */
+.ridge--peaks .peak-light { fill: rgba(255, 150, 100, 0.3); }
 
 /* Hintere Hügelkette – atmosphärisch heller/häsiger, damit sie in der Ferne wirkt */
 .ridge--far { z-index: 2; }
