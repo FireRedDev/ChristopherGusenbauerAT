@@ -559,12 +559,12 @@ a { color: inherit; }
   margin-top: clamp(20px, 2vw, 60px);
 }
 
-/* Titel sitzt eingebettet auf dem hinteren Hügel, in der Senke der vorderen Hügel */
+/* Titel sitzt vollständig im mittleren Hügel, mit Abstand zur Kuppe */
 .horizon > .container {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 33%;
+  top: 46%;
   z-index: 3;
   text-align: center;
   pointer-events: none;
@@ -579,6 +579,13 @@ a { color: inherit; }
   text-shadow: 0 8px 30px rgba(10, 5, 24, 0.75);
 }
 
+/* "Stationen" im gleichen kräftigen Orange wie das Wasser darunter */
+.horizon-head .grad-text {
+  background: linear-gradient(92deg, #ffc06a 0%, #ff9a3d 45%, #ff7f2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .ridge {
   position: absolute;
   inset: 0;
@@ -588,6 +595,10 @@ a { color: inherit; }
 }
 
 .ridge path { fill: #0d0719; }
+
+/* Fernste Bergkette – zackige Gipfel, am hellsten, wirkt am weitesten weg */
+.ridge--peaks { z-index: 1; }
+.ridge--peaks path { fill: #7f6a93; }
 
 /* Hintere Hügelkette – atmosphärisch heller/häsiger, damit sie in der Ferne wirkt */
 .ridge--far { z-index: 2; }
@@ -640,6 +651,12 @@ a { color: inherit; }
 }
 .ridge--mirror-far path { fill: #574269; }
 
+.ridge--mirror-peaks {
+  opacity: 0.3;
+  filter: blur(3px);
+}
+.ridge--mirror-peaks path { fill: #7f6a93; }
+
 .ridge--mirror-near {
   opacity: 0.55;
 }
@@ -656,7 +673,7 @@ a { color: inherit; }
 }
 
 .island {
-  left: clamp(0.5rem, 6vw, 6rem);
+  left: clamp(3rem, 16vw, 20rem);
   width: clamp(110px, 14vw, 200px);
 }
 
@@ -720,6 +737,28 @@ a { color: inherit; }
   3% { opacity: 1; }
   88% { opacity: 1; }
   96%, 100% { transform: translateX(-68vw); opacity: 0; }
+}
+
+/* Auf schmalen Screens wird der mittlere Hügel gestreckt,
+   damit der Titel weiterhin komplett im Hügel liegt */
+@media (max-width: 760px) {
+  .horizon-head h2 { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+
+  .ridge--far,
+  .ridge--mirror-far {
+    transform: scaleX(2.3);
+    transform-origin: 50% 100%;
+  }
+
+  .ridge--mirror-far { transform: scaleX(2.3) scaleY(-1); }
+
+  .ridge--peaks,
+  .ridge--mirror-peaks {
+    transform: scaleX(1.35);
+    transform-origin: 50% 100%;
+  }
+
+  .ridge--mirror-peaks { transform: scaleX(1.35) scaleY(-1); }
 }
 
 /* Sektionen im dunklen Teil liegen über dem Canvas */
