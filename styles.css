@@ -738,12 +738,14 @@ a { color: inherit; }
   to { transform: translateY(2px) rotate(1.2deg); }
 }
 
-/* Das Boot fährt langsam von rechts zur Insel hinüber */
+/* Das Boot kommt von rechts außerhalb des Bildschirms herein und
+   verschwindet, bevor es die Insel erreicht */
 @keyframes boatSail {
-  0% { transform: translateX(0); opacity: 0; }
-  3% { opacity: 1; }
-  88% { opacity: 1; }
-  96%, 100% { transform: translateX(-68vw); opacity: 0; }
+  0% { transform: translateX(14vw); opacity: 0; }
+  5% { opacity: 1; }
+  72% { opacity: 1; }
+  84% { opacity: 0; }
+  85%, 100% { transform: translateX(-44vw); opacity: 0; }
 }
 
 /* Auf schmalen Screens werden die Ketten horizontal gestreckt,
