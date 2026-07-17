@@ -651,23 +651,13 @@ a { color: inherit; }
 
 .ridge--mirror path { fill: #0a0615; }
 
-/* Spiegelung der hinteren Kette – heller & weicher, wie im Himmel */
-.ridge--mirror-far {
-  opacity: 0.4;
-  filter: blur(3px);
-}
-.ridge--mirror-far path { fill: #574269; }
-
-.ridge--mirror-peaks {
-  opacity: 0.3;
-  filter: blur(3px);
-}
-.ridge--mirror-peaks path { fill: #7f6a93; }
-
 .ridge--mirror-near {
   opacity: 0.55;
 }
 .ridge--mirror-near path { fill: #0a0615; }
+
+/* Die Bäume spiegeln sich nur schwach im Wasser */
+.ridge--mirror-near path + path { opacity: 0.35; }
 
 /* ---------- Insel & Boot auf dem Wasser ---------- */
 .island,
@@ -751,21 +741,15 @@ a { color: inherit; }
 /* Auf schmalen Screens werden die Ketten horizontal gestreckt,
    damit Berge und Hügel nicht zu spitzen Zacken gestaucht werden */
 @media (max-width: 760px) {
-  .ridge--far,
-  .ridge--mirror-far {
+  .ridge--far {
     transform: scaleX(2);
     transform-origin: 50% 100%;
   }
 
-  .ridge--mirror-far { transform: scaleX(2) scaleY(-1); }
-
-  .ridge--peaks,
-  .ridge--mirror-peaks {
+  .ridge--peaks {
     transform: scaleX(1.6);
     transform-origin: 50% 100%;
   }
-
-  .ridge--mirror-peaks { transform: scaleX(1.6) scaleY(-1); }
 
   .ridge--near,
   .ridge--mirror-near {
