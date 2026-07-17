@@ -764,6 +764,14 @@ a { color: inherit; }
   }
 
   .ridge--mirror-peaks { transform: scaleX(1.6) scaleY(-1); }
+
+  .ridge--near,
+  .ridge--mirror-near {
+    transform: scaleX(2);
+    transform-origin: 50% 100%;
+  }
+
+  .ridge--mirror-near { transform: scaleX(2) scaleY(-1); }
 }
 
 /* Sektionen im dunklen Teil liegen über dem Canvas */
