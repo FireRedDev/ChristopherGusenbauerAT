@@ -717,7 +717,9 @@ a { color: inherit; }
 .boat {
   right: clamp(1rem, 7vw, 6rem);
   width: clamp(46px, 6vw, 86px);
-  animation: boatSail 85s linear infinite;
+  /* Negativer Delay: Die allererste Fahrt beginnt bereits sichtbar im
+     Bild, etwa 20% vom rechten Bildschirmrand entfernt */
+  animation: boatSail 85s linear -34s infinite;
 }
 
 .island-svg,
