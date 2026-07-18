@@ -637,8 +637,11 @@ a { color: inherit; }
 .ridge--peaks { z-index: 1; }
 .ridge--peaks path { fill: #7f6a93; }
 
-/* Mondlicht fällt von rechts oben auf die rechte Flanke des mittleren Bergs */
+/* Mondlicht fällt von rechts oben auf die rechten Flanken der Berge –
+   je näher am Mond, desto kräftiger */
 .ridge--peaks .peak-light { fill: rgba(255, 150, 100, 0.3); }
+.ridge--peaks .peak-light--dim { fill: rgba(255, 150, 100, 0.2); }
+.ridge--peaks .peak-light--strong { fill: rgba(255, 150, 100, 0.38); }
 
 /* Hintere Hügelkette – atmosphärisch heller/häsiger, damit sie in der Ferne wirkt */
 .ridge--far { z-index: 2; }
@@ -2020,3 +2023,169 @@ a { color: inherit; }
     animation: none;
   }
 }
+
+/* ==========================================================================
+   Unterseiten (Blog, Kategorien, Beiträge) – von Jekyll generiert
+   ========================================================================== */
+body.page {
+  background:
+    radial-gradient(60rem 30rem at 85% -5%, rgba(87, 66, 105, 0.35), transparent 70%),
+    radial-gradient(50rem 26rem at 10% 40%, rgba(43, 27, 77, 0.45), transparent 70%),
+    var(--night-950);
+}
+
+.page-shell {
+  min-height: calc(100svh - var(--nav-height) - 5rem);
+  padding-block: clamp(2.5rem, 6svh, 4.5rem) clamp(3rem, 8svh, 5rem);
+}
+
+.page-head { margin-bottom: clamp(1.8rem, 4svh, 2.6rem); }
+
+.page-head h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 0.6rem;
+}
+
+.page-head .section-lede { margin-top: 0.4rem; }
+
+.page-empty { color: var(--text-dim); }
+
+/* Kategorie-Pills auf der Blogübersicht */
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: clamp(2rem, 5svh, 3rem);
+}
+
+.category-pill {
+  display: inline-block;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  border-top-left-radius: 0.3rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-bright);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-pill:hover,
+.category-pill:focus-visible {
+  border-color: var(--amber-300);
+  color: var(--amber-300);
+  box-shadow: 0 6px 22px rgba(255, 180, 84, 0.16);
+}
+
+.posts--page { margin-bottom: 1rem; }
+
+/* Einzelner Beitrag */
+.post-article {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.post-article-head h1 {
+  font-size: var(--font-size-xl);
+  margin: 0.7rem 0 1.5rem;
+  text-wrap: balance;
+}
+
+.post-article-head .post-card-meta { flex-wrap: wrap; }
+
+a.post-card-tag { text-decoration: none; transition: color 0.2s ease; }
+a.post-card-tag:hover { color: var(--amber-300); }
+
+.post-article-cover {
+  margin-bottom: clamp(1.8rem, 4svh, 2.6rem);
+  border-radius: var(--radius);
+  border-top-left-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px rgba(10, 5, 24, 0.45);
+}
+
+.post-article-cover img { width: 100%; display: block; }
+
+.post-article-body {
+  color: var(--text-dim);
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+}
+
+.post-article-body p,
+.post-article-body ul,
+.post-article-body ol { margin-block: 0.95em; }
+
+.post-article-body ul,
+.post-article-body ol { padding-left: 1.4rem; }
+
+.post-article-body h2,
+.post-article-body h3,
+.post-article-body h4 {
+  color: var(--text-bright);
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.post-article-body h2 { font-size: var(--font-size-l); }
+.post-article-body h3 { font-size: var(--font-size-md); }
+
+.post-article-body a {
+  color: var(--coral-200);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 116, 109, 0.45);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.post-article-body a:hover {
+  color: var(--amber-300);
+  border-color: var(--amber-300);
+}
+
+.post-article-body img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-block: 1.4em;
+}
+
+.post-article-body blockquote {
+  margin-block: 1.4em;
+  padding: 0.4em 0 0.4em 1.2em;
+  border-left: 3px solid var(--coral-400);
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.post-article-body pre,
+.post-article-body code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92em;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 0.5rem;
+}
+
+.post-article-body code { padding: 0.15em 0.4em; }
+
+.post-article-body pre {
+  padding: 1.1em 1.3em;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-block: 1.4em;
+}
+
+.post-article-body pre code {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.post-article-body hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-block: 2em;
+}
+
+.post-article-foot { margin-top: clamp(2.5rem, 6svh, 3.5rem); }

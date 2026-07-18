@@ -1,22 +1,6 @@
 ---
-layout: default
-title: "News Archiv"
+layout: category
+title: "News"
 permalink: /blog/news/
+category: "News"
 ---
-
-<h1>News</h1>
-
-<ul>
-  {% for post in site.posts %}
-    {% if post.categories contains "News" %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <br>
-      <small>Veröffentlicht am {{ post.date | date: "%B %d, %Y" }}</small>
-      <p>{{ post.excerpt }}</p>
-      <a href="{{ post.url }}">...weiter lesen</a>
-    </li>
-    <br>
-    {% endif %}
-  {% endfor %}
-</ul>

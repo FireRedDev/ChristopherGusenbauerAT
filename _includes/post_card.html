@@ -1,0 +1,11 @@
+<article class="post-card">
+    <a class="post-card-media" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        {% if post.coverImage %}<img src="{{ post.coverImage | relative_url }}" alt="" loading="lazy">{% else %}<img src="{{ '/images/posts/sdf-1540x800.png' | relative_url }}" alt="" loading="lazy">{% endif %}
+    </a>
+    <div class="post-card-body">
+        <p class="post-card-meta">{% for cat in post.categories %}<span class="post-card-tag">{{ cat }}</span>{% endfor %}<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d.%m.%Y" }}</time></p>
+        <h3 class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="post-card-excerpt">{{ post.content | strip_html | truncate: 180 }}</p>
+        <a class="post-card-link" href="{{ post.url | relative_url }}">Weiterlesen <span aria-hidden="true">&rarr;</span></a>
+    </div>
+</article>

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="page-head">
+    <p class="eyebrow">Kategorie</p>
+    <h1>{{ page.category_label | default: page.category }}</h1>
+    <p class="section-lede"><a class="inline-link" href="{{ '/blog/' | relative_url }}">&larr; Alle Beiträge</a></p>
+</div>
+
+{{ content }}
+
+<div class="posts posts--page">
+    {% assign found = false %}
+    {% for post in site.posts %}
+        {% if post.categories contains page.category %}
+            {% assign found = true %}
+            {% include post_card.html %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% unless found %}<p class="page-empty">Hier gibt es noch keine Beiträge.</p>{% endunless %}

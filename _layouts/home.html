@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="page-head">
+    <p class="eyebrow">Blog</p>
+    <h1>Frisch aus dem <span class="grad-text">Blog</span></h1>
+    <p class="section-lede">Kurzgeschichten, Meinungsbeiträge, Anleitungen und News &ndash; alles, was sich bei mir so ansammelt.</p>
+</div>
+
+<nav class="category-pills" aria-label="Kategorien">
+    <a class="category-pill" href="{{ '/blog/kurzgeschichten/' | relative_url }}">Kurzgeschichten</a>
+    <a class="category-pill" href="{{ '/blog/meinung/' | relative_url }}">Meinung</a>
+    <a class="category-pill" href="{{ '/blog/anleitungen/' | relative_url }}">Anleitungen</a>
+    <a class="category-pill" href="{{ '/blog/news/' | relative_url }}">News</a>
+</nav>
+
+{{ content }}
+
+<div class="posts posts--page">
+    {% for post in site.posts %}
+        {% include post_card.html %}
+    {% endfor %}
+</div>
