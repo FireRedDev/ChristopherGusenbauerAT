@@ -638,10 +638,11 @@ a { color: inherit; }
 .ridge--peaks path { fill: #7f6a93; }
 
 /* Mondlicht fällt von rechts oben auf die rechten Flanken der Berge –
-   je näher am Mond, desto kräftiger */
+   die Schattenkante schwingt vom Gipfel erst leicht nach links, dann
+   nach rechts aus. Der rechte kleine Berg liegt vor dem Mond und
+   bekommt keine Kante. */
 .ridge--peaks .peak-light { fill: rgba(255, 150, 100, 0.3); }
 .ridge--peaks .peak-light--dim { fill: rgba(255, 150, 100, 0.2); }
-.ridge--peaks .peak-light--strong { fill: rgba(255, 150, 100, 0.38); }
 
 /* Hintere Hügelkette – atmosphärisch heller/häsiger, damit sie in der Ferne wirkt */
 .ridge--far { z-index: 2; }
