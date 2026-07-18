@@ -1833,6 +1833,20 @@ a { color: inherit; }
 
 .footer-links a:hover { color: var(--amber-300); }
 
+/* Mobil: Footer-Inhalte horizontal zentriert */
+@media (max-width: 640px) {
+  .footer-grid {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-links,
+  .footer-grid .social-icons {
+    justify-content: center;
+  }
+}
+
 /* ==========================================================================
    Blog-Unterseiten (Layouts: page, home, post)
    ========================================================================== */
