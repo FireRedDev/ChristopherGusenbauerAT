@@ -66,6 +66,10 @@ html {
   /* Die Seite ist von Haus aus dunkel – verhindert, dass Browser im
      Nachtmodus (Force Dark) die dunklen Flächen invertieren */
   color-scheme: dark;
+  /* Verbreiterte Deko-Ebenen (Berge, Spiegelung) dürfen die Seite nicht
+     breiter machen – sonst lässt sich mobil aus der Seite herauszoomen */
+  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 1rem);
 }
