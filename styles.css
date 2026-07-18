@@ -1051,6 +1051,7 @@ a { color: inherit; }
 }
 
 /* Das rote Kometen-Artwork des Originals – dezent in den Nachthimmel gelegt */
+/* background by SVGBackgrounds.com */
 .founded::before {
   content: "";
   position: absolute;
