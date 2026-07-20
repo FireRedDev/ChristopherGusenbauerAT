@@ -280,10 +280,14 @@ a { color: inherit; }
   gap: clamp(1rem, 2.5vw, 2.2rem);
 }
 
+/* Menüpunkte im Stil der Wortmarke: Versalien mit Sperrung */
 .nav-menu a {
   display: block;
   padding: 0.4rem 0.15rem;
   font-weight: 500;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.09rem;
+  text-transform: uppercase;
   color: var(--text-bright);
   text-decoration: none;
   position: relative;
