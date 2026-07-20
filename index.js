@@ -422,3 +422,45 @@
     }
   }
 })();
+
+/* ---------- Galerie-Lightbox ---------- */
+(function () {
+  "use strict";
+  var gallery = document.getElementById("flickr-gallery");
+  if (!gallery) return;
+
+  gallery.addEventListener("click", function (e) {
+    var img = e.target.closest(".mItem img");
+    if (!img) return;
+    var box = document.createElement("div");
+    box.className = "lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", img.alt || "Bildansicht");
+    var big = document.createElement("img");
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt || "";
+    var close = document.createElement("button");
+    close.className = "lightbox-close";
+    close.setAttribute("aria-label", "Schließen");
+    close.innerHTML = "×";
+    box.appendChild(big);
+    box.appendChild(close);
+    document.body.appendChild(box);
+    var prevFocus = document.activeElement;
+    close.focus();
+
+    function destroy() {
+      box.remove();
+      document.removeEventListener("keydown", onKey);
+      if (prevFocus && prevFocus.focus) prevFocus.focus();
+    }
+    function onKey(ev) {
+      if (ev.key === "Escape") destroy();
+    }
+    box.addEventListener("click", function (ev) {
+      if (ev.target === box || ev.target === close) destroy();
+    });
+    document.addEventListener("keydown", onKey);
+  });
+})();

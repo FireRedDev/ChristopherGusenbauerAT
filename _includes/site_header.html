@@ -1,0 +1,16 @@
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Hauptnavigation">
+        <a class="brand" href="{{ '/' | relative_url }}">Christopher<span class="brand-dot"> Gusenbauer</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menü öffnen">
+            <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-menu" id="site-menu">
+            <li><a href="{% if page.is_home %}#blog{% else %}{{ '/blog/' | relative_url }}{% endif %}">Blog</a></li>
+            <li><a href="{% unless page.is_home %}{{ '/' | relative_url }}{% endunless %}#portfolio">Portfolio</a></li>
+            <li><a href="{% unless page.is_home %}{{ '/' | relative_url }}{% endunless %}#lebenslauf">Lebenslauf</a></li>
+            <li><a href="{% unless page.is_home %}{{ '/' | relative_url }}{% endunless %}#photography">Fotografie</a></li>
+            <li><a class="nav-cta" href="{% unless page.is_home %}{{ '/' | relative_url }}{% endunless %}#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
