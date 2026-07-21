@@ -1733,32 +1733,6 @@ a { color: inherit; }
   max-width: 34rem;
 }
 
-.pitch-facts {
-  list-style: none;
-  margin-top: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--text-faint);
-  font-size: var(--font-size-sm);
-}
-
-.pitch-facts li {
-  padding-left: 1.3rem;
-  position: relative;
-}
-
-.pitch-facts li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 0.45em;
-  height: 0.45em;
-  border-radius: 50%;
-  background: var(--grad-btn);
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;
