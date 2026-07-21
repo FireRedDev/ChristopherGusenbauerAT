@@ -493,9 +493,14 @@ a { color: inherit; }
 .hero-text .lede {
   font-size: var(--font-size-md);
   color: var(--text-dim);
-  max-width: 38rem;
+  max-width: 36rem;
   margin-top: 1.4rem;
   line-height: 1.6;
+  text-wrap: pretty;
+  /* Silbentrennung, damit lange deutsche Komposita die Zeile füllen
+     statt eine kurze Zeile davor zu erzwingen */
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .hero-actions {
