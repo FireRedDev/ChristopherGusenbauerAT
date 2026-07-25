@@ -1706,7 +1706,10 @@ a { color: inherit; }
   position: relative;
   line-height: 0;
   height: clamp(190px, 23vw, 330px);
-  overflow: hidden;
+  pointer-events: none;
+  /* nur nach unten und zur Seite beschneiden – nach oben darf der
+     Mondschein frei in den Nachthimmel der Galerie auslaufen */
+  clip-path: inset(-340px 0 0 0);
   background: linear-gradient(180deg, #020106 0%, #05030f 42%, #0b0619 100%);
 }
 
