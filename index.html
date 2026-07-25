@@ -381,7 +381,45 @@ permalink: /
 
         <section class="contact" id="contact">
             <div class="contact-divider" aria-hidden="true">
-                <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 L0,60 C240,10 480,90 740,60 C1000,30 1240,80 1440,40 L1440,120 Z" /></svg>
+                <span class="moonrise-orb"></span>
+                <svg class="moonrise-hill" viewBox="0 0 1440 220" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="moonriseHillBase" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#3d2560" />
+                            <stop offset="0.55" stop-color="#241542" />
+                            <stop offset="1" stop-color="#120a24" />
+                        </linearGradient>
+                        <radialGradient id="moonriseHillGlow" cx="0.47" cy="0.08" r="0.62">
+                            <stop offset="0" stop-color="#7f6a93" stop-opacity="0.85" />
+                            <stop offset="0.45" stop-color="#574269" stop-opacity="0.45" />
+                            <stop offset="1" stop-color="#2f1d56" stop-opacity="0" />
+                        </radialGradient>
+                        <linearGradient id="moonriseHillWarm" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#8d414f" stop-opacity="0.5" />
+                            <stop offset="0.32" stop-color="#8d414f" stop-opacity="0" />
+                            <stop offset="0.68" stop-color="#a04a4a" stop-opacity="0" />
+                            <stop offset="1" stop-color="#a04a4a" stop-opacity="0.45" />
+                        </linearGradient>
+                        <!-- zieht den Hügelfuß in die Farbe der Kontaktsektion, damit
+                             der Übergang ohne sichtbare Kante ausläuft -->
+                        <linearGradient id="moonriseHillFoot" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0.5" stop-color="#120a24" stop-opacity="0" />
+                            <stop offset="0.82" stop-color="#120a24" stop-opacity="0.75" />
+                            <stop offset="1" stop-color="#120a24" stop-opacity="1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,220 L0,175 C200,168 400,152 640,136 C880,120 1120,110 1440,106 L1440,220 Z" fill="url(#moonriseHillBase)" />
+                    <path d="M0,220 L0,175 C200,168 400,152 640,136 C880,120 1120,110 1440,106 L1440,220 Z" fill="url(#moonriseHillGlow)" />
+                    <path d="M0,220 L0,175 C200,168 400,152 640,136 C880,120 1120,110 1440,106 L1440,220 Z" fill="url(#moonriseHillWarm)" />
+                    <path d="M0,220 L0,175 C200,168 400,152 640,136 C880,120 1120,110 1440,106 L1440,220 Z" fill="url(#moonriseHillFoot)" />
+                </svg>
+                <svg class="moonrise-sprout" viewBox="0 0 60 110" preserveAspectRatio="xMidYMax meet">
+                    <path d="M30,110 C30,88 29.2,70 30,48" stroke="#150c28" stroke-width="2.6" stroke-linecap="round" fill="none" />
+                    <path d="M30,50 Q38,31 54,27 Q46,44 30,50 Z" fill="#150c28" />
+                    <path d="M30,50 Q22,31 6,27 Q14,44 30,50 Z" fill="#150c28" />
+                    <path d="M30,68 Q39,58 51,60 Q42,70 30,68 Z" fill="#150c28" />
+                    <path d="M30,70 Q21,62 11,65 Q20,74 30,70 Z" fill="#150c28" />
+                </svg>
             </div>
             <div class="container contact-grid">
                 <div class="contact-pitch" data-reveal>
