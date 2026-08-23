@@ -235,19 +235,13 @@ a { color: inherit; }
 }
 
 /* Scroll-Reveals – nur aktiv, wenn JS läuft (html.js) */
-.js [data-reveal],
-.js [data-reveal-comet] {
+.js [data-reveal] {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.9, 0.3, 1);
 }
 
-.js [data-reveal-comet] {
-  transform: translate(-46px, -46px);
-}
-
-.revealed[data-reveal],
-.revealed[data-reveal-comet] {
+.revealed[data-reveal] {
   opacity: 1;
   transform: none;
 }
@@ -457,7 +451,7 @@ a { color: inherit; }
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 4.5rem);
-  padding-block: clamp(2.5rem, 7svh, 5rem);
+  padding-block: clamp(1.5rem, 4svh, 3rem);
 }
 
 .hero-photo {
@@ -485,16 +479,24 @@ a { color: inherit; }
   box-shadow: var(--shadow-card);
 }
 
+/* Im Hero etwas kleiner gedeckelt als die übrigen Überschriften, damit
+   Titel, Text, Zahlen und Buttons ohne Scrollen in den Viewport passen */
 .hero-text h1 {
-  font-size: var(--font-size-xxl);
-  line-height: 115%;
+  font-size: clamp(2.2rem, 2.4vw + 1.6rem, 3.1rem);
+  line-height: 112%;
+}
+
+/* Ab Tablet bleibt der Name zusammen – so ergibt die Überschrift genau zwei
+   Zeilen statt drei. Auf schmalen Displays darf sie wieder umbrechen. */
+@media (min-width: 821px) {
+  .hero-text h1 .grad-text { white-space: nowrap; }
 }
 
 .hero-text .lede {
-  font-size: var(--font-size-md);
+  font-size: clamp(1.15rem, 0.6vw + 1.02rem, 1.35rem);
   color: var(--text-dim);
   max-width: 36rem;
-  margin-top: 1.4rem;
+  margin-top: 1rem;
   line-height: 1.6;
   text-wrap: pretty;
   /* Silbentrennung, damit lange deutsche Komposita die Zeile füllen
@@ -1077,15 +1079,15 @@ a { color: inherit; }
 /* ==========================================================================
    Gegründet – die roten Kometen
    ========================================================================== */
-.founded {
+.night-sky {
   position: relative;
-  padding-block: clamp(3.5rem, 8svh, 6rem) clamp(2.5rem, 6svh, 4rem);
+  height: clamp(110px, 15svh, 210px);
   overflow: hidden;
 }
 
 /* Das rote Kometen-Artwork des Originals – dezent in den Nachthimmel gelegt */
 /* background by SVGBackgrounds.com */
-.founded::before {
+.night-sky::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1131,112 +1133,6 @@ a { color: inherit; }
   16% { opacity: 0; }
   18%, 100% { transform: translate3d(-38vh, 44vh, 0) rotate(38deg); opacity: 0; }
 }
-
-.comet-card {
-  position: relative;
-  padding: 1.8rem 1.9rem 1.9rem;
-  border-radius: var(--radius);
-  border-top-left-radius: 0;
-  background: rgba(27, 15, 49, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(253, 249, 240, 0.22);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.comet-card--main {
-  margin-top: clamp(2.2rem, 4.5svh, 3.5rem);
-  max-width: 52rem;
-}
-
-.comet-card:hover {
-  border-color: rgba(255, 207, 135, 0.6);
-  box-shadow: 0 22px 48px rgba(10, 5, 24, 0.5);
-}
-
-/* Die Auszeichnungen gehören sichtbar zu wear Together */
-.award-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(253, 249, 240, 0.16);
-}
-
-.award {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1rem 1.1rem;
-  border-radius: 0.8rem;
-  border-top-left-radius: 0;
-  background: rgba(253, 249, 240, 0.06);
-  border: 1px solid rgba(253, 249, 240, 0.14);
-}
-
-.award strong {
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-.award span {
-  color: var(--text-faint);
-  font-size: var(--font-size-sm);
-  line-height: 1.45;
-}
-
-@media (max-width: 640px) {
-  .award-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-.comet-icon {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border-top-left-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--night-950);
-  background: var(--grad-btn);
-  box-shadow: 0 6px 18px rgba(255, 116, 109, 0.45);
-  margin-bottom: 1rem;
-}
-
-.comet-icon .icon {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.comet-icon--small {
-  width: 2.3rem;
-  height: 2.3rem;
-  margin-bottom: 0;
-  flex-shrink: 0;
-}
-
-.comet-icon--small .icon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.comet-tag {
-  display: inline-block;
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--amber-300);
-  margin-bottom: 0.7rem;
-}
-
-.comet-card h3 { margin-bottom: 0.6rem; }
-
-.comet-card > p:not(.comet-tag) { color: var(--text-dim); }
 
 /* ==========================================================================
    Portfolio – Stationen
@@ -1488,6 +1384,15 @@ a { color: inherit; }
   box-shadow: 0 0 12px rgba(255, 116, 109, 0.7);
 }
 
+/* Stationen ohne Aufklapp-Details – gleiche Optik, aber nicht klickbar */
+.cv-item--plain {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+
 .cv-item summary {
   list-style: none;
   display: grid;
@@ -1568,6 +1473,12 @@ a { color: inherit; }
     grid-template-areas:
       "period chevron"
       "title chevron";
+    row-gap: 0.15rem;
+  }
+
+  .cv-item--plain {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "period" "title";
     row-gap: 0.15rem;
   }
 
@@ -1910,8 +1821,7 @@ a { color: inherit; }
     transition-duration: 0.01ms !important;
   }
 
-  .js [data-reveal],
-  .js [data-reveal-comet] {
+  .js [data-reveal] {
     opacity: 1;
     transform: none;
   }
@@ -2108,7 +2018,7 @@ a.post-card-tag:hover { color: var(--amber-300); }
   top: 0;
 }
 
-.hero .lede { margin-top: 1.2rem; }
+.hero .lede { margin-top: 1rem; }
 
 /* Kennzahlen-Zeile im Hero */
 .hero-proof {
@@ -2116,7 +2026,7 @@ a.post-card-tag:hover { color: var(--amber-300); }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.6rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   font-size: var(--font-size-sm);
   color: var(--text-dim);
 }
@@ -2133,6 +2043,7 @@ a.post-card-tag:hover { color: var(--amber-300); }
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem 1.4rem;
+  margin-top: 1.4rem;
 }
 
 /* Honeypot-Feld unsichtbar, aber nicht display:none (Spam-Bots füllen es) */

@@ -36,7 +36,7 @@
   }
 
   /* ---------- Scroll-Reveals ---------- */
-  var revealables = document.querySelectorAll("[data-reveal], [data-reveal-comet]");
+  var revealables = document.querySelectorAll("[data-reveal]");
 
   if (revealables.length) {
     if (prefersReducedMotion || !("IntersectionObserver" in window)) {
@@ -377,8 +377,10 @@
       } catch (err) { /* Speichern optional */ }
     };
 
+    /* Startzustand ist eingeklappt (siehe Markup) – nur wer schon einmal
+       aufgeklappt hat, bekommt den Blog wieder offen zu sehen. */
     try {
-      if (localStorage.getItem("blogCollapsed") === "1") setBlogCollapsed(true);
+      if (localStorage.getItem("blogCollapsed") === "0") setBlogCollapsed(false);
     } catch (err) { /* Lesen optional */ }
 
     blogToggle.addEventListener("click", function () {
