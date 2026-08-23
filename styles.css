@@ -513,6 +513,13 @@ a { color: inherit; }
   margin-top: 2.2rem;
 }
 
+/* Gleiche Höhe und Schriftgröße wie die Lebenslauf-Pille daneben */
+.hero-actions .hero-cta {
+  height: 2.9rem;
+  padding-block: 0;
+  font-size: var(--font-size-sm);
+}
+
 .social-icons {
   list-style: none;
   display: flex;
@@ -581,6 +588,12 @@ a { color: inherit; }
      Portrait */
   .hero-text h1 {
     font-size: clamp(1.5rem, 6.8vw, 2.2rem);
+  }
+
+  /* Etwas kleiner als auf Desktop, damit unten Luft für die Aktionsreihe
+     bleibt statt den Lass-uns-reden-Button abzuschneiden */
+  .hero-text .lede {
+    font-size: clamp(1.05rem, 0.6vw + 0.94rem, 1.22rem);
   }
 
   .hero-photo {
