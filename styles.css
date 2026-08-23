@@ -1581,6 +1581,7 @@ a { color: inherit; }
 
 .masonry .mItem img {
   width: 100%;
+  height: auto;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
