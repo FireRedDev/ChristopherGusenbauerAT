@@ -361,33 +361,6 @@
     }
   }
 
-  /* ---------- Blog einklappen ---------- */
-  var blogSection = document.getElementById("blog");
-  var blogToggle = document.getElementById("blog-toggle");
-
-  if (blogSection && blogToggle) {
-    var toggleLabel = blogToggle.querySelector(".blog-toggle-label");
-
-    var setBlogCollapsed = function (collapsed) {
-      blogSection.classList.toggle("blog-collapsed", collapsed);
-      blogToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
-      if (toggleLabel) toggleLabel.textContent = collapsed ? "Ausklappen" : "Einklappen";
-      try {
-        localStorage.setItem("blogCollapsed", collapsed ? "1" : "0");
-      } catch (err) { /* Speichern optional */ }
-    };
-
-    /* Startzustand ist eingeklappt (siehe Markup) – nur wer schon einmal
-       aufgeklappt hat, bekommt den Blog wieder offen zu sehen. */
-    try {
-      if (localStorage.getItem("blogCollapsed") === "0") setBlogCollapsed(false);
-    } catch (err) { /* Lesen optional */ }
-
-    blogToggle.addEventListener("click", function () {
-      setBlogCollapsed(!blogSection.classList.contains("blog-collapsed"));
-    });
-  }
-
   /* ---------- Lebenslauf: mehr anzeigen ---------- */
   var cvMore = document.getElementById("cv-more");
   var cvExtra = document.getElementById("cv-extra");

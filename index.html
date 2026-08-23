@@ -272,14 +272,16 @@ permalink: /
                 </div>
             </section>
 
-            <section class="blog blog-collapsed" id="blog">
+            <section class="blog" id="blog">
                 <div class="blog-divider blog-divider--top" aria-hidden="true"></div>
                 <div class="container">
                     <div class="blog-head">
-                        <div><p class="eyebrow">Blog</p><h2>Frisch aus dem Blog</h2></div>
-                        <button class="blog-toggle" id="blog-toggle" type="button" aria-expanded="false" aria-controls="blog-body">
-                            <span class="blog-toggle-label">Ausklappen</span><span class="blog-toggle-icon" aria-hidden="true"></span>
-                        </button>
+                        <div>
+                            <p class="eyebrow">Blog</p>
+                            <!-- Auf Handys steht nur der neueste Beitrag, daher die
+                                 andere Überschrift -->
+                            <h2><span class="blog-title-wide">Frisch aus dem Blog</span><span class="blog-title-narrow">Der neueste Beitrag</span></h2>
+                        </div>
                     </div>
                     <div class="blog-body" id="blog-body">
                         <div class="blog-body-inner">

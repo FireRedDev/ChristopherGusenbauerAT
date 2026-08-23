@@ -569,17 +569,35 @@ a { color: inherit; }
   height: 0.95rem;
 }
 
+/* Handy-Layout: Portrait links neben der Überschrift, Fließtext und Aktionen
+   darunter über die volle Breite. Spart die Höhe des gestapelten Fotos und
+   bringt die Aktionsreihe ohne Scrollen ins Bild. */
 @media (max-width: 820px) {
   .hero-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "photo  title"
+      "lede   lede"
+      "action action";
+    align-items: center;
+    gap: 1.3rem 1.1rem;
     padding-block: 0.75rem 2.5rem;
-    gap: 1.25rem;
   }
 
-  /* Kompakteres Portrait, damit die Aktionsreihe ohne Scrollen sichtbar ist */
   .hero-photo {
-    max-width: min(14rem, 48vw);
+    grid-area: photo;
+    max-width: min(9.5rem, 34vw);
   }
+
+  /* hebt die Wrapper-Box auf, damit Überschrift, Text und Aktionen direkt
+     im Raster des Heros liegen */
+  .hero-text {
+    display: contents;
+  }
+
+  .hero-text h1 { grid-area: title; }
+  .hero-text .lede { grid-area: lede; margin-top: 0; }
+  .hero-actions { grid-area: action; }
 }
 
 /* Sehr flache Displays (iPhone SE & Co.): Portrait weiter verkleinern,
@@ -587,10 +605,11 @@ a { color: inherit; }
 @media (max-width: 820px) and (max-height: 720px) {
   .hero-inner {
     padding-block: 0.5rem 2rem;
+    gap: 1rem;
   }
 
   .hero-photo {
-    max-width: min(9rem, 32vw);
+    max-width: min(7.5rem, 28vw);
   }
 }
 
@@ -903,55 +922,16 @@ a { color: inherit; }
 
 .blog-head .eyebrow { color: var(--coral-200); }
 
-.blog-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(18, 10, 36, 0.45);
-  color: var(--cream-50);
-  border: 1.5px solid rgba(253, 249, 240, 0.45);
-  border-radius: 999px;
-  padding: 0.55rem 1.2rem;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: border-color 0.25s ease, background-color 0.25s ease;
-}
+/* Auf Handys nur der neueste Beitrag – die Überschrift wechselt mit */
+.blog-title-narrow { display: none; }
 
-.blog-toggle:hover {
-  border-color: var(--cream-50);
-  background: rgba(18, 10, 36, 0.65);
-}
+@media (max-width: 820px) {
+  .blog-title-wide { display: none; }
+  .blog-title-narrow { display: inline; }
 
-.blog-toggle-icon {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(225deg) translate(-2px, -2px);
-  transition: transform 0.3s ease;
-}
-
-.blog-collapsed .blog-toggle-icon {
-  transform: rotate(45deg) translate(-2px, -2px);
-}
-
-/* Einklappen: grid-rows Trick für sanfte Höhe */
-.blog-body {
-  display: grid;
-  grid-template-rows: 1fr;
-  transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.blog-collapsed .blog-body {
-  grid-template-rows: 0fr;
-}
-
-.blog-body-inner {
-  overflow: hidden;
-  min-height: 0;
+  .posts .post-card:nth-child(n + 2) {
+    display: none;
+  }
 }
 
 .posts {
