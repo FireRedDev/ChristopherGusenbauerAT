@@ -576,20 +576,15 @@ a { color: inherit; }
     gap: 1.25rem;
   }
 
-  /* Die Begrüßung tritt zurück, damit der Name in zwei Zeilen die Überschrift
-     trägt – die eingesparte Höhe geht ans Portrait */
-  .hero-greet {
-    display: block;
-    font-size: 1.1rem;
-    line-height: 1.3;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--text-dim);
-    margin-bottom: 0.2rem;
+  /* So gesetzt, dass "Christopher Gusenbauer" in eine Zeile passt – die
+     Überschrift steht damit in zwei Zeilen und die gesparte Höhe geht ans
+     Portrait */
+  .hero-text h1 {
+    font-size: clamp(1.5rem, 6.8vw, 2.2rem);
   }
 
   .hero-photo {
-    max-width: min(17rem, 60vw);
+    max-width: min(19rem, 66vw);
   }
 }
 
@@ -597,7 +592,7 @@ a { color: inherit; }
    ohne Scrollen im Bild bleibt */
 @media (max-width: 820px) and (max-height: 780px) {
   .hero-photo {
-    max-width: min(13rem, 46vw);
+    max-width: min(15rem, 52vw);
   }
 }
 
