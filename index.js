@@ -73,21 +73,18 @@
     var rafId = null;
     var lastMeteor = 0;
 
-    var resize = function () {
-      var rect = canvas.parentElement.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      stars = [];
+    /* Sterne liegen in normalisierten Koordinaten (0..1) vor. Dadurch bleibt
+       der Himmel bei einem Resize identisch – auf Mobilgeräten feuert das
+       Ein-/Ausblenden der URL-Leiste beim Scrollen ein resize-Event, und ein
+       Neuwürfeln würde die Sterne dabei sichtbar umherspringen lassen. */
+    var syncStars = function () {
       var count = Math.min(260, Math.round((width * height) / 6500));
-      for (var i = 0; i < count; i++) {
+      while (stars.length > count) stars.pop();
+      while (stars.length < count) {
         var depth = Math.random(); // 0 = fern, 1 = nah
         stars.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
+          nx: Math.random(),
+          ny: Math.random(),
           r: 0.4 + depth * 1.3,
           depth: depth,
           tw: Math.random() * Math.PI * 2,
@@ -95,6 +92,16 @@
           warm: Math.random() < 0.18
         });
       }
+    };
+
+    var resize = function () {
+      var rect = canvas.parentElement.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      syncStars();
     };
 
     var spawnMeteor = function () {
@@ -113,7 +120,7 @@
       ctx.clearRect(0, 0, width, height);
       stars.forEach(function (s) {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.arc(s.nx * width, s.ny * height, s.r, 0, Math.PI * 2);
         ctx.fillStyle = s.warm ? "rgba(255,207,135,0.8)" : "rgba(224,222,255,0.75)";
         ctx.fill();
       });
@@ -126,9 +133,9 @@
       for (var i = 0; i < stars.length; i++) {
         var s = stars[i];
         var alpha = 0.35 + 0.65 * Math.abs(Math.sin(s.tw + (t / 1000) * s.twSpeed));
-        var x = s.x + parallax * s.depth;
+        var x = s.nx * width + parallax * s.depth;
         ctx.beginPath();
-        ctx.arc(x, s.y, s.r, 0, Math.PI * 2);
+        ctx.arc(x, s.ny * height, s.r, 0, Math.PI * 2);
         ctx.fillStyle = s.warm
           ? "rgba(255,207,135," + alpha * 0.9 + ")"
           : "rgba(224,222,255," + alpha * 0.8 + ")";
@@ -168,7 +175,13 @@
     };
 
     resize();
+    var lastWidth = window.innerWidth;
     window.addEventListener("resize", function () {
+      /* Reine Höhenänderungen ignorieren: Mobile Browser feuern beim Scrollen
+         resize, wenn die URL-Leiste ein- oder ausfährt. Der Himmel soll dabei
+         unverändert stehen bleiben. */
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
       resize();
       if (prefersReducedMotion) drawStatic();
     });
@@ -222,36 +235,57 @@
       waterCanvas.height = wHeight * wdpr;
       wctx.setTransform(wdpr, 0, 0, wdpr, 0, 0);
 
-      wStars = [];
-      /* Sterne am Abendhimmel über dem Berg */
+      syncWaterStars();
+    };
+
+    /* Wie beim Hero-Himmel: normalisierte Koordinaten, damit ein Resize oder
+       ein nachgeladenes Bild die Sterne nur umrechnet statt neu zu würfeln. */
+    var syncWaterStars = function () {
+      var reflDepth = wHeight - lineY;
       var skyCount = Math.min(90, Math.round((wWidth * lineY) / 14000));
-      for (var i = 0; i < skyCount; i++) {
-        wStars.push({
+      var reflCount = Math.min(130, Math.round((wWidth * reflDepth) / 10000));
+
+      var sky = [];
+      var refl = [];
+      wStars.forEach(function (s) {
+        (s.type === "refl" ? refl : sky).push(s);
+      });
+
+      while (sky.length > skyCount) sky.pop();
+      while (sky.length < skyCount) {
+        /* Sterne am Abendhimmel über dem Berg */
+        sky.push({
           type: "sky",
-          x: Math.random() * wWidth,
-          y: Math.random() * lineY * 0.72,
+          nx: Math.random(),
+          ny: Math.random(),
           r: 0.4 + Math.random() * 1.2,
           tw: Math.random() * Math.PI * 2,
           twSpeed: 0.4 + Math.random() * 1,
           warm: Math.random() < 0.2
         });
       }
-      /* Gespiegelte Sterne im Wasser – gestreckt, gedimmt, leicht wackelnd */
-      var reflDepth = wHeight - lineY;
-      var reflCount = Math.min(130, Math.round((wWidth * reflDepth) / 10000));
-      for (var j = 0; j < reflCount; j++) {
-        var depth = Math.random();
-        wStars.push({
+
+      while (refl.length > reflCount) refl.pop();
+      while (refl.length < reflCount) {
+        /* Gespiegelte Sterne im Wasser – gestreckt, gedimmt, leicht wackelnd */
+        refl.push({
           type: "refl",
-          x: Math.random() * wWidth,
-          y: lineY + 14 + depth * reflDepth * 0.85,
-          depth: depth,
+          nx: Math.random(),
+          depth: Math.random(),
           r: 0.4 + Math.random() * 1.2,
           tw: Math.random() * Math.PI * 2,
           twSpeed: 0.5 + Math.random() * 1.2,
           warm: Math.random() < 0.25
         });
       }
+
+      wStars = sky.concat(refl);
+      wStars.forEach(function (s) {
+        s.x = s.nx * wWidth;
+        s.y = s.type === "refl"
+          ? lineY + 14 + s.depth * reflDepth * 0.85
+          : s.ny * lineY * 0.72;
+      });
     };
 
     var drawWaterStatic = function () {
@@ -296,7 +330,11 @@
     };
 
     resizeWater();
+    var lastWaterWidth = window.innerWidth;
     window.addEventListener("resize", function () {
+      /* Höhenänderungen durch die mobile URL-Leiste ignorieren */
+      if (window.innerWidth === lastWaterWidth) return;
+      lastWaterWidth = window.innerWidth;
       resizeWater();
       if (prefersReducedMotion) drawWaterStatic();
     });
