@@ -572,11 +572,25 @@ a { color: inherit; }
 @media (max-width: 820px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    padding-block: 2rem 3rem;
+    padding-block: 0.75rem 2.5rem;
+    gap: 1.25rem;
+  }
+
+  /* Kompakteres Portrait, damit die Aktionsreihe ohne Scrollen sichtbar ist */
+  .hero-photo {
+    max-width: min(14rem, 48vw);
+  }
+}
+
+/* Sehr flache Displays (iPhone SE & Co.): Portrait weiter verkleinern,
+   damit die Icon-Reihe auch dort ohne Scrollen im Bild liegt */
+@media (max-width: 820px) and (max-height: 720px) {
+  .hero-inner {
+    padding-block: 0.5rem 2rem;
   }
 
   .hero-photo {
-    max-width: min(20rem, 70vw);
+    max-width: min(9rem, 32vw);
   }
 }
 
@@ -2044,6 +2058,40 @@ a.post-card-tag:hover { color: var(--amber-300); }
   flex-wrap: wrap;
   gap: 1rem 1.4rem;
   margin-top: 1.4rem;
+}
+
+@media (max-width: 820px) {
+  /* Die Kennzahlen sind auf kleinen Displays der erste Kandidat zum Kürzen –
+     dieselben Zahlen stehen weiter unten im Portfolio. */
+  .hero-proof {
+    display: none;
+  }
+
+  /* Icons zuerst, der Haupt-Button darunter über die volle Breite */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .hero-actions .social-icons {
+    order: 1;
+    justify-content: flex-start;
+  }
+
+  .hero-actions .hero-cta {
+    order: 2;
+    align-self: flex-start;
+  }
+}
+
+/* Auf Handybreite füllt der Haupt-Button die ganze Spalte; auf Tablets bliebe
+   er sonst unnötig in die Breite gezogen */
+@media (max-width: 600px) {
+  .hero-actions .hero-cta {
+    align-self: stretch;
+    width: 100%;
+  }
 }
 
 /* Honeypot-Feld unsichtbar, aber nicht display:none (Spam-Bots füllen es) */
