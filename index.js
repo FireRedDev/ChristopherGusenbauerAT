@@ -7,6 +7,25 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Hero-Foto-Größe ---------- */
+  /* Ersetzt zwei max-height-Media-Queries: mobile Browser ändern die
+     sichtbare Höhe beim Scrollen (Adressleiste blendet ein/aus), was eine
+     max-height-Regel mitten im Scrollen neu auslösen und das Foto sichtbar
+     springen lassen würde. Die Einstufung wird einmalig gemessen und nur
+     bei einer echten Breitenänderung (Drehung/Resize) neu berechnet. */
+  var applyHeroPhotoTier = function () {
+    var h = window.innerHeight;
+    document.documentElement.classList.toggle("hero-h-780", h <= 780);
+    document.documentElement.classList.toggle("hero-h-700", h <= 700);
+  };
+  applyHeroPhotoTier();
+  var lastHeroWidth = window.innerWidth;
+  window.addEventListener("resize", function () {
+    if (window.innerWidth === lastHeroWidth) return;
+    lastHeroWidth = window.innerWidth;
+    applyHeroPhotoTier();
+  });
+
   /* ---------- Navigation ---------- */
   var header = document.querySelector(".site-header");
   var navToggle = document.querySelector(".nav-toggle");

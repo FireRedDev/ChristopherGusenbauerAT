@@ -614,20 +614,21 @@ a { color: inherit; }
 }
 
 /* Weniger hohe Displays: Portrait etwas zurücknehmen, damit die Aktionsreihe
-   ohne Scrollen im Bild bleibt */
-@media (max-width: 820px) and (max-height: 780px) {
-  .hero-photo {
+   ohne Scrollen im Bild bleibt. Als Klasse statt als max-height-Media-Query,
+   weil mobile Browser die sichtbare Höhe beim Scrollen ändern (Adressleiste
+   ein-/ausblenden) – das würde die Fotogröße sonst mitten im Scrollen
+   sichtbar springen lassen. Die Klasse wird einmalig in index.js gesetzt. */
+@media (max-width: 820px) {
+  html.hero-h-780 .hero-photo {
     max-width: min(15rem, 52vw);
   }
-}
 
-/* Sehr flache Displays (iPhone SE & Co.) brauchen eine weitere Stufe */
-@media (max-width: 820px) and (max-height: 700px) {
-  .hero-inner {
+  /* Sehr flache Displays (iPhone SE & Co.) brauchen eine weitere Stufe */
+  html.hero-h-700 .hero-inner {
     padding-block: 0.5rem 2rem;
   }
 
-  .hero-photo {
+  html.hero-h-700 .hero-photo {
     max-width: min(9rem, 32vw);
   }
 }
@@ -1096,6 +1097,14 @@ a { color: inherit; }
   position: relative;
   height: clamp(110px, 15svh, 210px);
   overflow: hidden;
+}
+
+/* Auf Handys ist die Kometen-Zone sonst spürbar leerer Leerraum zwischen
+   den Hero-Aktionen und dem Bergpanorama darunter */
+@media (max-width: 820px) {
+  .night-sky {
+    height: clamp(36px, 4.5svh, 70px);
+  }
 }
 
 /* Das rote Kometen-Artwork des Originals – dezent in den Nachthimmel gelegt */
