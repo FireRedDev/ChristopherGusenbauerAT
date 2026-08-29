@@ -1132,13 +1132,18 @@ a { color: inherit; }
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  /* Macht die Flugbahn unten relativ zur tatsächlichen Streifenhöhe (cqh)
+     statt zur Bildschirmhöhe (vh) – sonst schießen die Kometen in dem seit
+     der Verkleinerung viel schmaleren Streifen sofort geclippt daran vorbei,
+     bevor man sie sieht. */
+  container-type: size;
 }
 
 .streak {
   position: absolute;
   top: -12%;
   width: 2px;
-  height: clamp(90px, 14vh, 160px);
+  height: clamp(60px, 60cqh, 160px);
   background: linear-gradient(to bottom, transparent, rgba(253, 249, 240, 0.9) 55%, var(--amber-300));
   transform: rotate(38deg);
   opacity: 0;
@@ -1150,10 +1155,10 @@ a { color: inherit; }
 .streak--3 { left: 84%; animation-delay: 5.1s; animation-duration: 6.5s; }
 
 @keyframes streakFall {
-  0% { transform: translate3d(0, -10vh, 0) rotate(38deg); opacity: 0; }
+  0% { transform: translate3d(0, -20cqh, 0) rotate(38deg); opacity: 0; }
   6% { opacity: 0.85; }
   16% { opacity: 0; }
-  18%, 100% { transform: translate3d(-38vh, 44vh, 0) rotate(38deg); opacity: 0; }
+  18%, 100% { transform: translate3d(-76cqh, 88cqh, 0) rotate(38deg); opacity: 0; }
 }
 
 /* ==========================================================================
