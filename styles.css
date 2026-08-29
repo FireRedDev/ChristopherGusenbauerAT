@@ -1323,10 +1323,7 @@ a { color: inherit; }
      Hintergründe der Elternsektionen zu rutschen, und damit der Wasser-Canvas
      darüber nicht den Kometenhimmel verdeckt */
   z-index: 2;
-  /* Mindesthöhe, damit der Kometenhimmel auch bei eingeklapptem Lebenslauf
-     die Wirkung früherer Seitenversionen behält (dort ~900px) */
-  min-height: clamp(540px, 66vh, 800px);
-  padding-block: clamp(3.5rem, 8svh, 5.5rem) clamp(5rem, 11svh, 8rem);
+  padding-block: clamp(2.5rem, 6svh, 4rem) clamp(5rem, 11svh, 8rem);
   /* kappt das Artwork, wenn der Bereich kürzer ist als das Bild; die
      Ausblendung darüber (::after) verdeckt die Schnittkante */
   overflow: hidden;
@@ -1354,11 +1351,14 @@ a { color: inherit; }
   background-position: center top;
   /* Ein- und Ausblendung relativ zum Bild selbst: oben taucht es aus dem
      Nachthimmel der Stationen auf, unten klingt es als ferner Nebel aus –
-     unabhängig davon, wie hoch der Bereich gerade ist. */
+     unabhängig davon, wie hoch der Bereich gerade ist. Die Einblendung läuft
+     bewusst lang, damit der Nachthimmel nicht abrupt in die Kometen kippt. */
   -webkit-mask-image: linear-gradient(to bottom,
-      transparent 0%, #000 12%, #000 62%, transparent 100%);
+      transparent 0%, rgba(0, 0, 0, 0.22) 14%, rgba(0, 0, 0, 0.62) 26%,
+      #000 40%, #000 66%, transparent 100%);
   mask-image: linear-gradient(to bottom,
-      transparent 0%, #000 12%, #000 62%, transparent 100%);
+      transparent 0%, rgba(0, 0, 0, 0.22) 14%, rgba(0, 0, 0, 0.62) 26%,
+      #000 40%, #000 66%, transparent 100%);
 }
 
 @media (max-width: 820px) {
@@ -1382,6 +1382,49 @@ a { color: inherit; }
       var(--night-950) 0,
       rgba(18, 10, 36, 0.72) 110px,
       rgba(18, 10, 36, 0) 260px);
+}
+
+/* Führt die Zeitschiene von den Stationen darüber sichtbar weiter: eine kurze
+   Schiene mit Pfeilspitze, die genau auf der Linie des Zeitstrahls sitzt. */
+.cv-lead {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.cv-lead-rail {
+  position: relative;
+  flex: none;
+  width: 2px;
+  height: clamp(3.2rem, 8.5svh, 5.2rem);
+  /* 1px Versatz, damit die Schiene exakt auf der Linie des Zeitstrahls liegt */
+  margin-left: 1px;
+  background: linear-gradient(to bottom,
+      rgba(255, 165, 160, 0) 0%,
+      rgba(255, 165, 160, 0.35) 55%);
+}
+
+.cv-lead-rail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid rgba(255, 165, 160, 0.6);
+  border-bottom: 2px solid rgba(255, 165, 160, 0.6);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.cv-lead-text {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral-200);
+  line-height: 1;
+  padding-bottom: 0.1rem;
 }
 
 .cv-timeline {
@@ -1554,8 +1597,6 @@ a { color: inherit; }
   color: var(--text-bright);
   font-weight: 700;
 }
-
-.cv-more { margin-top: 1.6rem; }
 
 @media (max-width: 640px) {
   .cv-item summary {

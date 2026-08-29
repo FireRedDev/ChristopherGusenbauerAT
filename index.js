@@ -380,21 +380,6 @@
     }
   }
 
-  /* ---------- Lebenslauf: mehr anzeigen ---------- */
-  var cvMore = document.getElementById("cv-more");
-  var cvExtra = document.getElementById("cv-extra");
-
-  if (cvMore && cvExtra) {
-    cvMore.addEventListener("click", function () {
-      var show = cvExtra.hidden;
-      cvExtra.hidden = !show;
-      cvMore.setAttribute("aria-expanded", show ? "true" : "false");
-      cvMore.textContent = show
-        ? "Weniger anzeigen"
-        : "Mehr anzeigen – Praktika, Zertifikate, Sprachen & Skills";
-    });
-  }
-
   /* ---------- Flickr-Livefeed ---------- */
   var gallery = document.getElementById("flickr-gallery");
 
