@@ -186,21 +186,11 @@ permalink: /
                 </div>
             </section>
 
-            <section class="cv" id="lebenslauf">
+            <!-- Der Zeitstrahl schließt direkt an die beiden Stationen an und
+                 liegt im Kometenhimmel, der nach unten in die Nacht ausläuft. -->
+            <div class="comet-sky" id="lebenslauf">
                 <div class="container">
-                    <div class="cv-head">
-                        <div>
-                            <p class="eyebrow" data-reveal>Der schnelle Überblick</p>
-                            <h2 data-reveal>Lebenslauf</h2>
-                            <p class="section-lede" data-reveal>Die wichtigsten Stationen auf einen Blick &ndash; Details klappst du bei Bedarf aus.</p>
-                        </div>
-                        <a class="btn btn--ghost" data-reveal href="/files/Lebenslauf%20Gusenbauer%20Christopher.pdf" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/></svg>&nbsp;Als PDF laden</a>
-                    </div>
                     <div class="cv-timeline" data-reveal>
-                        <!-- Die beiden aktuellen Stationen stehen ausführlich direkt
-                             darüber im Portfolio – hier nur als Zeitschiene. -->
-                        <p class="cv-item cv-item--plain"><span class="cv-period">seit 2025</span><span class="cv-title">IT-Management-Consultant &middot; ReqPOOL</span></p>
-                        <p class="cv-item cv-item--plain"><span class="cv-period">2019&ndash;2025</span><span class="cv-title">Co-Founder &amp; Geschäftsführung &middot; S&amp;G wear Together GmbH</span></p>
                         <details class="cv-item">
                             <summary><span class="cv-period">2022&ndash;2025</span><span class="cv-title">MSc Wirtschaftsinformatik &middot; JKU Linz</span><span class="cv-chevron" aria-hidden="true"></span></summary>
                             <div class="cv-detail"><ul>
@@ -233,47 +223,51 @@ permalink: /
                                 <li><strong>Ingenieur-Titel</strong> Informatik/IT</li>
                             </ul></div>
                         </details>
-                        <div class="cv-extra" id="cv-extra" hidden>
-                            <details class="cv-item">
-                                <summary><span class="cv-period">Praktika</span><span class="cv-title">Rübig Holding &middot; Banner Batterien &middot; Kepler Uniklinikum</span><span class="cv-chevron" aria-hidden="true"></span></summary>
-                                <div class="cv-detail"><ul>
+                    </div>
+                    <!-- Die Extras stehen offen im 2x2-Raster statt als vier
+                         weitere Akkordeonzeilen – spart Höhe, damit der
+                         Kometenhimmel auch ausgeklappt kompakt bleibt. Sie
+                         liegen bewusst außerhalb der Zeitschiene, damit deren
+                         Linie nicht ohne Punkte daneben weiterläuft. -->
+                    <div class="cv-extra" id="cv-extra" hidden>
+                            <div class="cv-card">
+                                <p class="cv-card-label">Praktika</p>
+                                <ul>
                                     <li><strong>Rübig Holding</strong> (2020): HR/PE/PV &ndash; Prototypen für digitalen Lehrlingstest &amp; Lerntagebuch, Trainingsvideos, Recherchen</li>
                                     <li><strong>Banner Batterien</strong> (2017): Marketing &ndash; Online-Redaktion, SEO, Google-Ads-Vorbereitung, Werbemittelfotografie</li>
                                     <li><strong>Kepler Uniklinikum</strong> (2016): Technischer Support in der Gesundheitsinformatik</li>
-                                </ul></div>
-                            </details>
-                            <details class="cv-item">
-                                <summary><span class="cv-period">Zertifikate</span><span class="cv-title">Oracle &middot; Google &middot; Ingenieur-Titel</span><span class="cv-chevron" aria-hidden="true"></span></summary>
-                                <div class="cv-detail"><ul>
+                                </ul>
+                            </div>
+                            <div class="cv-card">
+                                <p class="cv-card-label">Zertifikate</p>
+                                <ul>
                                     <li><strong>Oracle</strong> Database Programming Certificate</li>
                                     <li><strong>Google</strong> Analytics für Fortgeschrittene</li>
                                     <li><strong>Ingenieur-Titel</strong> Informatik/Informationstechnologie</li>
-                                </ul></div>
-                            </details>
-                            <details class="cv-item">
-                                <summary><span class="cv-period">Sprachen</span><span class="cv-title">Deutsch &middot; Englisch &middot; Französisch</span><span class="cv-chevron" aria-hidden="true"></span></summary>
-                                <div class="cv-detail"><ul>
+                                </ul>
+                            </div>
+                            <div class="cv-card">
+                                <p class="cv-card-label">Sprachen</p>
+                                <ul>
                                     <li><strong>Deutsch</strong> &ndash; Muttersprache</li>
                                     <li><strong>Englisch</strong> &ndash; verhandlungssicher (II. Platz beim BHS-Fremdsprachenwettbewerb OÖ)</li>
                                     <li><strong>Französisch</strong> &ndash; B1 (Unikurse an JKU und NEOMA)</li>
-                                </ul></div>
-                            </details>
-                            <details class="cv-item">
-                                <summary><span class="cv-period">Skills</span><span class="cv-title">Technik &middot; Mediendesign &middot; Kreativ</span><span class="cv-chevron" aria-hidden="true"></span></summary>
-                                <div class="cv-detail"><ul>
+                                </ul>
+                            </div>
+                            <div class="cv-card">
+                                <p class="cv-card-label">Skills</p>
+                                <ul>
                                     <li><strong>Technisch:</strong> Java, Spring/EE, TypeScript, Angular, HTML, CSS, SQL, WordPress/WooCommerce, E-Mail-Marketing &amp; CRM-Automatisierung, Git, Linux, Docker, Kubernetes (Anwendung), Python, Excel &amp; Office</li>
                                     <li><strong>Mediendesign:</strong> Adobe Lightroom, Photoshop, Premiere, Elementor</li>
                                     <li><strong>Kreativ:</strong> Public Speaking, repräsentative Tätigkeiten, Texte schreiben</li>
-                                </ul></div>
-                            </details>
-                        </div>
+                                </ul>
+                            </div>
                     </div>
                     <button class="btn btn--ghost cv-more" id="cv-more" type="button" aria-expanded="false" aria-controls="cv-extra" data-reveal>Mehr anzeigen &ndash; Praktika, Zertifikate, Sprachen &amp; Skills</button>
                 </div>
-            </section>
+            </div>
 
             <section class="blog" id="blog">
-                <div class="blog-divider blog-divider--top" aria-hidden="true"></div>
                 <div class="container">
                     <div class="blog-head">
                         <div>
