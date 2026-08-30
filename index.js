@@ -380,6 +380,31 @@
     }
   }
 
+  /* ---------- Qualifikationen: nur auf Handys einklappbar ---------- */
+  var extraToggle = document.getElementById("cv-extra-toggle");
+  var extraGrid = document.getElementById("cv-extra");
+
+  if (extraToggle && extraGrid) {
+    var narrow = window.matchMedia("(max-width: 820px)");
+
+    var setExtraCollapsed = function (collapsed) {
+      extraGrid.classList.toggle("cv-extra--collapsed", collapsed);
+      extraToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+    };
+
+    /* Auf Desktop bleibt alles offen – dort ist der Schalter ausgeblendet und
+       die Einklapp-Regel greift gar nicht. */
+    var applyExtraDefault = function () {
+      setExtraCollapsed(narrow.matches);
+    };
+    applyExtraDefault();
+    narrow.addEventListener("change", applyExtraDefault);
+
+    extraToggle.addEventListener("click", function () {
+      setExtraCollapsed(!extraGrid.classList.contains("cv-extra--collapsed"));
+    });
+  }
+
   /* ---------- Flickr-Livefeed ---------- */
   var gallery = document.getElementById("flickr-gallery");
 

@@ -230,12 +230,20 @@ permalink: /
                             </ul></div>
                         </details>
                     </div>
-                    <!-- Die Extras stehen offen im 2x2-Raster statt als vier
-                         weitere Akkordeonzeilen – spart Höhe, damit der
-                         Kometenhimmel auch ausgeklappt kompakt bleibt. Sie
-                         liegen bewusst außerhalb der Zeitschiene, damit deren
-                         Linie nicht ohne Punkte daneben weiterläuft. -->
-                    <div class="cv-extra">
+                    <!-- Trennt die Fähigkeiten sichtbar von den Stationen ab –
+                         sonst würde "Der Weg dorthin" auch für sie gelten. Auf
+                         Handys ist die Zeile zugleich der Aufklapp-Schalter. -->
+                    <div class="cv-extra-head">
+                        <p class="cv-extra-label">Qualifikationen &amp; Fähigkeiten</p>
+                        <button class="cv-extra-toggle" id="cv-extra-toggle" type="button" aria-expanded="true" aria-controls="cv-extra">
+                            <span>Qualifikationen &amp; Fähigkeiten</span><span class="cv-extra-chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <!-- Die Extras stehen im 2x2-Raster statt als vier weitere
+                         Akkordeonzeilen und liegen bewusst außerhalb der
+                         Zeitschiene, damit deren Linie nicht ohne Punkte
+                         daneben weiterläuft. -->
+                    <div class="cv-extra" id="cv-extra">
                             <div class="cv-card">
                                 <p class="cv-card-label">Praktika</p>
                                 <ul>
