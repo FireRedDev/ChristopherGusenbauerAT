@@ -1452,8 +1452,9 @@ a { color: inherit; }
   color: var(--coral-200);
 }
 
-/* Auf Desktop steht alles offen, der Schalter wird nicht gebraucht */
+/* Auf Desktop steht alles offen, Schalter und Chip-Vorschau entfallen */
 .cv-extra-toggle { display: none; }
+.cv-chips { display: none; }
 
 /* Extras als 2x2-Raster mit offenem Inhalt statt vier Akkordeonzeilen */
 .cv-extra {
@@ -1501,7 +1502,54 @@ a { color: inherit; }
     transform: rotate(225deg) translate(-2px, -2px);
   }
 
+  /* Chip-Vorschau: füllt eingeklappt den freien Platz und macht sichtbar,
+     was hinter dem Schalter steckt. Die Höhe bleibt unter der von zwei
+     Zeitstrahl-Zeilen darüber (dort 175px bei 414px Breite). */
+  .cv-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1rem;
+    max-height: 168px;
+    overflow: hidden;
+    transition: opacity 0.24s ease, max-height 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .cv-chip {
+    padding: 0.34rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+    font-size: var(--font-size-sm);
+    line-height: 1.3;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .cv-chip--more {
+    border-color: rgba(255, 165, 160, 0.45);
+    color: var(--coral-200);
+    font-weight: 700;
+  }
+
+  /* Aufgeklappt weichen die Chips der vollen Liste */
+  .cv-chips--hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    pointer-events: none;
+  }
+
   .cv-extra--collapsed { display: none; }
+
+  /* Gegenstück zum Ausblenden der Chips: die Karten blenden beim Öffnen ein.
+     Als Animation statt Transition, weil sie aus display:none kommen. */
+  .cv-extra { animation: cvExtraFade 0.32s ease both; }
+}
+
+@keyframes cvExtraFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
 }
 
 .cv-card {
