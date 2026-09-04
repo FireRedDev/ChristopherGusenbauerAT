@@ -1512,7 +1512,8 @@ a { color: inherit; }
     margin-top: 1rem;
     max-height: 168px;
     overflow: hidden;
-    transition: opacity 0.24s ease, max-height 0.3s ease, margin-top 0.3s ease;
+    transition: opacity 0.3s ease, max-height 0.42s cubic-bezier(0.45, 0, 0.2, 1),
+      margin-top 0.42s cubic-bezier(0.45, 0, 0.2, 1);
   }
 
   .cv-chip {
@@ -1524,6 +1525,11 @@ a { color: inherit; }
     line-height: 1.3;
     color: var(--text-dim);
     white-space: nowrap;
+    /* Ausgangspunkt der Übergabe: die Chips dehnen sich beim Verschwinden auf
+       und lösen sich auf, als würden sie zu den Karten aufgehen – daraus
+       faltet sich anschließend die volle Liste nach unten auf. */
+    transform-origin: left center;
+    transition: opacity 0.3s ease, transform 0.42s cubic-bezier(0.45, 0, 0.2, 1);
   }
 
   /* Der Zähler ist ein echter Schalter – er sieht klickbar aus, also muss er
@@ -1534,7 +1540,10 @@ a { color: inherit; }
     font-weight: 700;
     font-family: var(--font-family);
     cursor: pointer;
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    /* opacity/transform aus .cv-chip mit aufführen – eine eigene
+       transition-Liste würde sie sonst verwerfen und der Chip spränge */
+    transition: opacity 0.3s ease, transform 0.42s cubic-bezier(0.45, 0, 0.2, 1),
+      border-color 0.25s ease, background-color 0.25s ease;
   }
 
   .cv-chip--more:hover {
@@ -1550,16 +1559,57 @@ a { color: inherit; }
     pointer-events: none;
   }
 
+  .cv-chips--hidden .cv-chip {
+    opacity: 0;
+    transform: translateY(-4px) scale(1.24);
+  }
+
+  /* Von links nach rechts gestaffelt, damit die Chips als Reihe wegklappen
+     und nicht alle gleichzeitig verschwinden */
+  .cv-chips--hidden .cv-chip:nth-child(1) { transition-delay: 0.0s; }
+  .cv-chips--hidden .cv-chip:nth-child(2) { transition-delay: 0.045s; }
+  .cv-chips--hidden .cv-chip:nth-child(3) { transition-delay: 0.09s; }
+  .cv-chips--hidden .cv-chip:nth-child(4) { transition-delay: 0.135s; }
+  .cv-chips--hidden .cv-chip:nth-child(5) { transition-delay: 0.18s; }
+  .cv-chips--hidden .cv-chip:nth-child(6) { transition-delay: 0.225s; }
+  .cv-chips--hidden .cv-chip:nth-child(7) { transition-delay: 0.27s; }
+
+  /* Beim Schließen kommen sie in derselben Reihenfolge zurück, aber erst
+     nachdem die Karten das Feld geräumt haben */
+  .cv-chips .cv-chip:nth-child(1) { transition-delay: 0.1s; }
+  .cv-chips .cv-chip:nth-child(2) { transition-delay: 0.14s; }
+  .cv-chips .cv-chip:nth-child(3) { transition-delay: 0.18s; }
+  .cv-chips .cv-chip:nth-child(4) { transition-delay: 0.22s; }
+  .cv-chips .cv-chip:nth-child(5) { transition-delay: 0.26s; }
+  .cv-chips .cv-chip:nth-child(6) { transition-delay: 0.3s; }
+  .cv-chips .cv-chip:nth-child(7) { transition-delay: 0.34s; }
+
   .cv-extra--collapsed { display: none; }
 
-  /* Gegenstück zum Ausblenden der Chips: die Karten blenden beim Öffnen ein.
-     Als Animation statt Transition, weil sie aus display:none kommen. */
-  .cv-extra { animation: cvExtraFade 0.32s ease both; }
+  /* Gegenstück zum Wegklappen der Chips: die Karten falten sich von der
+     Trennzeile aus nach unten auf – gleiche Richtung, gleiche Kurve, nur
+     umgekehrt. Als Animation statt Transition, weil sie aus display:none
+     kommen und dadurch bei jedem Öffnen neu startet. */
+  .cv-extra > .cv-card {
+    transform-origin: top center;
+    animation: cvCardUnfold 0.52s cubic-bezier(0.22, 0.92, 0.3, 1) both;
+  }
+
+  .cv-extra > .cv-card:nth-child(1) { animation-delay: 0.2s; }
+  .cv-extra > .cv-card:nth-child(2) { animation-delay: 0.3s; }
+  .cv-extra > .cv-card:nth-child(3) { animation-delay: 0.4s; }
+  .cv-extra > .cv-card:nth-child(4) { animation-delay: 0.5s; }
 }
 
-@keyframes cvExtraFade {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: none; }
+@keyframes cvCardUnfold {
+  from {
+    opacity: 0;
+    transform: perspective(700px) rotateX(-26deg) translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(700px) rotateX(0) translateY(0) scale(1);
+  }
 }
 
 .cv-card {
@@ -2063,6 +2113,10 @@ a { color: inherit; }
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    /* auch die Staffelungen abschalten – sonst erscheinen die Elemente trotz
+       0.01ms Dauer erst nach ihrer Verzögerung */
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
   }
 
   .js [data-reveal] {
