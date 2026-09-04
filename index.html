@@ -13,7 +13,7 @@ permalink: /
     <meta name="color-scheme" content="dark">
     <title>Christopher Gusenbauer &ndash; IT-Consultant &amp; Co-Founder</title>
     {% seo title=false %}
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="preload" as="image" href="images/headshot.webp" type="image/webp">
     <link rel="preload" as="font" href="fonts/sora-latin.woff2" type="font/woff2" crossorigin>
@@ -244,7 +244,13 @@ permalink: /
                          "+9 weitere". Füllt den Platz, den die eingeklappten
                          Karten sonst leer lassen. -->
                     <p class="cv-chips" id="cv-chips">
-                        <span class="cv-chip">Java</span><span class="cv-chip">Spring/EE</span><span class="cv-chip">TypeScript</span><span class="cv-chip">Angular</span><span class="cv-chip">SQL</span><span class="cv-chip">Docker</span><span class="cv-chip cv-chip--more">+9 weitere</span>
+                        <span class="cv-chip">Java</span>
+                        <span class="cv-chip">Spring/EE</span>
+                        <span class="cv-chip">TypeScript</span>
+                        <span class="cv-chip">Angular</span>
+                        <span class="cv-chip">SQL</span>
+                        <span class="cv-chip">Docker</span>
+                        <span class="cv-chip cv-chip--more">+9 weitere</span>
                     </p>
                     <!-- Die Extras stehen im 2x2-Raster statt als vier weitere
                          Akkordeonzeilen und liegen bewusst außerhalb der
@@ -413,6 +419,6 @@ permalink: /
         </section>
     </main>
     {% include site_footer.html %}
-    <script src="index.js"></script>
+    <script src="index.js?v={{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
 </body>
 </html>
