@@ -1526,10 +1526,20 @@ a { color: inherit; }
     white-space: nowrap;
   }
 
+  /* Der Zähler ist ein echter Schalter – er sieht klickbar aus, also muss er
+     auch aufklappen und nicht nur die Trennzeile darüber */
   .cv-chip--more {
     border-color: rgba(255, 165, 160, 0.45);
     color: var(--coral-200);
     font-weight: 700;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .cv-chip--more:hover {
+    border-color: var(--coral-300);
+    background: rgba(255, 116, 109, 0.12);
   }
 
   /* Aufgeklappt weichen die Chips der vollen Liste */

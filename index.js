@@ -384,13 +384,19 @@
   var extraToggle = document.getElementById("cv-extra-toggle");
   var extraGrid = document.getElementById("cv-extra");
   var extraChips = document.getElementById("cv-chips");
+  /* Der "+N weitere"-Chip klappt genauso auf wie die Trennzeile – er sieht
+     klickbar aus, also muss er es auch sein. */
+  var extraChipsMore = document.getElementById("cv-chips-more");
 
   if (extraToggle && extraGrid) {
     var narrow = window.matchMedia("(max-width: 820px)");
+    var extraControls = [extraToggle, extraChipsMore].filter(Boolean);
 
     var setExtraCollapsed = function (collapsed) {
       extraGrid.classList.toggle("cv-extra--collapsed", collapsed);
-      extraToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      extraControls.forEach(function (el) {
+        el.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      });
       /* Die Chip-Vorschau ersetzt die Karten, solange sie eingeklappt sind */
       if (extraChips) extraChips.classList.toggle("cv-chips--hidden", !collapsed);
     };
@@ -403,8 +409,10 @@
     applyExtraDefault();
     narrow.addEventListener("change", applyExtraDefault);
 
-    extraToggle.addEventListener("click", function () {
-      setExtraCollapsed(!extraGrid.classList.contains("cv-extra--collapsed"));
+    extraControls.forEach(function (el) {
+      el.addEventListener("click", function () {
+        setExtraCollapsed(!extraGrid.classList.contains("cv-extra--collapsed"));
+      });
     });
   }
 
