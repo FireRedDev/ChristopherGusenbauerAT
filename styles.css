@@ -928,21 +928,39 @@ a { color: inherit; }
       #020106 100%);
 }
 
-/* Setzt den Kometenhimmel darüber ab – dieselbe Linie wie am Kopf der
-   Fotografie, damit beide Übergänge im Blog als Paar auftreten */
-.blog::before {
+/* Lichtstrich zwischen den dunklen Sektionen – oben am Blog (setzt den
+   Kometenhimmel ab) und oben an der Fotografie (zitiert die Wasserlinie).
+   Kein harter Balken: ein 1px-Kern mit weichem Schein darüber und darunter,
+   dazu ein langer Auslauf zu beiden Seiten. Dadurch sitzt er in der Nacht
+   statt darauf. */
+.blog::before,
+.gallery::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -13px;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg,
-      transparent 4%,
-      rgba(255, 116, 109, 0.9) 30%,
-      rgba(255, 180, 84, 0.95) 50%,
-      rgba(255, 116, 109, 0.9) 70%,
-      transparent 96%);
+  height: 27px;
+  pointer-events: none;
+  background:
+    /* Kern: exakt 1px auf der Sektionskante */
+    linear-gradient(180deg,
+        transparent 13px,
+        rgba(255, 163, 110, 0.48) 13px,
+        rgba(255, 163, 110, 0.48) 14px,
+        transparent 14px),
+    /* Schein, der die Linie in den Hintergrund einbettet */
+    radial-gradient(56% 100% at 50% 50%,
+        rgba(255, 138, 92, 0.12),
+        rgba(255, 138, 92, 0.04) 45%,
+        transparent 72%);
+  /* seitlicher Auslauf, weit weicher als der frühere harte Schnitt bei 4% */
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent 0%, rgba(0, 0, 0, 0.35) 16%, #000 40%,
+      #000 60%, rgba(0, 0, 0, 0.35) 84%, transparent 100%);
+  mask-image: linear-gradient(90deg,
+      transparent 0%, rgba(0, 0, 0, 0.35) 16%, #000 40%,
+      #000 60%, rgba(0, 0, 0, 0.35) 84%, transparent 100%);
 }
 
 .blog-head {
@@ -1829,21 +1847,6 @@ a { color: inherit; }
   margin-top: clamp(1.6rem, 3.5svh, 2.2rem);
 }
 
-/* bewusste Trennung zum hellen Teil – zitiert die Wasserlinie */
-.gallery::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg,
-      transparent 4%,
-      rgba(255, 116, 109, 0.9) 30%,
-      rgba(255, 180, 84, 0.95) 50%,
-      rgba(255, 116, 109, 0.9) 70%,
-      transparent 96%);
-}
 
 .gallery-head {
   display: flex;
