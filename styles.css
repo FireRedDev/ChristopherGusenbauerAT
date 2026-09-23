@@ -114,6 +114,9 @@ body {
   color: var(--text-bright);
   background-color: var(--night-950);
   overflow-x: hidden;
+  /* lange Komposita duerfen notfalls im Wort brechen, statt schmale
+     Viewports aufzuspannen */
+  overflow-wrap: break-word;
 }
 
 img {
@@ -296,6 +299,8 @@ a { color: inherit; }
   color: var(--text-bright);
   white-space: nowrap;
   border-bottom: 2px solid var(--coral-400);
+  /* oben etwas Luft, damit die Trefferflaeche ueber 24px kommt */
+  padding-top: 0.25rem;
   padding-bottom: 0.1rem;
 }
 
@@ -311,7 +316,9 @@ a { color: inherit; }
 /* Menüpunkte im Stil der Wortmarke: Versalien mit Sperrung */
 .nav-menu a {
   display: block;
-  padding: 0.4rem 0.15rem;
+  /* grosszuegiger als noetig, damit die Links auch auf Tablets mit Touch
+     eine ausreichende Trefferflaeche haben; die Leiste bleibt gleich hoch */
+  padding: 0.75rem 0.15rem;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: var(--font-size-sm);
@@ -389,6 +396,25 @@ a { color: inherit; }
 .nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
 .nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Sehr schmale Geraete (Fold zugeklappt, grosse Systemschrift): die
+   Wortmarke passt sonst nicht in die Leiste */
+@media (max-width: 340px) {
+  .brand {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Ohne das bricht die Aktionsreihe im Hero auf zwei Zeilen um und die
+     Icons rutschen unter die Falz */
+  .social-pill a span { display: none; }
+
+  .social-pill a {
+    width: 2.9rem;
+    padding-inline: 0;
+    justify-content: center;
+  }
+}
 
 @media (max-width: 820px) {
   .nav-toggle { display: flex; }
@@ -480,6 +506,13 @@ a { color: inherit; }
   padding-block: clamp(1.5rem, 4svh, 3rem);
 }
 
+/* Grid-Kinder schrumpfen sonst nicht unter ihre min-content-Breite und
+   sprengen auf sehr schmalen Geraeten die Spalte */
+.hero-text,
+.hero-photo {
+  min-width: 0;
+}
+
 .hero-photo {
   position: relative;
 }
@@ -508,14 +541,19 @@ a { color: inherit; }
 /* Im Hero etwas kleiner gedeckelt als die übrigen Überschriften, damit
    Titel, Text, Zahlen und Buttons ohne Scrollen in den Viewport passen */
 .hero-text h1 {
-  font-size: clamp(2.2rem, 2.4vw + 1.6rem, 3.1rem);
+  /* oben gedeckelt, damit der Name in die Textspalte passt: ohne das braucht
+     er mehr Breite als die Spalte hergibt und bricht oder wird beschnitten */
+  font-size: clamp(2.2rem, 2.4vw + 1.6rem, 2.9rem);
   line-height: 112%;
 }
 
-/* Ab Tablet bleibt der Name zusammen – so ergibt die Überschrift genau zwei
-   Zeilen statt drei. Auf schmalen Displays darf sie wieder umbrechen. */
-@media (min-width: 821px) {
-  .hero-text h1 .grad-text { white-space: nowrap; }
+/* Erzwingt den Umbruch nach der Begrüßung strukturell statt über nowrap am
+   Namen. nowrap hätte den Namen nie umbrechen lassen, er passte aber in
+   keiner Fensterbreite in die Spalte – zwischen 820px und ~1060px lief er
+   dadurch sogar aus dem Bild. So steht die Überschrift zweizeilig, und wird
+   die Spalte doch zu schmal, bricht der Name einfach um. */
+.hero-text h1 .hero-greet {
+  display: block;
 }
 
 .hero-text .lede {
@@ -549,6 +587,7 @@ a { color: inherit; }
 .social-icons {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
 }
 
@@ -1251,6 +1290,12 @@ a { color: inherit; }
   align-items: stretch;
 }
 
+/* wie im Hero: ohne min-width:0 schrumpfen Grid-Kinder nicht unter ihre
+   min-content-Breite und sprengen schmale Viewports */
+.station-grid > * {
+  min-width: 0;
+}
+
 .station-box {
   border-radius: var(--radius);
   border-top-left-radius: 0;
@@ -1528,7 +1573,10 @@ a { color: inherit; }
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-    padding: 0;
+    /* senkrechte Polsterung, damit die Trefferflaeche auf Touch gross genug
+       ist – der Text allein ergibt nur ~15px */
+    padding: 0.65rem 0;
+    margin-block: -0.35rem;
     background: none;
     border: 0;
     cursor: pointer;
@@ -2003,6 +2051,12 @@ a { color: inherit; }
   padding-top: clamp(2.5rem, 6svh, 4rem);
 }
 
+/* minmax(0,…) deckelt nur die Spur; die Kinder brauchen min-width:0, sonst
+   halten sie auf schmalen Viewports ihre min-content-Breite */
+.contact-grid > * {
+  min-width: 0;
+}
+
 .pitch-line {
   font-family: var(--font-display);
   font-size: var(--font-size-l);
@@ -2113,10 +2167,15 @@ a { color: inherit; }
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  /* Zeilenabstand kleiner als der Spaltenabstand, weil die Links jetzt
+     selbst Polsterung mitbringen */
+  gap: 0.2rem 1.4rem;
 }
 
 .footer-links a {
+  display: inline-block;
+  /* ohne Polsterung nur ~15px hoch und damit auf Touch zu klein */
+  padding-block: 0.45rem;
   color: var(--text-dim);
   text-decoration: none;
   font-size: var(--font-size-sm);
